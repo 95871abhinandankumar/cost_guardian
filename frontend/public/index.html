@@ -2,16 +2,34 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Cost Guardian - Track and manage your expenses"
-    />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
     <title>Cost Guardian</title>
+
+    <style>
+      /* Ensure HTML, Body, and #root use full height */
+      html, body, #root {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      /* Pre-set the body background to the Dark Mode default color to win against browser default */
+      body {
+        background-color: #10141D; /* Aesthetic Dark Navy */
+
+        /* Structural styles moved from index.css */
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+          'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+          sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      code {
+        font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+          monospace;
+      }
+      * {
+        box-sizing: border-box;
+      }
+    </style>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
