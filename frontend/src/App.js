@@ -20,6 +20,7 @@ import Brightness7Icon from "@mui/icons-material/Brightness7";
 
 import { BrowserRouter as Router, Routes, Route, Link as RouterLink, useLocation } from "react-router-dom";
 import ITDashboard from "./pages/ITDashboard";
+import FinanceDashboard from "./pages/FinanceDashboard";
 import { ColorModeContext } from "./ThemeWrapper";
 
 
@@ -112,7 +113,7 @@ function App() {
         <Routes>
           <Route path="/" element={<ITDashboard />} />
           <Route path="/it" element={<ITDashboard />} />
-          <Route path="/finance" element={<PlaceholderDashboard name="Finance" />} />
+          <Route path="/finance" element={<FinanceDashboard />} />
           <Route path="/msp" element={<PlaceholderDashboard name="MSP" />} />
         </Routes>
       </Box>

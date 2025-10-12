@@ -33,7 +33,7 @@ interface Recommendation {
 }
 
 // KPI Card helper
-const KPI_Card = ({ title, value, color }: { title: string; value: string; color: 'primary' | 'error' | 'success' }) => (
+const KPICard = ({ title, value, color }: { title: string; value: string; color: 'primary' | 'error' | 'success' }) => (
     <Card elevation={3}>
         <CardContent>
             <Typography color={`${color}.main`} variant="h6">{title}</Typography>
@@ -145,13 +145,13 @@ const ITDashboard: React.FC = () => {
             {/* 1. KPI BAR */}
             <Grid container spacing={3} sx={{ mb: 4 }}>
                 <Grid item xs={12} sm={4}>
-                    <KPI_Card title="Critical Actions Pending" value={String(pendingCritical.length)} color="error" />
+                    <KPICard title="Critical Actions Pending" value={String(pendingCritical.length)} color="error" />
                 </Grid>
                 <Grid item xs={12} sm={4}>
-                    <KPI_Card title="Avg. System Utilization" value={`${totalUtilization.toFixed(1)}%`} color="primary" />
+                    <KPICard title="Avg. System Utilization" value={`${totalUtilization.toFixed(1)}%`} color="primary" />
                 </Grid>
                 <Grid item xs={12} sm={4}>
-                    <KPI_Card
+                    <KPICard
                         title="Potential Monthly Waste"
                         value={`$${totalPotentialSavings.toFixed(0)}`}
                         color="success"

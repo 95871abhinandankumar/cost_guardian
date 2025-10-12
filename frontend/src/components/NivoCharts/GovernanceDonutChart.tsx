@@ -28,7 +28,7 @@ const GovernanceDonutChart: React.FC<GovernanceDonutChartProps> = ({ data }) => 
     ];
 
     // --- Data Derivation ---
-    const totalValue = data.reduce((sum, d) => sum + d.value, 0);
+    // const totalValue = data.reduce((sum, d) => sum + d.value, 0);
     const untaggedItem = data.find(d => d.id === 'Untagged');
     // We already have the percentage in the data value, assuming ITDashboard calculates it correctly.
     const untaggedPercent = untaggedItem ? untaggedItem.value : 0;
