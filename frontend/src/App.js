@@ -19,27 +19,21 @@ import Brightness4Icon from "@mui/icons-material/Brightness4";
 import Brightness7Icon from "@mui/icons-material/Brightness7";
 
 import { BrowserRouter as Router, Routes, Route, Link as RouterLink, useLocation } from "react-router-dom";
+
+// Import all three final dashboard components
 import ITDashboard from "./pages/ITDashboard";
 import FinanceDashboard from "./pages/FinanceDashboard";
+import MSPDashboard from "./pages/MSPDashboard";
+
+// CRITICAL IMPORT: The context that holds the toggle function
 import { ColorModeContext } from "./ThemeWrapper";
 
-
-// Placeholder components
-const PlaceholderDashboard = ({ name }) => (
-    <Box sx={{ p: 5, textAlign: 'center', bgcolor: 'background.paper', borderRadius: '12px' }}>
-        <Typography variant="h4" color="primary">
-            {name} Dashboard
-        </Typography>
-        <Typography color="text.secondary">
-            Content coming soon. Currently focused on IT Dashboard development.
-        </Typography>
-    </Box>
-);
 
 function App() {
   const [open, setOpen] = useState(false);
   const location = useLocation();
   const theme = useTheme();
+  // Access the color mode toggle function from the context
   const colorMode = useContext(ColorModeContext);
 
   const toggleDrawer = (openState) => () => setOpen(openState);
@@ -97,6 +91,7 @@ function App() {
                 disablePadding
                 component={RouterLink}
                 to={item.path}
+                // Highlight the selected dashboard in the menu
                 selected={location.pathname === item.path}
               >
                 <ListItemButton>
@@ -111,16 +106,22 @@ function App() {
       {/* Dashboard content controlled by React Router */}
       <Box sx={{ p: 3 }}>
         <Routes>
+          {/* Default path (/) and IT Dashboard */}
           <Route path="/" element={<ITDashboard />} />
           <Route path="/it" element={<ITDashboard />} />
+
+          {/* INTEGRATED: Finance Dashboard */}
           <Route path="/finance" element={<FinanceDashboard />} />
-          <Route path="/msp" element={<PlaceholderDashboard name="MSP" />} />
+
+          {/* FINAL INTEGRATION: MSP Dashboard */}
+          <Route path="/msp" element={<MSPDashboard />} />
         </Routes>
       </Box>
     </Box>
   );
 }
 
+// AppWrapper handles the routing setup and is exported for index.js
 const AppWrapper = () => (
     <Router>
         <App />
