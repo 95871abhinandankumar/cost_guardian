@@ -196,6 +196,10 @@ class DataAggregationService:
             return {'success': False, 'message': f'Processing failed: {str(e)}'}
 if __name__ == "__main__":
     logging.basicConfig(level=logging.INFO)
-    service = DataAggregationService()
-    result = service.process_and_store_data()
-    print(result)
+    try:
+        service = DataAggregationService()
+        result = service.process_and_store_data()
+        print(f"Processing result: {result}")
+    except Exception as e:
+        logger.error(f"Failed to process data: {e}")
+        print(f"Error: {e}")
