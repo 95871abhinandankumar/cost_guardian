@@ -1,23 +1,37 @@
-# backend/src/ingestion/connector.py
-"""AWS Connector for S3, EC2, CloudWatch, and Cost Explorer."""
+"""
+AWSConnector Utility
+--------------------
+Provides wrapper functions for interacting with AWS services (S3, EC2, CloudWatch, Cost Explorer),
+and loading mock data for local testing.
+"""
 
-import boto3
+import os
 import json
 import logging
 from datetime import datetime, timedelta
-import os
 from typing import List, Dict, Any, Optional
+import boto3
+from botocore.exceptions import BotoCoreError, ClientError
+
+# --------------------------- Logging Configuration --------------------------- #
+logging.basicConfig(
+    level=logging.INFO,
+    format="[%(asctime)s] [%(levelname)s] %(message)s",
+    datefmt="%Y-%m-%d %H:%M:%S",
+)
+logger = logging.getLogger(__name__)
+
 
 class AWSConnector:
     """AWS Service Connector."""
-    
-    def __init__(self, profile_name: Optional[str] = None, region_name: Optional[str] = None):
-        """Initialize AWS Connector with optional profile and region."""
+
+    def __init__(self, profile_name: Optional[str] = None, region_name: str = "us-east-2") -> None:
+        """Initialize AWS session and clients."""
         session_args = {}
-        
+
         profile = profile_name or os.environ.get("AWS_PROFILE")
         region = region_name or os.environ.get("AWS_DEFAULT_REGION", "us-east-2")
-        
+
         if profile:
             session_args["profile_name"] = profile
         if region:
@@ -28,47 +42,34 @@ class AWSConnector:
             self.s3 = self.session.client("s3")
             self.ec2 = self.session.client("ec2")
             self.cloudwatch = self.session.client("cloudwatch")
-            self.ce = self.session.client("ce")
-            
-            self.logger = logging.getLogger(__name__)
-            self._validate_credentials()
-            
+            self.ce = self.session.client("ce")  # Cost Explorer
+            logger.info("AWSConnector initialized successfully with profile '%s', region '%s'", profile_name, region_name)
         except Exception as e:
-            self.logger = logging.getLogger(__name__)
-            self.logger.error(f"Failed to initialize AWS Connector: {e}")
-            raise ValueError(f"Invalid AWS configuration: {e}")
-    
-    def _validate_credentials(self) -> None:
-        """Validate AWS credentials."""
-        try:
-            self.s3.list_buckets()
-            self.logger.info("AWS credentials validated")
-        except Exception as e:
-            self.logger.warning(f"AWS credential validation failed: {e}")
+            logger.critical("Failed to initialize AWSConnector: %s", e, exc_info=True)
+            raise
 
-    # ---------------- S3 Operations ----------------
-    def upload_file_to_s3(self, local_file: str, bucket: str, key: str) -> bool:
-        """Upload file to S3."""
+    # ---------------- S3 ----------------
+    def upload_file_to_s3(self, local_file: str, bucket: str, key: str) -> None:
+        """Upload a local file to S3."""
         try:
             if not os.path.exists(local_file):
                 raise FileNotFoundError(f"Local file not found: {local_file}")
-                
             self.s3.upload_file(local_file, bucket, key)
-            self.logger.info(f"Uploaded {local_file} to s3://{bucket}/{key}")
-            return True
-            
-        except Exception as e:
-            self.logger.error(f"Failed to upload {local_file} to S3: {e}")
-            return False
+            logger.info("Uploaded %s → s3://%s/%s", local_file, bucket, key)
+        except (BotoCoreError, ClientError, FileNotFoundError) as e:
+            logger.error("Failed to upload file to S3: %s", e, exc_info=True)
 
-    # ---------------- Mock Data Operations ----------------
+    # ---------------- Mock Loader ----------------
     def load_mock_file(self, file_path: Optional[str] = None) -> List[Dict[str, Any]]:
-        """Load mock data from JSON/JSONL file."""
+        """
+        Load mock data from JSON or JSONL file.
+        Defaults to ../data/raw_data.json if no path provided.
+        """
         if file_path is None:
             file_path = os.path.join(os.path.dirname(__file__), "../data/raw_data.json")
 
         if not os.path.exists(file_path):
-            self.logger.warning(f"Mock data file not found: {file_path}")
+            logger.error("Mock file not found: %s", file_path)
             return []
 
         try:
@@ -78,117 +79,88 @@ class AWSConnector:
             else:
                 with open(file_path, "r", encoding="utf-8") as f:
                     data = json.load(f)
-                    
-            self.logger.info(f"Loaded {len(data)} records from {file_path}")
+            logger.info("Loaded %d rows from mock file: %s", len(data), file_path)
             return data
-            
         except json.JSONDecodeError as e:
-            self.logger.error(f"JSON parsing error in {file_path}: {e}")
+            logger.error("JSON parsing error in %s: %s", file_path, e)
             return []
         except Exception as e:
-            self.logger.error(f"Error reading {file_path}: {e}")
+            logger.error("Error reading mock file %s: %s", file_path, e, exc_info=True)
             return []
 
     def get_mock_data_for_tenant(self, tenant_id: str) -> List[Dict[str, Any]]:
-        """Get tenant-specific mock data."""
+        """Return tenant-specific mock data (or all mock data if none match)."""
         all_data = self.load_mock_file()
-        tenant_data = [row for row in all_data if row.get("account_id") == tenant_id]
-        
+        tenant_data = [row for row in all_data if row.get("account_id") == tenant_id] or all_data
         if not tenant_data:
-            self.logger.warning(f"No data for tenant {tenant_id}, using all data")
-            tenant_data = all_data
-        else:
-            self.logger.info(f"Found {len(tenant_data)} records for tenant {tenant_id}")
-            
+            logger.warning("No tenant-specific mock data found for %s; using all mock data", tenant_id)
         return tenant_data
 
-    # ---------------- EC2 Operations ----------------
+    # ---------------- EC2 ----------------
     def list_instances(self) -> List[Dict[str, Any]]:
-        """Get all EC2 instances."""
+        """Return all EC2 instances with InstanceId, Name tag, and State."""
         try:
             response = self.ec2.describe_instances()
             instances = []
-            
             for reservation in response.get("Reservations", []):
-                for instance in reservation.get("Instances", []):
-                    name = None
-                    if "Tags" in instance:
-                        for tag in instance["Tags"]:
-                            if tag["Key"] == "Name":
-                                name = tag["Value"]
-                                break
-                    
-                    instance_info = {
-                        "InstanceId": instance["InstanceId"],
+                for inst in reservation.get("Instances", []):
+                    name = next((tag["Value"] for tag in inst.get("Tags", []) if tag["Key"] == "Name"), None)
+                    instances.append({
+                        "InstanceId": inst["InstanceId"],
                         "Name": name,
-                        "State": instance["State"]["Name"],
-                        "InstanceType": instance.get("InstanceType"),
-                        "LaunchTime": instance.get("LaunchTime").isoformat() if instance.get("LaunchTime") else None,
-                        "Architecture": instance.get("Architecture")
-                    }
-                    instances.append(instance_info)
-            
+                        "State": inst["State"]["Name"],
+                        "InstanceType": inst.get("InstanceType"),
+                        "LaunchTime": inst.get("LaunchTime").isoformat() if inst.get("LaunchTime") else None,
+                        "Architecture": inst.get("Architecture")
+                    })
             if not instances:
-                self.logger.warning("No EC2 instances found")
-            else:
-                self.logger.info(f"Retrieved {len(instances)} EC2 instances")
-                
+                logger.warning("No EC2 instances found.")
             return instances
-            
         except Exception as e:
-            self.logger.error(f"Failed to retrieve EC2 instances: {e}")
+            logger.error("Error fetching EC2 instances: %s", e, exc_info=True)
             return []
 
-    # ---------------- CloudWatch Operations ----------------
-    def get_ec2_metrics(self, instance_id: str, metric_names: Optional[List[str]] = None, 
-                       period: int = 300) -> Dict[str, List[Dict[str, Any]]]:
-        """Get EC2 metrics from CloudWatch."""
+    # ---------------- CloudWatch ----------------
+    def get_ec2_metrics(
+        self,
+        instance_id: str,
+        metric_names: Optional[List[str]] = None,
+        period: int = 300
+    ) -> Dict[str, List[Dict[str, Any]]]:
+        """Fetch multiple EC2 metrics from CloudWatch."""
         if metric_names is None:
             metric_names = ["CPUUtilization", "NetworkIn", "NetworkOut", "DiskReadOps", "DiskWriteOps"]
 
         metrics_data = {}
-        end_time = datetime.utcnow()
-        start_time = end_time - timedelta(days=1)
-        
-        for metric_name in metric_names:
-            try:
+        try:
+            for metric_name in metric_names:
                 response = self.cloudwatch.get_metric_statistics(
                     Namespace="AWS/EC2",
                     MetricName=metric_name,
                     Dimensions=[{"Name": "InstanceId", "Value": instance_id}],
-                    StartTime=start_time,
-                    EndTime=end_time,
+                    StartTime=datetime.utcnow() - timedelta(days=1),
+                    EndTime=datetime.utcnow(),
                     Period=period,
-                    Statistics=["Average"]
+                    Statistics=["Average"],
                 )
-                
-                datapoints = []
-                for datapoint in response.get("Datapoints", []):
-                    processed_datapoint = {
-                        "Timestamp": datapoint["Timestamp"].isoformat(),
-                        "Average": datapoint.get("Average"),
-                        "Unit": datapoint.get("Unit")
-                    }
-                    datapoints.append(processed_datapoint)
-                
+                datapoints = [
+                    {**dp, "Timestamp": dp["Timestamp"].isoformat()} for dp in response.get("Datapoints", [])
+                ]
                 metrics_data[metric_name] = datapoints
-                
-                if datapoints:
-                    self.logger.info(f"Retrieved {len(datapoints)} datapoints for {metric_name}")
-                else:
-                    self.logger.warning(f"No data for metric {metric_name}")
-                    
-            except Exception as e:
-                self.logger.error(f"Failed to retrieve metric {metric_name}: {e}")
-                metrics_data[metric_name] = []
-        
-        return metrics_data
+            return metrics_data
+        except Exception as e:
+            logger.error("Error fetching CloudWatch metrics for %s: %s", instance_id, e, exc_info=True)
+            return {}
 
-    # ---------------- Cost Explorer Operations ----------------
-    def get_cost(self, start_date: str, end_date: str, 
-                granularity: str = "DAILY", 
-                metrics: Optional[List[str]] = None) -> Dict[str, Any]:
-        """Get cost data from Cost Explorer."""
+    # ---------------- Cost Explorer ----------------
+    def get_cost(
+        self,
+        start_date: str,
+        end_date: str,
+        granularity: str = "DAILY",
+        metrics: Optional[List[str]] = None
+    ) -> Dict[str, Any]:
+        """Fetch cost & usage metrics from AWS Cost Explorer."""
         if metrics is None:
             metrics = ["UnblendedCost", "UsageQuantity", "BlendedCost", "AmortizedCost", "NetAmortizedCost"]
 
@@ -198,15 +170,9 @@ class AWSConnector:
                 Granularity=granularity,
                 Metrics=metrics
             )
-            
-            results_count = len(response.get("ResultsByTime", []))
-            if results_count > 0:
-                self.logger.info(f"Retrieved {results_count} cost data points")
-            else:
-                self.logger.warning("No cost data returned")
-                
+            if not response.get("ResultsByTime"):
+                logger.warning("Cost Explorer returned empty; fallback to mock data may be required.")
             return response
-            
         except Exception as e:
-            self.logger.error(f"Failed to retrieve cost data: {e}")
+            logger.error("Error fetching Cost Explorer data: %s", e, exc_info=True)
             return {}
