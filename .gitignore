@@ -245,3 +245,38 @@ Desktop.ini
 .directory
 .Trash-*
 .nfs*
+
+
+##########################################
+# 🔥 Additions for Prophet, Plotly, Bedrock, and Cache
+##########################################
+
+# Prophet model cache or temporary JSONs
+prophet_serialization.json
+*.json.tmp
+
+# Plotly visualization cache/temp files
+plotly_temp/
+plotly_cache/
+plotly_logs/
+
+# Bedrock/SageMaker temp or model cache
+bedrock_cache/
+sagemaker_cache/
+model_artifacts/
+inference_output/
+
+# Analysis or run outputs (keep per-user local)
+analysis_output.json
+analysis_output_*.json
+cache/
+logs/
+
+# Local test notebooks or scratchpads
+scratch_*.py
+sandbox/
+# Ignore local and mock data
+*.json
+!data/sample_*.json
+!data/template_*.json
+ 
