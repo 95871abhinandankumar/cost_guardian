@@ -13,11 +13,10 @@ from __future__ import annotations
 import logging
 import os
 from typing import Dict, Any, List, Optional
-
 from qdrant_client import QdrantClient
 from qdrant_client.models import Filter
-from vector_db.embedding_model import EmbeddingModel
-from vector_db.qdrant_client_connector import QdrantConnector
+from src.vector_db.embedding_model import EmbeddingModel
+from src.vector_db.qdrant_client_connector import QdrantConnector
 
 from .utils import normalize_text
 

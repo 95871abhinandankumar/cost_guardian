@@ -21,10 +21,11 @@ import statistics
 from datetime import datetime
 from typing import Any, Dict, List, Optional, Tuple, Union
 from botocore.exceptions import BotoCoreError, ClientError
-
+from dotenv import load_dotenv
 from .cache_manager import CacheManager
 from .utils import sha_hash, iso_date
 
+load_dotenv()
 # --- Optional forecast lib: Prophet ---
 try:
     from prophet import Prophet  # type: ignore
