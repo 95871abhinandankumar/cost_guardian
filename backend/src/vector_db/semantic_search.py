@@ -1,85 +1,69 @@
-"""
-semantic_search_demo.py
------------------------
-Interactive semantic search over Qdrant embeddings for cost data.
-"""
+"""Interactive semantic search for cost data."""
 
 import logging
-from typing import List
 from qdrant_client import QdrantClient
 from vector_db.embedding_model import EmbeddingModel
-from colorama import init, Fore, Style
+try:
+    from colorama import init, Fore, Style
+    init(autoreset=True)
+    COLORAMA_AVAILABLE = True
+except ImportError:
+    COLORAMA_AVAILABLE = False
+    Fore = Style = type('obj', (object,), {'RED': '', 'GREEN': '', 'YELLOW': '', 'CYAN': '', 'MAGENTA': '', 'WHITE': '', 'BRIGHT': ''})()
 
-# --------------------------- Logging Configuration --------------------------- #
-logging.basicConfig(
-    level=logging.INFO,
-    format="[%(asctime)s] [%(levelname)s] %(message)s",
-    datefmt="%Y-%m-%d %H:%M:%S",
-)
+logging.basicConfig(level=logging.INFO, format="[%(asctime)s] [%(levelname)s] %(message)s")
 logger = logging.getLogger(__name__)
-
-# Initialize colorama
-init(autoreset=True)
 
 
 def show_top_records(client: QdrantClient, collection_name: str, limit: int = 5) -> None:
-    """
-    Display top anomalies and top spenders from a Qdrant collection.
-
-    Args:
-        client (QdrantClient): Connected Qdrant client.
-        collection_name (str): Name of the collection.
-        limit (int): Number of top records to display.
-    """
+    """Display top anomalies and spenders from Qdrant."""
     try:
         all_points = client.scroll(collection_name=collection_name, with_payload=True)[0]
 
         anomalies = [p.payload for p in all_points if p.payload.get("anomaly_flag")]
         top_spenders = sorted(all_points, key=lambda x: x.payload.get("cost", 0), reverse=True)
 
-        # Top anomalies
-        print(Fore.YELLOW + Style.BRIGHT + "\n🚨 Top Anomalies:")
+        print(Fore.YELLOW + Style.BRIGHT + "\nTop Anomalies:")
         if anomalies:
             for i, a in enumerate(anomalies[:limit], 1):
-                print(Fore.RED + f"{i}. Service: {a.get('service_name')} | Region: {a.get('region')} | "
-                                 f"Cost: {a.get('cost')} USD | Account: {a.get('account_id')}")
+                print(Fore.RED + f"{i}. {a.get('service_name')} | ${a.get('cost')} | {a.get('account_id')}")
         else:
             print(Fore.GREEN + "No anomalies detected!")
 
-        # Top spenders
-        print(Fore.YELLOW + Style.BRIGHT + "\n💰 Top Spenders:")
+        print(Fore.YELLOW + Style.BRIGHT + "\nTop Spenders:")
         for i, s in enumerate(top_spenders[:limit], 1):
             p = s.payload
-            print(Fore.CYAN + f"{i}. Service: {p.get('service_name')} | Region: {p.get('region')} | "
-                              f"Cost: {p.get('cost')} USD | Account: {p.get('account_id')}")
+            print(Fore.CYAN + f"{i}. {p.get('service_name')} | ${p.get('cost')} | {p.get('account_id')}")
         print(Fore.YELLOW + "-" * 60 + "\n")
 
     except Exception as e:
-        logger.error("Failed to fetch top records: %s", e, exc_info=True)
+        logger.error("Failed to fetch records: %s", e)
 
 
 def main() -> None:
-    """Main interactive semantic search CLI."""
+    """Interactive semantic search CLI."""
     try:
         client = QdrantClient(url="http://localhost:6333", check_compatibility=False)
         model = EmbeddingModel()
         collection_name = "cost_data"
 
-        logger.info(Fore.YELLOW + Style.BRIGHT + "📝 Semantic Search Demo (Hackathon Ready)")
-
-        # Show top anomalies and top spenders at startup
+        logger.info("Semantic Search CLI started")
         show_top_records(client, collection_name, limit=5)
-
         print("Type 'exit' or 'quit' to quit\n")
 
         while True:
-            query = input(Fore.WHITE + "Enter your search query: ").strip()
+            query = input(Fore.WHITE + "Enter search query: ").strip()
             if query.lower() in ['exit', 'quit']:
-                logger.info("Exiting semantic search CLI.")
                 break
 
             try:
-                query_vector = model.encode([query])[0]
+                embeddings = model.encode([query])
+                query_vector = embeddings[0] if len(embeddings) > 0 else None
+                
+                if query_vector is None:
+                    print(Fore.RED + "Failed to generate embedding")
+                    continue
+                    
                 results = client.search(
                     collection_name=collection_name,
                     query_vector=query_vector.tolist(),
@@ -97,16 +81,12 @@ def main() -> None:
                     color = Fore.CYAN
                     if payload.get('anomaly_flag'):
                         color = Fore.RED + Style.BRIGHT
-                    elif payload.get('service_name') == "EC2":
-                        color = Fore.GREEN
-
-                    print(color + f"{i}. Service: {payload.get('service_name')}")
-                    print(color + f"   Region: {payload.get('region')}")
-                    print(color + f"   Cost: {payload.get('cost')} {payload.get('currency')}")
-                    print(color + f"   Usage: {payload.get('usage_quantity')}")
-                    print(color + f"   Account: {payload.get('account_id')}")
-                    print(color + f"   Tags: {payload.get('tags')}")
-                    print(color + f"   Anomaly: {payload.get('anomaly_flag')}\n")
+                    
+                    print(color + f"{i}. {payload.get('service_name')} | ${payload.get('cost')} | {payload.get('region')}")
+                    print(color + f"   Account: {payload.get('account_id')} | Usage: {payload.get('usage_quantity')}")
+                    if payload.get('anomaly_flag'):
+                        print(color + f"   ANOMALY DETECTED")
+                    print()
 
                 print(Fore.YELLOW + "-" * 60)
 

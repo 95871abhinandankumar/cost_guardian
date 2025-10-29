@@ -1,54 +1,31 @@
-"""
-embedding_model.py
------------------
-Wrapper for SentenceTransformer embeddings.
-"""
+"""SentenceTransformer embeddings for semantic search."""
 
-from typing import List, Union
+import logging
+from typing import List
 import numpy as np
 from sentence_transformers import SentenceTransformer
-import logging
 
-# --------------------------- Logging Configuration --------------------------- #
-logging.basicConfig(
-    level=logging.INFO,
-    format="[%(asctime)s] [%(levelname)s] %(message)s",
-    datefmt="%Y-%m-%d %H:%M:%S",
-)
+logging.basicConfig(level=logging.INFO, format="[%(asctime)s] [%(levelname)s] %(message)s")
 logger = logging.getLogger(__name__)
 
 
 class EmbeddingModel:
-    """Wrapper class for SentenceTransformer embeddings."""
+    """Generates embeddings using SentenceTransformer."""
 
     def __init__(self, model_name: str = "all-MiniLM-L6-v2") -> None:
-        """
-        Initialize the embedding model.
-
-        Args:
-            model_name (str): Pretrained SentenceTransformer model name.
-        """
         try:
             self.model = SentenceTransformer(model_name)
-            logger.info("Initialized SentenceTransformer model: %s", model_name)
-        except SentenceTransformerException as e:
-            logger.error("Failed to load SentenceTransformer model '%s': %s", model_name, e, exc_info=True)
+            logger.info("Initialized model: %s", model_name)
+        except Exception as e:
+            logger.error("Failed to load model: %s", e)
             raise
 
     def encode(self, texts: List[str]) -> np.ndarray:
-        """
-        Convert a list of texts into embeddings.
-
-        Args:
-            texts (List[str]): List of input sentences.
-
-        Returns:
-            np.ndarray: Embeddings array.
-        """
+        """Convert texts to embeddings."""
         try:
             embeddings = self.model.encode(texts)
-            logger.info("Encoded %d texts into embeddings.", len(texts))
+            logger.info("Encoded %d texts", len(texts))
             return embeddings
         except Exception as e:
-            logger.error("Error encoding texts: %s", e, exc_info=True)
+            logger.error("Encoding failed: %s", e)
             raise
