@@ -1,18 +1,5 @@
-"""
-LLM Engine - Unified interface for AWS Bedrock and SageMaker with dataset-driven analysis,
-anomaly detection, Prophet forecasting fallback, auto dashboard routing, and dynamic recommendations.
+"""Unified interface for AWS Bedrock and SageMaker with cost analysis."""
 
-Features:
-- Loads local JSON dataset (src/data/raw_data.json) or S3 path
-- Detects anomalies (explicit flags + statistical rules)
-- Forecasts costs using Prophet if installed, else moving average
-- Builds a prompt for Bedrock / SageMaker (if configured) and parses JSON result
-- Auto-selects dashboard type (finance / it / msp) from query + data
-- Produces tuned recommendations per service/anomaly type
-- Caches results to avoid repeated cloud calls
-"""
-
-from __future__ import annotations
 import boto3
 import json
 import logging
@@ -26,26 +13,19 @@ from .cache_manager import CacheManager
 from .utils import sha_hash, iso_date
 
 load_dotenv()
-# --- Optional forecast lib: Prophet ---
+
 try:
-    from prophet import Prophet  # type: ignore
+    from prophet import Prophet
     PROPHET_AVAILABLE = True
 except Exception:
     try:
-        from fbprophet import Prophet  # type: ignore
+        from fbprophet import Prophet
         PROPHET_AVAILABLE = True
     except Exception:
         PROPHET_AVAILABLE = False
 
-# ---------------------------------------------------------------------------
-# Logging
-# ---------------------------------------------------------------------------
 logger = logging.getLogger(__name__)
 logging.basicConfig(level=logging.INFO, format="[%(asctime)s] [%(levelname)s] %(message)s")
-
-# ---------------------------------------------------------------------------
-# Env / Paths
-# ---------------------------------------------------------------------------
 BEDROCK_REGION = os.getenv("BEDROCK_REGION")
 BEDROCK_MODEL_ID = os.getenv("BEDROCK_MODEL_ID")
 SAGEMAKER_ENDPOINT_ARN = os.getenv("SAGEMAKER_ENDPOINT_ARN")
@@ -55,41 +35,32 @@ DEFAULT_DATA_PATH = os.path.join(os.getcwd(), "src", "data", "raw_data.json")
 Record = Dict[str, Any]
 
 
-# ---------------------------------------------------------------------------
-# LLM Engine
-# ---------------------------------------------------------------------------
 class LLMEngine:
     def __init__(self, tenant_id: str = "default") -> None:
         self.tenant_id = tenant_id
         self.cache = CacheManager()
         self._init_clients()
 
-    # ---------------------------------------------------------------------
-    # Init clients
-    # ---------------------------------------------------------------------
     def _init_clients(self) -> None:
         try:
             self.bedrock = boto3.client("bedrock-runtime", region_name=BEDROCK_REGION)
-            logger.info("✅ Bedrock client initialized [%s | Model: %s]", BEDROCK_REGION, BEDROCK_MODEL_ID)
+            logger.info("Bedrock client initialized")
         except Exception as e:
             self.bedrock = None
-            logger.warning("⚠️ Bedrock client unavailable: %s", e)
+            logger.warning("Bedrock client unavailable: %s", e)
 
         try:
             self.sagemaker = boto3.client("sagemaker-runtime", region_name=SAGEMAKER_REGION)
-            logger.info("✅ SageMaker client initialized [%s]", SAGEMAKER_REGION)
+            logger.info("SageMaker client initialized")
         except Exception as e:
             self.sagemaker = None
-            logger.warning("⚠️ SageMaker client unavailable: %s", e)
+            logger.warning("SageMaker client unavailable: %s", e)
 
         try:
             self.s3 = boto3.client("s3")
         except Exception:
             self.s3 = None
 
-    # ---------------------------------------------------------------------
-    # Main entrypoint
-    # ---------------------------------------------------------------------
     def analyze(
         self,
         query: str,
@@ -106,7 +77,7 @@ class LLMEngine:
         if not force_refresh:
             cached = self.cache.get(cache_key)
             if cached:
-                logger.info("🗂️ Cache hit — returning cached analysis.")
+                logger.info("Cache hit - returning cached analysis.")
                 return cached
 
         # Local analysis
@@ -158,9 +129,6 @@ class LLMEngine:
         self.cache.set(cache_key, result)
         return result
 
-    # ---------------------------------------------------------------------
-    # Dataset utilities
-    # ---------------------------------------------------------------------
     def _load_dataset(self, raw_data) -> List[Record]:
         if isinstance(raw_data, list):
             return raw_data
@@ -196,9 +164,6 @@ class LLMEngine:
             logger.warning("S3 load failed: %s", e)
             return []
 
-    # ---------------------------------------------------------------------
-    # Local analytics
-    # ---------------------------------------------------------------------
     def _dataset_summary(self, dataset: List[Record]) -> Dict[str, Any]:
         total_cost = round(sum(float(r.get("cost", 0.0) or 0.0) for r in dataset), 2)
         by_service, by_region = {}, {}
@@ -235,9 +200,6 @@ class LLMEngine:
                     anomalies.append({"service_name": svc, "cost": tot, "reason": "service_total_exceeds_threshold"})
         return anomalies, {"count": len(anomalies)}
 
-    # ---------------------------------------------------------------------
-    # Forecasting
-    # ---------------------------------------------------------------------
     def _forecast_costs(self, dataset: List[Record], horizon_days: int = 30):
         by_date = {}
         for r in dataset:
@@ -318,9 +280,6 @@ class LLMEngine:
             logger.warning("SageMaker invoke failed: %s", e)
             return None
 
-    # ---------------------------------------------------------------------
-    # Fallbacks
-    # ---------------------------------------------------------------------
     def _local_reasoning(self, summary, anomalies, forecast, dashboard):
         recs = []
         if anomalies:
@@ -350,9 +309,6 @@ class LLMEngine:
             return "msp"
         return "finance"
 
-    # ---------------------------------------------------------------------
-    # Direct model invoke wrapper
-    # ---------------------------------------------------------------------
     def invoke_model(self, prompt: str, deterministic: bool = True):
         """Invoke the Bedrock model or fallback to mock reasoning."""
         try:
@@ -362,9 +318,6 @@ class LLMEngine:
             return {"text": "Local fallback: Costs stable, monitor anomalies & adjust budgets."}
 
 
-# ---------------------------------------------------------------------------
-# Alias + Test
-# ---------------------------------------------------------------------------
 LLMEvaluator = LLMEngine
 
 if __name__ == "__main__":

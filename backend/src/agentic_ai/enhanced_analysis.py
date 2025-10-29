@@ -1,32 +1,18 @@
-"""
-enhanced_analysis.py
+"""Enhanced analysis runner for cost data."""
 
-Enhanced analysis runner for Agentic AI:
-- Uses local dataset (src/data/raw_data.json)
-- Invokes LLMEngine (Bedrock preferred, SageMaker fallback)
-- Ensures explicit anomaly flags are honored
-- Calculates week-over-week cost trends
-- Appends Bedrock-generated insights
-- Writes structured JSON to src/agentic_ai/analysis_output.json
-"""
-
-from __future__ import annotations
 import json
 import logging
 from pathlib import Path
 from typing import Any, Dict, List
 from datetime import datetime
-
 from dotenv import load_dotenv
-from agentic_ai.llm_engine import LLMEvaluator  # alias for LLMEngine
+from agentic_ai.llm_engine import LLMEvaluator
 from agentic_ai.insight_generator import InsightGenerator
 
-# Setup
 load_dotenv()
 logging.basicConfig(level=logging.INFO, format="[%(asctime)s] [%(levelname)s] %(message)s")
 logger = logging.getLogger("enhanced_analysis")
 
-# Paths
 ROOT = Path.cwd()
 DATA_PATH = ROOT / "src" / "data" / "raw_data.json"
 OUTPUT_PATH = ROOT / "src" / "agentic_ai" / "analysis_output.json"
@@ -35,9 +21,6 @@ DEFAULT_QUERY = "Detect anomalies and forecast next month's cloud cost trends"
 DEFAULT_HORIZON_DAYS = 30
 
 
-# ----------------------------------------------------------------------
-# Data Utilities
-# ----------------------------------------------------------------------
 def load_raw_data(path: Path) -> List[Dict[str, Any]]:
     if not path.exists():
         logger.error("Raw data file not found at %s", path)

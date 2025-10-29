@@ -1,44 +1,20 @@
-"""Recommendation engine: converts structured LLM output into dashboard-ready payloads."""
-
-from __future__ import annotations
+"""Converts LLM output into dashboard-ready payloads."""
 
 import logging
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List
 
 logger = logging.getLogger(__name__)
 logging.basicConfig(level=logging.INFO, format="[%(asctime)s] [%(levelname)s] %(message)s")
 
 
 class RecommendationEngine:
-    """
-    Converts structured AI responses (from SageMaker or Bedrock models)
-    into dashboard-compatible JSON structures.
-
-    Responsibilities:
-    - Map standardized LLM output fields (anomalies, forecast, recommendations)
-      to dashboard payloads.
-    - Handle dashboard-specific post-processing (finance, IT, MSP).
-    - Provide fault-tolerant, structured outputs for front-end rendering.
-    """
+    """Converts LLM responses to dashboard-compatible JSON."""
 
     def __init__(self) -> None:
         pass
 
-    def to_dashboard_payload(
-        self,
-        llm_response: Dict[str, Any],
-        dashboard_type: str = "finance"
-    ) -> Dict[str, Any]:
-        """
-        Convert structured LLM output into a dashboard-ready JSON format.
-
-        Args:
-            llm_response: Parsed response from LLM (Bedrock or SageMaker).
-            dashboard_type: One of {'finance', 'it', 'msp'} determining the view transformation.
-
-        Returns:
-            Dashboard-ready payload dictionary.
-        """
+    def to_dashboard_payload(self, llm_response: Dict[str, Any], dashboard_type: str = "finance") -> Dict[str, Any]:
+        """Convert LLM response to dashboard payload."""
         try:
             anomalies: List[Dict[str, Any]] = llm_response.get("anomalies", [])
             forecast: Dict[str, Any] = llm_response.get("forecast", {})

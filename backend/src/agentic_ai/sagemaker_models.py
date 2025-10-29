@@ -1,48 +1,26 @@
-# sagemaker_engine.py
-"""
-SageMaker Engine - wrapper for AWS SageMaker inference endpoints.
-
-Responsibilities:
-- Initialize SageMaker runtime client via boto3
-- Invoke deployed endpoints with retry/backoff and parse structured JSON/text outputs
-- Gracefully fall back to deterministic local response if unavailable
-"""
-
-from __future__ import annotations
+"""SageMaker runtime wrapper for model inference."""
 
 import json
 import logging
 import os
 import time
 from typing import Any, Dict, Optional, Union
-
 import boto3
 from botocore.config import Config
 from botocore.exceptions import BotoCoreError, ClientError
 
-# --------------------------------------------------------------------------
-# Configuration
-# --------------------------------------------------------------------------
 SAGEMAKER_REGION = os.getenv("AWS_DEFAULT_REGION", "us-east-1")
 SAGEMAKER_ENDPOINT_ARN = os.getenv("SAGEMAKER_ENDPOINT_ARN", "")
 MAX_RETRIES = int(os.getenv("SAGEMAKER_MAX_RETRIES", "3"))
 BACKOFF_BASE = float(os.getenv("SAGEMAKER_BACKOFF_BASE", "2.0"))
 TIMEOUT = int(os.getenv("SAGEMAKER_TIMEOUT_SECONDS", "30"))
 
-# --------------------------------------------------------------------------
-# Logging setup
-# --------------------------------------------------------------------------
 logger = logging.getLogger(__name__)
 logging.basicConfig(level=logging.INFO, format="[%(asctime)s] [%(levelname)s] %(message)s")
 
 
-# --------------------------------------------------------------------------
-# SageMaker Runtime Client Wrapper
-# --------------------------------------------------------------------------
 class SageMakerClientWrapper:
-    """
-    Thin wrapper around boto3 SageMaker Runtime client with retry and backoff logic.
-    """
+    """Wrapper for SageMaker Runtime with retry and backoff logic."""
 
     def __init__(self, region: str = SAGEMAKER_REGION) -> None:
         try:

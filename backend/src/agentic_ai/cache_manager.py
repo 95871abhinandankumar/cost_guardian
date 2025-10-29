@@ -1,32 +1,16 @@
-"""
-Cache Manager for Agentic AI
-----------------------------
-Handles caching of model outputs (Bedrock / SageMaker) and other agent results.
-
-Features:
-- Uses `diskcache` for performance if available, else JSON fallback.
-- Structured logging with timestamps.
-- Smart get_or_infer wrapper to auto-cache model calls.
-- Deterministic key generation for Bedrock & SageMaker inferences.
-"""
-
-from __future__ import annotations
+"""Cache manager for model outputs and agent results."""
 
 import hashlib
 import json
 import logging
 import os
 from typing import Any, Callable, Optional
-
 from .utils import iso_date
 
 logger = logging.getLogger(__name__)
 logging.basicConfig(level=logging.INFO, format="[%(asctime)s] [%(levelname)s] %(message)s")
 
-# Default cache directory
-DEFAULT_CACHE_DIR = os.path.normpath(
-    os.path.join(os.path.dirname(__file__), "..", "..", "cache")
-)
+DEFAULT_CACHE_DIR = os.path.normpath(os.path.join(os.path.dirname(__file__), "..", "..", "cache"))
 
 
 class CacheManager:
@@ -36,16 +20,15 @@ class CacheManager:
         self.cache_dir = cache_dir or DEFAULT_CACHE_DIR
         os.makedirs(self.cache_dir, exist_ok=True)
         try:
-            import diskcache as dc  # type: ignore
+            import diskcache as dc
             self._store = dc.Cache(self.cache_dir)
             self._use_diskcache = True
-            logger.info("✅ CacheManager initialized with diskcache at %s", self.cache_dir)
+            logger.info("CacheManager initialized with diskcache")
         except Exception:
             self._store = None
             self._use_diskcache = False
-            logger.warning("⚠️ Diskcache not available, using JSON file cache at %s", self.cache_dir)
+            logger.warning("Diskcache not available, using JSON file cache")
 
-    # ------------------------------- Basic Storage ------------------------------- #
     def _key_to_path(self, key: str) -> str:
         safe_key = key.replace(os.path.sep, "_")
         return os.path.join(self.cache_dir, f"{safe_key}.json")
@@ -59,9 +42,9 @@ class CacheManager:
                 path = self._key_to_path(key)
                 with open(path, "w", encoding="utf-8") as f:
                     json.dump(value, f, indent=2, default=str, ensure_ascii=False)
-            logger.debug("🗂️ Cache set: %s", key)
+            logger.debug("Cache set: %s", key)
         except Exception as e:
-            logger.exception("❌ Failed to set cache for %s: %s", key, e)
+            logger.error("Failed to set cache for %s: %s", key, e)
 
     def get(self, key: str) -> Optional[Any]:
         """Retrieve a value from cache or None if not present/expired."""
@@ -74,10 +57,9 @@ class CacheManager:
                     return json.load(f)
             return None
         except Exception as e:
-            logger.exception("❌ Failed to get cache for %s: %s", key, e)
+            logger.error("Failed to get cache for %s: %s", key, e)
             return None
 
-    # ------------------------------- Key Utilities ------------------------------- #
     def make_key(self, tenant_id: str, query_id: str, date: Optional[str] = None) -> str:
         """Create deterministic cache key: tenant_date_queryid"""
         date = date or iso_date()
@@ -93,7 +75,6 @@ class CacheManager:
         input_hash = hashlib.sha1(json.dumps(input_payload, sort_keys=True).encode()).hexdigest()[:10]
         return f"sagemaker__{model_name}__{input_hash}"
 
-    # ---------------------------- Smart Get or Infer ----------------------------- #
     def get_or_infer(
         self,
         key: str,
@@ -107,10 +88,10 @@ class CacheManager:
         if not force_refresh:
             cached = self.get(key)
             if cached is not None:
-                logger.info("💾 Cache hit for key: %s", key)
+                logger.info("Cache hit for key: %s", key)
                 return cached
 
-        logger.info("⚙️ Cache miss — running inference for key: %s", key)
+        logger.info("Cache miss - running inference for key: %s", key)
         result = infer_func()
         self.set(key, result, expire_seconds)
         return result

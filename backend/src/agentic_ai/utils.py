@@ -1,13 +1,4 @@
-"""Utility helpers for Agentic AI platform.
-
-Provides:
-- Safe JSON serialization
-- ISO date helpers
-- Text normalization
-- Environment variable access helpers
-"""
-
-from __future__ import annotations
+"""Utility functions for agentic AI."""
 
 import json
 import logging
