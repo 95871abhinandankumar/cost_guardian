@@ -24,7 +24,10 @@
 # - AWS Configuration
 # - Database (PostgreSQL)
 # - Vector Database (Pinecone/Weaviate)
-# - LLM (OpenAI/Anthropic)
+# - LLM (Google Gemini - Primary)
+#   * GEMINI_API_KEY: Your Google Gemini API key
+#   * GEMINI_MODEL: Model name (default: gemini-1.5-flash)
+# - LLM (OpenAI/Anthropic) - Optional fallback
 # - Lambda Function Names
 # - SNS/SQS Configuration
 # - API Configuration
