@@ -1,7 +1,14 @@
 // frontend/src/pages/ITDashboard.tsx
 
-import React, { useMemo, useState } from 'react';
-import { Box, Typography, Grid, Card, CardContent, CircularProgress, Alert, useTheme } from '@mui/material';
+import React, { useMemo, useState, useEffect } from 'react';
+import { 
+    Box, Typography, Grid, Card, CardContent, CircularProgress, Alert, useTheme,
+    alpha, Fade, Paper
+} from '@mui/material';
+import { 
+    Warning, Speed, MonetizationOn, 
+    Analytics, Security, TrendingUp
+} from '@mui/icons-material';
 import AnomalyScatterPlot from '../components/NivoCharts/AnomalyScatterPlot';
 import ActionQueueList from '../components/ActionQueue/ActionQueueList';
 import UtilizationLineChart from '../components/NivoCharts/UtilizationLineChart';
@@ -32,25 +39,156 @@ interface Recommendation {
     action_status: string;
 }
 
-// KPI Card helper
-const KPICard = ({ title, value, color }: { title: string; value: string; color: 'primary' | 'error' | 'success' }) => (
-    <Card elevation={3}>
-        <CardContent>
-            <Typography color={`${color}.main`} variant="h6">{title}</Typography>
-            <Typography variant="h4" fontWeight="bold">{value}</Typography>
-        </CardContent>
-    </Card>
-);
+// Modern KPI Card with gradient and icons
+const KPICard = ({ 
+    title, 
+    value, 
+    color, 
+    subtitle, 
+    icon: Icon,
+    trend 
+}: { 
+    title: string; 
+    value: string; 
+    color: 'primary' | 'error' | 'success' | 'warning'; 
+    subtitle?: string;
+    icon?: React.ElementType;
+    trend?: 'up' | 'down';
+}) => {
+    const theme = useTheme();
+    const isLight = theme.palette.mode === 'light';
+    
+    const gradientColors = {
+        primary: isLight ? ['#667eea', '#764ba2'] : ['#7c8aff', '#9c7cff'],
+        success: isLight ? ['#11998e', '#38ef7d'] : ['#26d0ce', '#1a2980'],
+        error: isLight ? ['#eb3349', '#f45c43'] : ['#ff6b6b', '#ee5a6f'],
+        warning: isLight ? ['#f093fb', '#f5576c'] : ['#ffa726', '#fb8c00'],
+    };
+    
+    const bgGradient = `linear-gradient(135deg, ${gradientColors[color][0]} 0%, ${gradientColors[color][1]} 100%)`;
+    
+    return (
+        <Fade in={true} timeout={600}>
+            <Card 
+                elevation={0}
+                sx={{
+                    background: isLight 
+                        ? `linear-gradient(135deg, ${alpha(theme.palette[color].main, 0.1)} 0%, ${alpha(theme.palette[color].main, 0.05)} 100%)`
+                        : `linear-gradient(135deg, ${alpha(theme.palette[color].main, 0.15)} 0%, ${alpha(theme.palette[color].main, 0.08)} 100%)`,
+                    borderRadius: 3,
+                    border: `1px solid ${alpha(theme.palette[color].main, 0.2)}`,
+                    position: 'relative',
+                    overflow: 'hidden',
+                    transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                    '&:hover': {
+                        transform: 'translateY(-4px)',
+                        boxShadow: `0 8px 24px ${alpha(theme.palette[color].main, 0.25)}`,
+                        border: `1px solid ${alpha(theme.palette[color].main, 0.4)}`,
+                    },
+                    '&::before': {
+                        content: '""',
+                        position: 'absolute',
+                        top: 0,
+                        left: 0,
+                        right: 0,
+                        height: '4px',
+                        background: bgGradient,
+                    }
+                }}
+            >
+                <CardContent sx={{ p: 3, position: 'relative', zIndex: 1 }}>
+                    <Box display="flex" justifyContent="space-between" alignItems="flex-start" mb={2}>
+                        <Box>
+                            <Typography 
+                                variant="subtitle2" 
+                                sx={{ 
+                                    color: theme.palette[color].main,
+                                    fontWeight: 600,
+                                    textTransform: 'uppercase',
+                                    letterSpacing: 0.5,
+                                    fontSize: '0.75rem',
+                                    mb: 0.5
+                                }}
+                            >
+                                {title}
+                            </Typography>
+                            <Typography 
+                                variant="h4" 
+                                fontWeight="bold"
+                                sx={{ 
+                                    fontSize: { xs: '1.75rem', sm: '2rem' },
+                                    background: bgGradient,
+                                    WebkitBackgroundClip: 'text',
+                                    WebkitTextFillColor: 'transparent',
+                                    backgroundClip: 'text',
+                                }}
+                            >
+                                {value}
+                            </Typography>
+                        </Box>
+                        {Icon && (
+                            <Box
+                                sx={{
+                                    p: 1.5,
+                                    borderRadius: 2,
+                                    background: bgGradient,
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                }}
+                            >
+                                <Icon sx={{ color: 'white', fontSize: 28 }} />
+                            </Box>
+                        )}
+                    </Box>
+                    {subtitle && (
+                        <Typography 
+                            variant="body2" 
+                            sx={{ 
+                                color: theme.palette.text.secondary,
+                                fontSize: '0.875rem',
+                                fontWeight: 500
+                            }}
+                        >
+                            {subtitle}
+                        </Typography>
+                    )}
+                </CardContent>
+            </Card>
+        </Fade>
+    );
+};
 
 const ITDashboard: React.FC = () => {
     const theme = useTheme();
-    const [isLoading] = useState(false);
+    const [isLoading, setIsLoading] = useState(true);
+    const [metrics, setMetrics] = useState<Metric[]>([]);
+    const [allRecommendations, setAllRecommendations] = useState<Recommendation[]>([]);
+    const [error, setError] = useState<string | null>(null);
 
-    // Data Access (Simulated)
-    const metrics: Metric[] = getMetricsData();
-    const allRecommendations: Recommendation[] = getRecommendationData() as Recommendation[];
+    // Fetch data from API
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                setIsLoading(true);
+                const [metricsData, recommendationsData] = await Promise.all([
+                    getMetricsData(),
+                    getRecommendationData()
+                ]);
+                setMetrics(metricsData);
+                setAllRecommendations(recommendationsData);
+                setError(null);
+            } catch (err) {
+                console.error('Error fetching data:', err);
+                setError('Failed to load data. Please check if backend is running.');
+            } finally {
+                setIsLoading(false);
+            }
+        };
+        fetchData();
+    }, []);
 
-    // Data Processing Logic (Memoized KPI Calculations)
+    // Data Processing Logic (Memoized KPI Calculations - hooks must be before early returns)
     const computeMetrics = useMemo(() => metrics.filter((d) => d.resource_type === 'compute'), [metrics]);
     const pendingCritical = useMemo(
         () => allRecommendations.filter(
@@ -65,7 +203,6 @@ const ITDashboard: React.FC = () => {
         return (sumUtil / computeMetrics.length) * 100;
     }, [computeMetrics]);
 
-    // Prepare scatter plot data
     const scatterData = useMemo(() => {
         const anomalyResourceIds = new Set(pendingCritical.map((r) => r.resource_id_impacted));
         return [
@@ -85,11 +222,10 @@ const ITDashboard: React.FC = () => {
         ];
     }, [computeMetrics, pendingCritical]);
 
-    // Prepare Utilization Trend Line Chart
     const trendData = useMemo(() => {
         return [{
             id: 'Avg Utilization',
-            color: theme.palette.primary.main, // Uses the aesthetic violet/blue line color
+            color: theme.palette.primary.main,
             data: [
                 { x: "Sept 10", y: 30 },
                 { x: "Sept 20", y: 45 },
@@ -99,15 +235,12 @@ const ITDashboard: React.FC = () => {
         }]
     }, [theme.palette.primary.main, totalUtilization]);
 
-    // Prepare Governance Donut Chart
     const governanceData = useMemo(() => {
         const taggedCost = metrics.filter(d => d.billing_tag_owner !== 'owner:unknown').reduce((sum: number, d: Metric) => sum + d.unblended_cost_usd, 0) * 30;
         const untaggedCost = metrics.filter(d => d.billing_tag_owner === 'owner:unknown').reduce((sum: number, d: Metric) => sum + d.unblended_cost_usd, 0) * 30;
         const totalCost = taggedCost + untaggedCost;
-
         const taggedPercent = totalCost > 0 ? (taggedCost / totalCost) * 100 : 0;
         const untaggedPercent = totalCost > 0 ? (untaggedCost / totalCost) * 100 : 0;
-
         return [
             { id: "Tagged", label: "Tagged Spend", value: taggedPercent, color: theme.palette.success.main },
             { id: "Untagged", label: "Untagged Spend", value: untaggedPercent, color: theme.palette.error.main },
@@ -118,14 +251,24 @@ const ITDashboard: React.FC = () => {
         console.log('Dashboard Refresh Triggered (Simulated).');
     };
 
+    // Show loading state
     if (isLoading) {
         return (
-            <Box sx={{ display: 'flex', justifyContent: 'center', p: 10 }}>
+            <Box display="flex" justifyContent="center" alignItems="center" minHeight="400px">
                 <CircularProgress />
-                <Typography sx={{ ml: 2 }}>Loading AI Data...</Typography>
             </Box>
         );
     }
+
+    // Show error state
+    if (error) {
+        return (
+            <Box p={3}>
+                <Alert severity="error">{error}</Alert>
+            </Box>
+        );
+    }
+
     if (computeMetrics.length === 0) {
         return <Alert severity="info" sx={{ m: 4 }}>No compute resources found in the current dataset to analyze.</Alert>;
     }
@@ -133,50 +276,208 @@ const ITDashboard: React.FC = () => {
     return (
         <Box
             sx={{
-                p: 4,
-                // This forces the dynamic background color, overriding light theme defaults
-                bgcolor: theme.palette.background.default
+                minHeight: 'calc(100vh - 64px)',
+                width: '100%',
+                overflowX: 'hidden',
+                bgcolor: theme.palette.background.default,
+                pb: 6,
             }}
         >
-            <Typography variant="h3" gutterBottom>
-                IT Operations Dashboard
-            </Typography>
+            <Box
+                sx={{
+                    maxWidth: '1400px',
+                    width: '100%',
+                    mx: 'auto',
+                    px: { xs: 2, sm: 4, md: 6 },
+                    pt: 4,
+                    boxSizing: 'border-box',
+                }}
+            >
+                {/* Modern Header */}
+                <Fade in={true} timeout={800}>
+                    <Box sx={{ mb: 5 }}>
+                        <Typography 
+                            variant="h3" 
+                            sx={{
+                                fontWeight: 800,
+                                fontSize: { xs: '2rem', md: '2.75rem' },
+                                mb: 1,
+                                background: theme.palette.mode === 'light'
+                                    ? 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)'
+                                    : 'linear-gradient(135deg, #a1c4fd 0%, #9c7cff 100%)',
+                                WebkitBackgroundClip: 'text',
+                                WebkitTextFillColor: 'transparent',
+                                backgroundClip: 'text',
+                            }}
+                        >
+                            IT Operations Dashboard
+                        </Typography>
+                        <Typography 
+                            variant="body1" 
+                            sx={{ 
+                                color: theme.palette.text.secondary,
+                                fontSize: '1.1rem',
+                                fontWeight: 400,
+                            }}
+                        >
+                            Real-time resource monitoring and optimization insights
+                        </Typography>
+                    </Box>
+                </Fade>
 
-            {/* 1. KPI BAR */}
-            <Grid container spacing={3} sx={{ mb: 4 }}>
-                <Grid item xs={12} sm={4}>
-                    <KPICard title="Critical Actions Pending" value={String(pendingCritical.length)} color="error" />
+                {/* Modern KPI Cards */}
+                <Grid container spacing={3} sx={{ mb: 5 }}>
+                    <Grid item xs={12} sm={6} lg={4}>
+                        <KPICard 
+                            title="Critical Actions Pending" 
+                            value={String(pendingCritical.length)} 
+                            color="error"
+                            subtitle="Requires immediate attention"
+                            icon={Warning}
+                        />
+                    </Grid>
+                    <Grid item xs={12} sm={6} lg={4}>
+                        <KPICard 
+                            title="Avg. System Utilization" 
+                            value={`${totalUtilization.toFixed(1)}%`} 
+                            color="primary"
+                            subtitle="Compute resource efficiency"
+                            icon={Speed}
+                        />
+                    </Grid>
+                    <Grid item xs={12} sm={6} lg={4}>
+                        <KPICard
+                            title="Potential Monthly Waste"
+                            value={`$${totalPotentialSavings.toLocaleString()}`}
+                            color="success"
+                            subtitle="Recoverable through optimization"
+                            icon={MonetizationOn}
+                        />
+                    </Grid>
                 </Grid>
-                <Grid item xs={12} sm={4}>
-                    <KPICard title="Avg. System Utilization" value={`${totalUtilization.toFixed(1)}%`} color="primary" />
-                </Grid>
-                <Grid item xs={12} sm={4}>
-                    <KPICard
-                        title="Potential Monthly Waste"
-                        value={`$${totalPotentialSavings.toFixed(0)}`}
-                        color="success"
-                    />
-                </Grid>
-            </Grid>
 
-            {/* 2. MAIN CONTENT GRID */}
-            <Grid container spacing={4}>
-                <Grid item xs={12} md={8}>
-                    <AnomalyScatterPlot data={scatterData} />
-                </Grid>
-                <Grid item xs={12} md={4}>
-                    <ActionQueueList data={allRecommendations} onActionCompleted={handleActionCompleted} />
-                </Grid>
+                {/* Modern Content Grid */}
+                <Grid container spacing={4}>
+                    <Grid item xs={12} md={8}>
+                        <Fade in={true} timeout={1000}>
+                            <Paper
+                                elevation={0}
+                                sx={{
+                                    p: 3,
+                                    borderRadius: 3,
+                                    bgcolor: theme.palette.mode === 'light' 
+                                        ? alpha(theme.palette.background.paper, 0.8)
+                                        : alpha(theme.palette.background.paper, 0.6),
+                                    backdropFilter: 'blur(20px)',
+                                    border: `1px solid ${alpha(theme.palette.divider, 0.5)}`,
+                                    boxShadow: theme.palette.mode === 'light'
+                                        ? '0 8px 32px rgba(0, 0, 0, 0.08)'
+                                        : '0 8px 32px rgba(0, 0, 0, 0.3)',
+                                }}
+                            >
+                                <Box display="flex" alignItems="center" gap={1} mb={2}>
+                                    <Analytics sx={{ color: theme.palette.primary.main }} />
+                                    <Typography variant="h6" fontWeight={700}>
+                                        Anomaly Detection
+                                    </Typography>
+                                </Box>
+                                <AnomalyScatterPlot data={scatterData} />
+                            </Paper>
+                        </Fade>
+                    </Grid>
+                    <Grid item xs={12} md={4}>
+                        <Fade in={true} timeout={1200}>
+                            <Paper
+                                elevation={0}
+                                sx={{
+                                    p: 3,
+                                    borderRadius: 3,
+                                    bgcolor: theme.palette.mode === 'light' 
+                                        ? alpha(theme.palette.background.paper, 0.8)
+                                        : alpha(theme.palette.background.paper, 0.6),
+                                    backdropFilter: 'blur(20px)',
+                                    border: `1px solid ${alpha(theme.palette.divider, 0.5)}`,
+                                    boxShadow: theme.palette.mode === 'light'
+                                        ? '0 8px 32px rgba(0, 0, 0, 0.08)'
+                                        : '0 8px 32px rgba(0, 0, 0, 0.3)',
+                                    height: '100%',
+                                    width: '100%',
+                                    overflow: 'hidden',
+                                    display: 'flex',
+                                    flexDirection: 'column',
+                                }}
+                            >
+                                <Box display="flex" alignItems="center" gap={1} mb={2} sx={{ flexShrink: 0 }}>
+                                    <Warning sx={{ color: theme.palette.error.main }} />
+                                    <Typography variant="h6" fontWeight={700}>
+                                        Action Queue
+                                    </Typography>
+                                </Box>
+                                <Box sx={{ flex: 1, overflow: 'auto', width: '100%', minHeight: 0 }}>
+                                    <ActionQueueList data={allRecommendations} onActionCompleted={handleActionCompleted} />
+                                </Box>
+                            </Paper>
+                        </Fade>
+                    </Grid>
 
-                {/* NEW BOTTOM ROW FOR CONTEXT */}
-                <Grid item xs={12} md={6}>
-                    <UtilizationLineChart data={trendData} />
-                </Grid>
+                    <Grid item xs={12} md={6}>
+                        <Fade in={true} timeout={1400}>
+                            <Paper
+                                elevation={0}
+                                sx={{
+                                    p: 3,
+                                    borderRadius: 3,
+                                    bgcolor: theme.palette.mode === 'light' 
+                                        ? alpha(theme.palette.background.paper, 0.8)
+                                        : alpha(theme.palette.background.paper, 0.6),
+                                    backdropFilter: 'blur(20px)',
+                                    border: `1px solid ${alpha(theme.palette.divider, 0.5)}`,
+                                    boxShadow: theme.palette.mode === 'light'
+                                        ? '0 8px 32px rgba(0, 0, 0, 0.08)'
+                                        : '0 8px 32px rgba(0, 0, 0, 0.3)',
+                                }}
+                            >
+                                <Box display="flex" alignItems="center" gap={1} mb={2}>
+                                    <TrendingUp sx={{ color: theme.palette.success.main }} />
+                                    <Typography variant="h6" fontWeight={700}>
+                                        Utilization Trends
+                                    </Typography>
+                                </Box>
+                                <UtilizationLineChart data={trendData} />
+                            </Paper>
+                        </Fade>
+                    </Grid>
 
-                <Grid item xs={12} md={6}>
-                    <GovernanceDonutChart data={governanceData} />
+                    <Grid item xs={12} md={6}>
+                        <Fade in={true} timeout={1600}>
+                            <Paper
+                                elevation={0}
+                                sx={{
+                                    p: 3,
+                                    borderRadius: 3,
+                                    bgcolor: theme.palette.mode === 'light' 
+                                        ? alpha(theme.palette.background.paper, 0.8)
+                                        : alpha(theme.palette.background.paper, 0.6),
+                                    backdropFilter: 'blur(20px)',
+                                    border: `1px solid ${alpha(theme.palette.divider, 0.5)}`,
+                                    boxShadow: theme.palette.mode === 'light'
+                                        ? '0 8px 32px rgba(0, 0, 0, 0.08)'
+                                        : '0 8px 32px rgba(0, 0, 0, 0.3)',
+                                    height: '100%',
+                                }}
+                            >
+                                <Box display="flex" alignItems="center" gap={1} mb={2}>
+                                    <Security sx={{ color: theme.palette.info.main }} />
+                                    <Typography variant="h6" fontWeight={700}>
+                                        Governance Compliance
+                                    </Typography>
+                                </Box>
+                                <GovernanceDonutChart data={governanceData} />
+                            </Paper>
+                        </Fade>
+                    </Grid>
                 </Grid>
-            </Grid>
+            </Box>
         </Box>
     );
 };

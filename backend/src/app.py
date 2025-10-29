@@ -99,12 +99,14 @@ def register_blueprints(app):
         from api.routes.insights import insights_bp
         from api.routes.feedback import feedback_bp
         from api.routes.data_viewer import data_viewer_bp
+        from api.routes.metrics import metrics_bp
         
         # Register blueprints with URL prefixes
         app.register_blueprint(status_bp, url_prefix='/api/v1/status')
         app.register_blueprint(insights_bp, url_prefix='/api/v1/insights')
         app.register_blueprint(feedback_bp, url_prefix='/api/v1/feedback')
         app.register_blueprint(data_viewer_bp, url_prefix='/api/v1')
+        app.register_blueprint(metrics_bp, url_prefix='/api/v1')
         
         logger.info("All blueprints registered successfully")
         

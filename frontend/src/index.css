@@ -1,9 +1,16 @@
 /* frontend/src/index.css */
 
+html {
+  width: 100%;
+  overflow-x: hidden;
+}
+
 body {
   /* CRITICAL FIX: Removing the margin: 0; is kept. */
   /* We remove the background-color and color properties to let MUI's CssBaseline take over. */
   margin: 0;
+  width: 100%;
+  overflow-x: hidden;
 
   /* Retained standard system font stack for consistency */
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -12,6 +19,11 @@ body {
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  width: 100%;
+  overflow-x: hidden;
 }
 
 code {
