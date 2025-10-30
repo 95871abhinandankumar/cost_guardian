@@ -60,8 +60,12 @@ def create_app(config_name=None):
 def initialize_extensions(app):
     """Initialize Flask extensions with proper configuration"""
     
-    # CORS configuration
-    CORS(app, origins=app.config.get('CORS_ORIGINS', ['http://localhost:3000']))
+    # CORS configuration - allow all origins in development
+    cors_origins = app.config.get('CORS_ORIGINS', ['*'])
+    if cors_origins == ['*']:
+        CORS(app, resources={r"/api/*": {"origins": "*"}})
+    else:
+        CORS(app, origins=cors_origins)
     
     # Rate limiting (in-memory for development)
     limiter = Limiter(

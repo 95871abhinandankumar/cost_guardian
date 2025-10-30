@@ -71,19 +71,46 @@ class QueryAnalyzer:
             logger.error(f"Embedding failed: {e}")
             return None
 
-    def fetch_context(self, query_embedding: List[float], top_k: int = 5) -> List[Dict[str, Any]]:
-        """Retrieve top-k similar items from Qdrant."""
+    def fetch_context(
+        self, 
+        query_embedding: List[float], 
+        top_k: int = 5, 
+        score_threshold: Optional[float] = None
+    ) -> List[Dict[str, Any]]:
+        """Retrieve similar items from Qdrant.
+        
+        Args:
+            query_embedding: Query embedding vector
+            top_k: Maximum number of results (used only if score_threshold is None)
+            score_threshold: Minimum similarity score threshold (0.0-1.0). If provided, 
+                           retrieves all items above this threshold (up to limit)
+        """
         if query_embedding is None or not self.qdrant:
             logger.debug("No Qdrant connection or embedding available — returning empty context.")
             return []
 
         try:
-            results = self.qdrant.search(
-                collection_name=self.collection,
-                query_vector=query_embedding,
-                limit=top_k,
-                with_payload=True,
-            )
+            # If score_threshold is provided, use it to get all relevant items
+            # Otherwise, use top_k limit
+            if score_threshold is not None:
+                # Use a high limit with score threshold to get all relevant items
+                # Qdrant will return all items above the threshold up to the limit
+                results = self.qdrant.search(
+                    collection_name=self.collection,
+                    query_vector=query_embedding,
+                    limit=10000,  # High limit to ensure we get all relevant items
+                    score_threshold=score_threshold,
+                    with_payload=True,
+                )
+                logger.info(f"Retrieved {len(results)} context items above threshold {score_threshold}")
+            else:
+                results = self.qdrant.search(
+                    collection_name=self.collection,
+                    query_vector=query_embedding,
+                    limit=top_k,
+                    with_payload=True,
+                )
+                logger.info(f"Retrieved {len(results)} context items (top_k={top_k})")
 
             context = []
             for r in results:
@@ -100,11 +127,23 @@ class QueryAnalyzer:
             logger.error(f"Failed to fetch context: {e}")
             return []
 
-    def analyze(self, user_query: str, top_k: int = 5) -> Dict[str, Any]:
-        """Analyze query and retrieve context."""
+    def analyze(
+        self, 
+        user_query: str, 
+        top_k: int = 5, 
+        score_threshold: Optional[float] = None
+    ) -> Dict[str, Any]:
+        """Analyze query and retrieve context.
+        
+        Args:
+            user_query: User query string
+            top_k: Maximum number of results (ignored if score_threshold is provided)
+            score_threshold: Minimum similarity score (0.0-1.0). If provided, returns all items 
+                           above this threshold instead of top_k
+        """
         intent = self.detect_intent(user_query)
         embedding = self.embed_query(user_query)
-        context = self.fetch_context(embedding, top_k=top_k)
+        context = self.fetch_context(embedding, top_k=top_k, score_threshold=score_threshold)
         
         logger.info(f"Analysis complete - intent: {intent}, context_items: {len(context)}")
         return {

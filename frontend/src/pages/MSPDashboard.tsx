@@ -171,18 +171,32 @@ const MSPDashboard: React.FC = () => {
         allRecommendations.reduce((sum: number, r: any) => sum + r.projected_savings_monthly, 0) * 100
     , [allRecommendations]);
 
-    const totalClientsManaged = 48;
+    // Calculate total clients managed from unique account IDs in metrics
+    const totalClientsManaged = useMemo(() => {
+        const uniqueAccounts = new Set(metrics.map((m: any) => m.billing_tag_owner || '').filter(Boolean));
+        // Fallback to unique accounts from recommendations if metrics is empty
+        if (uniqueAccounts.size === 0) {
+            const recAccounts = new Set(allRecommendations.map((r: any) => r.client_name || '').filter(Boolean));
+            return recAccounts.size > 0 ? recAccounts.size : 0;
+        }
+        return uniqueAccounts.size;
+    }, [metrics, allRecommendations]);
 
     const cumulativeValueData = useMemo(() => {
+        // Calculate cumulative savings over last 5 months from recommendations
+        // If no historical data, show current savings only
+        const currentMonth = new Date().getMonth();
+        const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+        const last5Months = monthNames.slice(Math.max(0, currentMonth - 4), currentMonth + 1);
+        
+        // For now, distribute current savings across months (can be enhanced with historical data)
+        const savingsPerMonth = totalSavingsDelivered / Math.max(last5Months.length, 1);
         return [{
             id: 'Total Savings',
-            data: [
-                { x: "Jan", y: totalSavingsDelivered * 0.10 },
-                { x: "Feb", y: totalSavingsDelivered * 0.35 },
-                { x: "Mar", y: totalSavingsDelivered * 0.60 },
-                { x: "Apr", y: totalSavingsDelivered * 0.85 },
-                { x: "May", y: totalSavingsDelivered },
-            ]
+            data: last5Months.map((month, idx) => ({
+                x: month,
+                y: savingsPerMonth * (idx + 1) // Cumulative
+            }))
         }];
     }, [totalSavingsDelivered]);
 
@@ -200,13 +214,53 @@ const MSPDashboard: React.FC = () => {
         };
     }, [metrics, theme.palette.success.main, theme.palette.secondary.dark]);
 
+    // Calculate client summary from actual metrics and recommendations data
     const clientSummaryData = useMemo(() => {
-        return [
-            { client_name: "Client Alpha", total_spend: 8500, total_potential_savings: 550, tagging_compliance: 95 },
-            { client_name: "Client Beta", total_spend: 2100, total_potential_savings: 45, tagging_compliance: 75 },
-            { client_name: "Client Gamma", total_spend: 12000, total_potential_savings: 1200, tagging_compliance: 88 },
-        ].sort((a, b) => b.total_potential_savings - a.total_potential_savings);
-    }, []);
+        // Group by billing_tag_owner (client/team)
+        const clientMap = new Map<string, { total_spend: number; total_potential_savings: number; tagged_count: number; total_count: number }>();
+        
+        // Calculate spend per client from metrics
+        metrics.forEach((metric: any) => {
+            const client = metric.billing_tag_owner || 'Unknown';
+            const monthlyCost = metric.unblended_cost_usd * 30;
+            if (!clientMap.has(client)) {
+                clientMap.set(client, { total_spend: 0, total_potential_savings: 0, tagged_count: 0, total_count: 0 });
+            }
+            const clientData = clientMap.get(client)!;
+            clientData.total_spend += monthlyCost;
+            clientData.total_count++;
+            if (client !== 'owner:unknown' && !client.includes('unknown')) {
+                clientData.tagged_count++;
+            }
+        });
+        
+        // Add savings from recommendations
+        allRecommendations.forEach((rec: any) => {
+            const client = rec.client_name || rec.owner || 'Unknown';
+            if (!clientMap.has(client)) {
+                clientMap.set(client, { total_spend: 0, total_potential_savings: 0, tagged_count: 0, total_count: 0 });
+            }
+            clientMap.get(client)!.total_potential_savings += rec.projected_savings_monthly || 0;
+        });
+        
+        // Convert to array and calculate compliance
+        return Array.from(clientMap.entries())
+            .map(([client_name, data]) => {
+                // Calculate compliance safely to avoid NaN
+                const total_count = Number(data.total_count) || 0;
+                const tagged_count = Number(data.tagged_count) || 0;
+                const compliance = total_count > 0 ? (tagged_count / total_count) * 100 : 100;
+                
+                return {
+                    client_name: client_name.replace(/^team:|^owner:/, '').replace(/_/g, ' ') || 'Unknown',
+                    total_spend: Number(data.total_spend) || 0,
+                    total_potential_savings: Number(data.total_potential_savings) || 0,
+                    tagging_compliance: isNaN(compliance) ? 0 : Math.max(0, Math.min(100, compliance))
+                };
+            })
+            .filter(c => c.total_spend > 0) // Only show clients with actual spend
+            .sort((a, b) => b.total_potential_savings - a.total_potential_savings);
+    }, [metrics, allRecommendations]);
 
     // Show loading state
     if (isLoading) {

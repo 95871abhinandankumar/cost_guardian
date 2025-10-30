@@ -103,11 +103,13 @@ class LLMEngine:
         dataset_hash = sha_hash(json.dumps(dataset, sort_keys=True)) if dataset else "empty"
         cache_key = self.cache.make_key(self.tenant_id, sha_hash(f"{query}:{dataset_hash}"), iso_date())
 
-        if not force_refresh:
-            cached = self.cache.get(cache_key)
-            if cached:
-                logger.info("Cache hit - returning cached analysis.")
-                return cached
+        # CACHE DISABLED - Always run fresh analysis
+        # if not force_refresh:
+        #     cached = self.cache.get(cache_key)
+        #     if cached:
+        #         logger.info("Cache hit - returning cached analysis.")
+        #         return cached
+        logger.info("Cache disabled - running fresh analysis")
 
         # Local analysis
         anomalies, anomaly_summary = self._detect_anomalies(dataset)
@@ -166,7 +168,8 @@ class LLMEngine:
             "timestamp": datetime.utcnow().isoformat() + "Z",
         }
 
-        self.cache.set(cache_key, result)
+        # CACHE REMOVED - Results are stored in database (llm_analysis_results table) instead
+        # self.cache.set(cache_key, result)
         return result
 
     def _load_dataset(self, raw_data) -> List[Record]:
@@ -280,9 +283,20 @@ class LLMEngine:
         return (
             f"You are a cost analysis assistant.\n"
             f"DASHBOARD: {dashboard}\nQUERY: {query}\n"
-            f"TOP_SERVICES: {top_services}\nANOMALIES: {json.dumps(anomalies[:3])}\n"
+            f"TOP_SERVICES: {top_services}\nANOMALIES: {json.dumps(anomalies[:5], default=str)}\n"
             f"FORECAST_NEXT_{horizon_days}_DAYS: {forecast}\nCONTEXT: {context_block}\n"
-            "Return JSON with keys: intent, summary, anomalies, recommendations."
+            "Return JSON with keys: intent, summary, anomalies, recommendations.\n"
+            "CRITICAL: For 'recommendations', return an array of objects (not strings). Each recommendation object MUST include:\n"
+            "- 'action' or 'recommendation': Detailed action text describing what to do\n"
+            "- 'service_name': The AWS service name (e.g., 'RDS', 'EC2', 'S3', 'Lambda', 'Slack')\n"
+            "- 'resource_id': Resource identifier if available from anomalies\n"
+            "- 'owner': Owner/team name extracted from tags (e.g., 'team:finance', 'team:dev', 'team:it', or account_id)\n"
+            "- 'cost' or 'monthly_cost': Cost value in USD\n"
+            "- 'savings': Projected monthly savings in USD\n"
+            "- 'anomaly_score': Severity score 0-1\n"
+            "Extract owner/team information from the anomaly 'tags' field or 'account_id' field. "
+            "If owner is not found in tags, use the account_id as the owner value.\n"
+            "Example: {\"action\": \"Resize EC2 instance\", \"service_name\": \"EC2\", \"owner\": \"team:finance\", \"cost\": 150.0, \"savings\": 75.0, \"anomaly_score\": 0.8}"
         )
 
     # AWS Bedrock invocation (commented out - using Gemini instead)

@@ -9,17 +9,14 @@ from flask import Blueprint, jsonify, request
 from typing import List, Dict, Any, Optional
 
 # Agentic AI imports
-from agentic_ai import LLMEvaluator, QueryAnalyzer, RecommendationEngine
-from agentic_ai.cache_manager import CacheManager
+from agentic_ai import LLMEvaluator, QueryAnalyzer
 
 logger = logging.getLogger(__name__)
 metrics_bp = Blueprint('metrics', __name__)
 
 # Initialize agentic AI components (singleton pattern)
-_cache_manager = CacheManager()
 _llm_engine = None
 _query_analyzer = None
-_recommendation_engine = RecommendationEngine()
 
 def get_llm_engine():
     """Lazy initialization of LLM engine."""
@@ -286,11 +283,13 @@ def get_recommendations():
                     resource_id = rec.get('resource_id') or rec.get('service_name', f"resource-{idx}")
                     cost = float(rec.get('cost', rec.get('monthly_cost', 0.0)) / 30 if 'monthly_cost' in rec else 0.0)
                     anomaly_score = float(rec.get('anomaly_score', 0.0))
-                    # Extract from dict if available
-                    if isinstance(rec, dict) and 'tags' in rec:
-                        rec_tags = rec.get('tags', {})
-                        anomaly_owner = rec_tags.get('Owner') or rec_tags.get('owner') or rec_tags.get('Team') or rec_tags.get('team') or 'Unknown'
-                        anomaly_service = rec.get('service_name') or 'Unknown'
+                    # Extract from dict if available - LLM should provide these fields
+                    if isinstance(rec, dict):
+                        anomaly_owner = rec.get('owner') or rec.get('team') or 'Unknown'
+                        anomaly_service = rec.get('service_name') or rec.get('service') or 'Unknown'
+                        if 'tags' in rec:
+                            rec_tags = rec.get('tags', {})
+                            anomaly_owner = rec_tags.get('Owner') or rec_tags.get('owner') or rec_tags.get('Team') or rec_tags.get('team') or anomaly_owner or 'Unknown'
                     else:
                         anomaly_owner = 'Unknown'
                         anomaly_service = 'Unknown'

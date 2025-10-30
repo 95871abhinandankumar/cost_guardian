@@ -8,7 +8,7 @@ from datetime import datetime
 from typing import Dict, Any, Optional
 from apscheduler.schedulers.background import BackgroundScheduler
 from apscheduler.triggers.cron import CronTrigger
-from agentic_ai import LLMEvaluator, QueryAnalyzer
+from agentic_ai import LLMEvaluator
 
 logger = logging.getLogger(__name__)
 logging.basicConfig(level=logging.INFO, format="[%(asctime)s] [%(levelname)s] %(message)s")
@@ -60,35 +60,49 @@ def run_daily_analysis():
         
         # Initialize components
         llm_engine = LLMEvaluator(tenant_id="default")
-        query_analyzer = QueryAnalyzer()
         
-        # Standard analysis queries
+        # Analysis queries - clear instructions for LLM analysis
         queries = [
-            "Analyze cost data and provide specific optimization recommendations with resource details, cost savings, and action items",
-            "Detect anomalies in cloud spending and identify high-cost resources with low utilization",
-            "Generate cost forecasting and trend analysis for next 30 days"
+            "Analyze cost data and provide specific optimization recommendations with resource details, cost savings, and actionable steps for reducing cloud spend",
+            "Identify cost anomalies, unexpected spending spikes, low utilization resources, and unusual patterns that require attention",
+            "Forecast cost trends and predict spending for the next 30 days based on historical patterns and current usage"
         ]
+        
+        # Load ALL records from SQLite database once for all analyses
+        logger.info("Loading all records from database...")
+        db_path = get_db_path()
+        conn = sqlite3.connect(db_path)
+        conn.row_factory = sqlite3.Row
+        cursor = conn.cursor()
+        cursor.execute("SELECT * FROM daily_usage ORDER BY usage_date DESC")
+        rows = cursor.fetchall()
+        all_records = [dict(row) for row in rows]
+        conn.close()
+        
+        if not all_records:
+            logger.error("No records found in database. Cannot run analysis.")
+            return
+        
+        logger.info(f"Loaded {len(all_records)} records from database")
         
         analysis_date = datetime.utcnow().date().isoformat()
         
         for query_text in queries:
             try:
-                # Get context from vector DB
-                query_analysis = query_analyzer.analyze(query_text, top_k=15)
-                context_items = query_analysis.get('context', [])
+                logger.info(f"Analyzing query: {query_text[:50]}...")
                 
-                # Run LLM analysis (force refresh to get latest data)
+                # Run LLM analysis on ALL records from database
                 analysis_result = llm_engine.analyze(
                     query=query_text,
-                    raw_data=None,
-                    context=[str(ctx) for ctx in context_items],
+                    raw_data=all_records,  # Use ALL records from database
+                    context=None,  # No vector DB context needed
                     horizon_days=30,
                     force_refresh=True  # Get fresh analysis
                 )
                 
                 # Store in database
-                db_path = get_db_path()
-                conn = sqlite3.connect(db_path)
+                db_path_store = get_db_path()
+                conn = sqlite3.connect(db_path_store)
                 cursor = conn.cursor()
                 
                 cursor.execute("""

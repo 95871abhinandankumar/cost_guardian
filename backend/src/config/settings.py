@@ -74,8 +74,8 @@ class DevelopmentConfig(BaseConfig):
     SQLALCHEMY_DATABASE_URI = 'sqlite:///cost_guardian_dev.db'
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     
-    # Relaxed CORS for development
-    CORS_ORIGINS = ['http://localhost:3000', 'http://127.0.0.1:3000', 'http://localhost:5000']
+    # Relaxed CORS for development - allow all localhost ports
+    CORS_ORIGINS = ['*']  # Allow all origins in development
     
     # Development-specific settings
     LOG_LEVEL = 'DEBUG'
