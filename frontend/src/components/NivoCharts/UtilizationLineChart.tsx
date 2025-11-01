@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { ResponsiveLine } from '@nivo/line';
-import { Card, Typography, useTheme, Box } from '@mui/material';
+import { Typography, useTheme, Box } from '@mui/material';
 
 // Interfaces remain the same
 interface UtilizationTrendPoint {
@@ -25,10 +25,9 @@ const UtilizationLineChart: React.FC<UtilizationLineChartProps> = ({ data }) => 
     const theme = useTheme();
 
     return (
-        // Added dynamic background color from theme
-        <Card elevation={6} sx={{ height: '100%', minHeight: 300, p: 2, bgcolor: theme.palette.background.paper }}>
+        <Box sx={{ width: '100%', display: 'flex', flexDirection: 'column' }}>
             <Typography variant="h6" sx={{ mb: 1 }}>Avg. Utilization Trend (Last 30 Days)</Typography>
-            <Box sx={{ height: 250 }}>
+            <Box sx={{ height: 250, width: '100%' }}>
                 <ResponsiveLine
                     data={data}
                     // --- Nivo Theming (CRITICAL for Light/Dark Mode text) ---
@@ -97,7 +96,7 @@ const UtilizationLineChart: React.FC<UtilizationLineChartProps> = ({ data }) => 
                     ]}
                 />
             </Box>
-        </Card>
+        </Box>
     );
 };
 

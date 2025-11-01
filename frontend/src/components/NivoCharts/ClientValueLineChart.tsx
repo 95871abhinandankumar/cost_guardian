@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { ResponsiveLine } from '@nivo/line';
-import { Card, Typography, useTheme, Box } from '@mui/material';
+import { Typography, useTheme, Box } from '@mui/material';
 
 interface SavingsDataPoint {
     x: string; // Month/Date
@@ -24,7 +24,7 @@ const ClientValueLineChart: React.FC<ClientValueLineChartProps> = ({ data, total
     const formattedSavings = `$${totalSavings.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`; // Format as $X,XXX
 
     return (
-        <Card elevation={6} sx={{ height: '100%', minHeight: 300, p: 2, bgcolor: theme.palette.background.paper }}>
+        <Box sx={{ width: '100%', display: 'flex', flexDirection: 'column' }}>
             <Typography variant="h5" sx={{ mb: 1 }}>
                 Cumulative Value Trend
             </Typography>
@@ -32,7 +32,7 @@ const ClientValueLineChart: React.FC<ClientValueLineChartProps> = ({ data, total
                 {formattedSavings}
             </Typography>
 
-            <Box sx={{ height: 300 }}>
+            <Box sx={{ height: 300, width: '100%' }}>
                 <ResponsiveLine
                     data={data}
                     margin={{ top: 10, right: 20, bottom: 50, left: 60 }}
@@ -85,7 +85,7 @@ const ClientValueLineChart: React.FC<ClientValueLineChartProps> = ({ data, total
                     ]}
                 />
             </Box>
-        </Card>
+        </Box>
     );
 };
 

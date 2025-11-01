@@ -15,52 +15,78 @@ export const ColorModeContext = createContext({ toggleColorMode: () => {} });
 const getAppTheme = (mode) => createTheme({
     palette: {
         mode,
-        // --- CALM GRAY & TEAL PALETTE (Aesthetic Colors) ---
+        // Modern gradient-inspired color palette
         primary: {
-            main: mode === 'light' ? '#5C6BC0' : '#A1C4FD',
+            main: mode === 'light' ? '#6366f1' : '#818cf8', // Indigo
+            light: mode === 'light' ? '#818cf8' : '#a5b4fc',
+            dark: mode === 'light' ? '#4f46e5' : '#6366f1',
         },
         secondary: {
-            main: mode === 'light' ? '#9AA4AE' : '#B8C1CD',
+            main: mode === 'light' ? '#8b5cf6' : '#a78bfa', // Purple
+            light: mode === 'light' ? '#a78bfa' : '#c4b5fd',
+            dark: mode === 'light' ? '#7c3aed' : '#8b5cf6',
         },
         error: {
-            main: mode === 'light' ? '#E53E33' : '#FF7E75',
-            dark: mode === 'light' ? '#B02F28' : '#CC635D',
+            main: mode === 'light' ? '#ef4444' : '#f87171',
+            dark: mode === 'light' ? '#dc2626' : '#ef4444',
         },
         success: {
-            main: mode === 'light' ? '#38B249' : '#74D97D',
+            main: mode === 'light' ? '#10b981' : '#34d399',
         },
         warning: {
-            main: mode === 'light' ? '#FFC107' : '#FFD54F',
+            main: mode === 'light' ? '#f59e0b' : '#fbbf24',
         },
         info: {
-            main: mode === 'light' ? '#2196F3' : '#64B5F6',
+            main: mode === 'light' ? '#3b82f6' : '#60a5fa',
         },
         background: {
-            default: mode === 'light' ? '#F0F3F7' : '#1C2025',
-            paper: mode === 'light' ? '#FFFFFF' : '#282C34',
+            default: mode === 'light' ? '#f8fafc' : '#0f172a', // Slate
+            paper: mode === 'light' ? '#ffffff' : '#1e293b',
         },
         text: {
-             primary: mode === 'light' ? '#212B36' : '#E0E5EB',
-             secondary: mode === 'light' ? '#6C757D' : '#9FA7B3',
+             primary: mode === 'light' ? '#1e293b' : '#f1f5f9',
+             secondary: mode === 'light' ? '#64748b' : '#94a3b8',
         },
-        divider: mode === 'light' ? '#D1D9E0' : '#39404B',
+        divider: mode === 'light' ? '#e2e8f0' : '#334155',
     },
     components: {
         MuiCssBaseline: {
             styleOverrides: (theme) => ({
                 body: {
                     backgroundColor: theme.palette.background.default,
+                    margin: 0,
+                    padding: 0,
                 },
                 html: {
                     backgroundColor: theme.palette.background.default,
                     minHeight: '100vh',
+                    width: '100%',
+                    margin: 0,
+                    padding: 0,
                 },
                 '#root': {
                     minHeight: '100vh',
+                    width: '100%',
+                    margin: 0,
+                    padding: 0,
+                },
+                '*': {
+                    boxSizing: 'border-box',
                 },
             }),
         },
-        MuiAppBar: { styleOverrides: { root: { boxShadow: 'none' } } },
+        MuiAppBar: { 
+            styleOverrides: { 
+                root: { 
+                    boxShadow: mode === 'light' 
+                        ? '0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24)'
+                        : '0 1px 3px rgba(0, 0, 0, 0.3), 0 1px 2px rgba(0, 0, 0, 0.4)',
+                    background: mode === 'light'
+                        ? 'linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%)'
+                        : 'linear-gradient(135deg, #1e293b 0%, #334155 100%)',
+                } 
+            } 
+        },
         MuiCard: { styleOverrides: { root: { borderRadius: '12px', transition: 'background-color 0.3s ease-in-out', border: 'none' } } },
         MuiTypography: { styleOverrides: { root: { color: mode === 'light' ? '#212B36' : '#E0E5EB' } } },
         MuiPaper: { styleOverrides: { root: { backgroundColor: mode === 'light' ? '#FFFFFF' : '#282C34' } } }

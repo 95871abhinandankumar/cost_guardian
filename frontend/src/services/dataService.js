@@ -1,28 +1,47 @@
-// Import the data from the mock files
-import { METRICS_MOCK_DATA } from './metricsMock';
-import { RECOMMENDATIONS_MOCK_DATA } from './recommendationsMock';
+// API service functions
+import { apiService } from './api';
 
 /**
- * MOCK DATA SERVICE:
- * This file serves as a temporary substitute for the React Query fetching hooks.
- * It provides a single point of truth for mock data and mimics API filtering logic.
+ * Data Service:
+ * Fetches real data from backend API endpoints
  */
 
-// --- Functions to be used by components (mimicking API endpoints) ---
+// --- Functions to be used by components ---
 
-export const getMetricsData = () => {
-    // In the real app, this function will contain the useQuery fetch call.
-    return METRICS_MOCK_DATA;
+export const getMetricsData = async (filters = {}) => {
+    try {
+        const params = new URLSearchParams();
+        if (filters.resource_type) params.append('resource_type', filters.resource_type);
+        if (filters.start_date) params.append('start_date', filters.start_date);
+        if (filters.end_date) params.append('end_date', filters.end_date);
+        if (filters.limit) params.append('limit', filters.limit);
+        
+        const queryString = params.toString();
+        const endpoint = `/v1/metrics${queryString ? `?${queryString}` : ''}`;
+        const data = await apiService.get(endpoint);
+        return Array.isArray(data) ? data : [];
+    } catch (error) {
+        console.error('Error fetching metrics:', error);
+        // Return empty array on error to prevent UI crashes
+        return [];
+    }
 };
 
-export const getRecommendationData = (filters = {}) => {
-    // Mimics backend filtering and sorting logic for the Action List
-    let data = RECOMMENDATIONS_MOCK_DATA;
-
-    if (filters.status) {
-        data = data.filter(r => r.action_status === filters.status);
+export const getRecommendationData = async (filters = {}) => {
+    try {
+        const params = new URLSearchParams();
+        if (filters.status) params.append('status', filters.status);
+        if (filters.resource_type) params.append('resource_type', filters.resource_type);
+        if (filters.query) params.append('query', filters.query);
+        if (filters.force_refresh) params.append('force_refresh', filters.force_refresh);
+        
+        const queryString = params.toString();
+        const endpoint = `/v1/recommendations${queryString ? `?${queryString}` : ''}`;
+        const data = await apiService.get(endpoint);
+        return Array.isArray(data) ? data : [];
+    } catch (error) {
+        console.error('Error fetching recommendations:', error);
+        // Return empty array on error to prevent UI crashes
+        return [];
     }
-
-    // In the real app, this function will contain the useQuery fetch call.
-    return data;
 };

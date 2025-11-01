@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { ResponsiveSunburst } from '@nivo/sunburst';
-import { Box, Typography, Card, CardContent, useTheme } from '@mui/material';
+import { Box, Typography, useTheme } from '@mui/material';
 
 interface CostAllocationChartProps {
     data: Array<{
@@ -36,16 +36,15 @@ const CostAllocationChart: React.FC<CostAllocationChartProps> = ({ data }) => {
     };
 
     return (
-        <Card elevation={3}>
-            <CardContent>
-                <Typography variant="h6" gutterBottom>
-                    Cost Allocation by Service & Owner
-                </Typography>
-                <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
-                    Hierarchical view of spending by service and billing owner
-                </Typography>
-                <Box sx={{ height: 400 }}>
-                    <ResponsiveSunburst
+        <Box sx={{ width: '100%', display: 'flex', flexDirection: 'column' }}>
+            <Typography variant="h6" gutterBottom>
+                Cost Allocation by Service & Owner
+            </Typography>
+            <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
+                Hierarchical view of spending by service and billing owner
+            </Typography>
+            <Box sx={{ height: 400, width: '100%' }}>
+                <ResponsiveSunburst
                         data={sunburstData}
                         margin={{ top: 40, right: 40, bottom: 40, left: 40 }}
                         id="id"
@@ -104,13 +103,12 @@ const CostAllocationChart: React.FC<CostAllocationChartProps> = ({ data }) => {
                         }}
                     />
                 </Box>
-                <Box sx={{ mt: 2 }}>
-                    <Typography variant="caption" color="text.secondary">
-                        💡 Click on segments to drill down into specific cost centers
-                    </Typography>
-                </Box>
-            </CardContent>
-        </Card>
+            <Box sx={{ mt: 2 }}>
+                <Typography variant="caption" color="text.secondary">
+                    💡 Click on segments to drill down into specific cost centers
+                </Typography>
+            </Box>
+        </Box>
     );
 };
 

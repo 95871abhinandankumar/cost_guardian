@@ -156,7 +156,7 @@ const SavingsPrioritizationTable: React.FC<SavingsPrioritizationTableProps> = ({
                                             fontWeight="bold"
                                             color="success.main"
                                         >
-                                            {((item.projectedSavings / item.currentCost) * 100).toFixed(1)}%
+                                            {item.currentCost > 0 ? ((item.projectedSavings / item.currentCost) * 100).toFixed(1) : '0'}%
                                         </Typography>
                                     </TableCell>
                                     <TableCell>
@@ -182,7 +182,7 @@ const SavingsPrioritizationTable: React.FC<SavingsPrioritizationTableProps> = ({
                 <Box sx={{ mt: 2, p: 2, bgcolor: theme.palette.grey[50], borderRadius: 1 }}>
                     <Typography variant="caption" color="text.secondary">
                         💡 <strong>Finance Insight:</strong> Focus on the top 3 recommendations for maximum budget impact. 
-                        These represent {((data.slice(0, 3).reduce((sum, item) => sum + item.projectedSavings, 0) / totalSavings) * 100).toFixed(0)}% 
+                        These represent {totalSavings > 0 ? ((data.slice(0, 3).reduce((sum, item) => sum + item.projectedSavings, 0) / totalSavings) * 100).toFixed(0) : '0'}% 
                         of total potential savings.
                     </Typography>
                 </Box>

@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { ResponsiveLine } from '@nivo/line';
-import { Box, Typography, Card, CardContent, useTheme } from '@mui/material';
+import { Box, Typography, useTheme } from '@mui/material';
 
 interface CostTrendChartProps {
     data: Array<{
@@ -19,16 +19,15 @@ const CostTrendChart: React.FC<CostTrendChartProps> = ({ data }) => {
     const theme = useTheme();
 
     return (
-        <Card elevation={3}>
-            <CardContent>
-                <Typography variant="h6" gutterBottom>
-                    Cost Trend & ROI Simulation
-                </Typography>
-                <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
-                    Visual demonstration of cost trajectory after agent's actions are applied
-                </Typography>
-                <Box sx={{ height: 400 }}>
-                    <ResponsiveLine
+        <Box sx={{ width: '100%', display: 'flex', flexDirection: 'column' }}>
+            <Typography variant="h6" gutterBottom>
+                Cost Trend & ROI Simulation
+            </Typography>
+            <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
+                Visual demonstration of cost trajectory after agent's actions are applied
+            </Typography>
+            <Box sx={{ height: 400, width: '100%' }}>
+                <ResponsiveLine
                         data={data}
                         margin={{ top: 50, right: 110, bottom: 50, left: 60 }}
                         xScale={{ type: 'point' }}
@@ -170,8 +169,7 @@ const CostTrendChart: React.FC<CostTrendChartProps> = ({ data }) => {
                         }}
                     />
                 </Box>
-            </CardContent>
-        </Card>
+        </Box>
     );
 };
 

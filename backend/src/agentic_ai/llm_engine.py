@@ -1,16 +1,19 @@
-"""Unified interface for AWS Bedrock and SageMaker with cost analysis."""
+"""Unified interface for Google Gemini API with cost analysis."""
 
-import boto3
 import json
 import logging
 import os
 import statistics
 from datetime import datetime
 from typing import Any, Dict, List, Optional, Tuple, Union
-from botocore.exceptions import BotoCoreError, ClientError
 from dotenv import load_dotenv
 from .cache_manager import CacheManager
 from .utils import sha_hash, iso_date
+from .gemini_provider import GeminiProvider
+
+# AWS imports commented out - using Gemini instead
+# import boto3
+# from botocore.exceptions import BotoCoreError, ClientError
 
 load_dotenv()
 
@@ -26,10 +29,17 @@ except Exception:
 
 logger = logging.getLogger(__name__)
 logging.basicConfig(level=logging.INFO, format="[%(asctime)s] [%(levelname)s] %(message)s")
-BEDROCK_REGION = os.getenv("BEDROCK_REGION")
-BEDROCK_MODEL_ID = os.getenv("BEDROCK_MODEL_ID")
-SAGEMAKER_ENDPOINT_ARN = os.getenv("SAGEMAKER_ENDPOINT_ARN")
-SAGEMAKER_REGION = os.getenv("SAGEMAKER_REGION", "us-east-1")
+
+# Gemini configuration
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
+GEMINI_MODEL = os.getenv("GEMINI_MODEL", "gemini-2.5-flash")
+
+# AWS configuration (commented out - kept for reference)
+# BEDROCK_REGION = os.getenv("BEDROCK_REGION")
+# BEDROCK_MODEL_ID = os.getenv("BEDROCK_MODEL_ID")
+# SAGEMAKER_ENDPOINT_ARN = os.getenv("SAGEMAKER_ENDPOINT_ARN")
+# SAGEMAKER_REGION = os.getenv("SAGEMAKER_REGION", "us-east-1")
+
 DEFAULT_DATA_PATH = os.path.join(os.getcwd(), "src", "data", "raw_data.json")
 
 Record = Dict[str, Any]
@@ -42,24 +52,43 @@ class LLMEngine:
         self._init_clients()
 
     def _init_clients(self) -> None:
+        """Initialize LLM provider clients."""
+        # Initialize Gemini provider (primary)
         try:
-            self.bedrock = boto3.client("bedrock-runtime", region_name=BEDROCK_REGION)
-            logger.info("Bedrock client initialized")
+            self.gemini = GeminiProvider(api_key=GEMINI_API_KEY, model_name=GEMINI_MODEL)
+            if self.gemini.is_available():
+                logger.info("Gemini provider initialized successfully")
+            else:
+                logger.warning("Gemini provider not available - check GEMINI_API_KEY")
+                self.gemini = None
         except Exception as e:
-            self.bedrock = None
-            logger.warning("Bedrock client unavailable: %s", e)
+            logger.error(f"Failed to initialize Gemini provider: {e}")
+            self.gemini = None
 
-        try:
-            self.sagemaker = boto3.client("sagemaker-runtime", region_name=SAGEMAKER_REGION)
-            logger.info("SageMaker client initialized")
-        except Exception as e:
-            self.sagemaker = None
-            logger.warning("SageMaker client unavailable: %s", e)
+        # AWS Bedrock client (commented out - using Gemini instead)
+        # try:
+        #     self.bedrock = boto3.client("bedrock-runtime", region_name=BEDROCK_REGION)
+        #     logger.info("Bedrock client initialized")
+        # except Exception as e:
+        #     self.bedrock = None
+        #     logger.warning("Bedrock client unavailable: %s", e)
+        self.bedrock = None  # Disabled
 
-        try:
-            self.s3 = boto3.client("s3")
-        except Exception:
-            self.s3 = None
+        # AWS SageMaker client (commented out - using Gemini instead)
+        # try:
+        #     self.sagemaker = boto3.client("sagemaker-runtime", region_name=SAGEMAKER_REGION)
+        #     logger.info("SageMaker client initialized")
+        # except Exception as e:
+        #     self.sagemaker = None
+        #     logger.warning("SageMaker client unavailable: %s", e)
+        self.sagemaker = None  # Disabled
+
+        # AWS S3 client (commented out - S3 loading still works if needed)
+        # try:
+        #     self.s3 = boto3.client("s3")
+        # except Exception:
+        #     self.s3 = None
+        self.s3 = None  # Disabled
 
     def analyze(
         self,
@@ -74,11 +103,13 @@ class LLMEngine:
         dataset_hash = sha_hash(json.dumps(dataset, sort_keys=True)) if dataset else "empty"
         cache_key = self.cache.make_key(self.tenant_id, sha_hash(f"{query}:{dataset_hash}"), iso_date())
 
-        if not force_refresh:
-            cached = self.cache.get(cache_key)
-            if cached:
-                logger.info("Cache hit - returning cached analysis.")
-                return cached
+        # CACHE DISABLED - Always run fresh analysis
+        # if not force_refresh:
+        #     cached = self.cache.get(cache_key)
+        #     if cached:
+        #         logger.info("Cache hit - returning cached analysis.")
+        #         return cached
+        logger.info("Cache disabled - running fresh analysis")
 
         # Local analysis
         anomalies, anomaly_summary = self._detect_anomalies(dataset)
@@ -89,24 +120,35 @@ class LLMEngine:
         # Build LLM prompt
         llm_prompt = self._build_prompt(query, dashboard, summary, anomalies, forecast, context, horizon_days)
 
-        # Try Bedrock or SageMaker
+        # Try Gemini (primary), then fallback to local reasoning
         llm_response = None
         used_engine = "none"
 
         try:
-            if self.bedrock and BEDROCK_MODEL_ID:
-                llm_response = self._invoke_bedrock_prompt(llm_prompt)
-                used_engine = "bedrock" if llm_response else used_engine
+            # Use Gemini provider (primary)
+            if self.gemini and self.gemini.is_available():
+                llm_response = self.gemini.invoke(llm_prompt)
+                used_engine = "gemini" if llm_response else used_engine
+                logger.info(f"Gemini invocation {'succeeded' if llm_response else 'failed'}")
 
-            if not llm_response and self.sagemaker and SAGEMAKER_ENDPOINT_ARN:
-                llm_response = self._invoke_sagemaker_prompt(llm_prompt)
-                used_engine = "sagemaker" if llm_response else used_engine
+            # AWS Bedrock fallback (commented out - using Gemini instead)
+            # if not llm_response and self.bedrock and BEDROCK_MODEL_ID:
+            #     llm_response = self._invoke_bedrock_prompt(llm_prompt)
+            #     used_engine = "bedrock" if llm_response else used_engine
+
+            # AWS SageMaker fallback (commented out - using Gemini instead)
+            # if not llm_response and self.sagemaker and SAGEMAKER_ENDPOINT_ARN:
+            #     llm_response = self._invoke_sagemaker_prompt(llm_prompt)
+            #     used_engine = "sagemaker" if llm_response else used_engine
+
         except Exception as e:
             logger.exception("Cloud model invocation error: %s", e)
 
+        # Fallback to local mock reasoning if all providers fail
         if not llm_response:
             llm_response = self._local_reasoning(summary, anomalies, forecast, dashboard)
             used_engine = "mock"
+            logger.info("Using local mock reasoning as fallback")
 
         recommendations = self._tune_recommendations(
             llm_response.get("recommendations", []), dashboard, anomalies, summary
@@ -126,7 +168,8 @@ class LLMEngine:
             "timestamp": datetime.utcnow().isoformat() + "Z",
         }
 
-        self.cache.set(cache_key, result)
+        # CACHE REMOVED - Results are stored in database (llm_analysis_results table) instead
+        # self.cache.set(cache_key, result)
         return result
 
     def _load_dataset(self, raw_data) -> List[Record]:
@@ -240,45 +283,58 @@ class LLMEngine:
         return (
             f"You are a cost analysis assistant.\n"
             f"DASHBOARD: {dashboard}\nQUERY: {query}\n"
-            f"TOP_SERVICES: {top_services}\nANOMALIES: {json.dumps(anomalies[:3])}\n"
+            f"TOP_SERVICES: {top_services}\nANOMALIES: {json.dumps(anomalies[:5], default=str)}\n"
             f"FORECAST_NEXT_{horizon_days}_DAYS: {forecast}\nCONTEXT: {context_block}\n"
-            "Return JSON with keys: intent, summary, anomalies, recommendations."
+            "Return JSON with keys: intent, summary, anomalies, recommendations.\n"
+            "CRITICAL: For 'recommendations', return an array of objects (not strings). Each recommendation object MUST include:\n"
+            "- 'action' or 'recommendation': Detailed action text describing what to do\n"
+            "- 'service_name': The AWS service name (e.g., 'RDS', 'EC2', 'S3', 'Lambda', 'Slack')\n"
+            "- 'resource_id': Resource identifier if available from anomalies\n"
+            "- 'owner': Owner/team name extracted from tags (e.g., 'team:finance', 'team:dev', 'team:it', or account_id)\n"
+            "- 'cost' or 'monthly_cost': Cost value in USD\n"
+            "- 'savings': Projected monthly savings in USD\n"
+            "- 'anomaly_score': Severity score 0-1\n"
+            "Extract owner/team information from the anomaly 'tags' field or 'account_id' field. "
+            "If owner is not found in tags, use the account_id as the owner value.\n"
+            "Example: {\"action\": \"Resize EC2 instance\", \"service_name\": \"EC2\", \"owner\": \"team:finance\", \"cost\": 150.0, \"savings\": 75.0, \"anomaly_score\": 0.8}"
         )
 
-    def _invoke_bedrock_prompt(self, prompt: str):
-        if not (self.bedrock and BEDROCK_MODEL_ID):
-            return None
-        try:
-            body = {"input": prompt}
-            resp = self.bedrock.invoke_model(
-                modelId=BEDROCK_MODEL_ID,
-                body=json.dumps(body),
-                accept="application/json",
-                contentType="application/json",
-            )
-            raw = resp["body"].read().decode("utf-8")
-            parsed = json.loads(raw)
-            return parsed
-        except Exception as e:
-            logger.warning("Bedrock invoke failed: %s", e)
-            return None
+    # AWS Bedrock invocation (commented out - using Gemini instead)
+    # def _invoke_bedrock_prompt(self, prompt: str):
+    #     if not (self.bedrock and BEDROCK_MODEL_ID):
+    #         return None
+    #     try:
+    #         body = {"input": prompt}
+    #         resp = self.bedrock.invoke_model(
+    #             modelId=BEDROCK_MODEL_ID,
+    #             body=json.dumps(body),
+    #             accept="application/json",
+    #             contentType="application/json",
+    #         )
+    #         raw = resp["body"].read().decode("utf-8")
+    #         parsed = json.loads(raw)
+    #         return parsed
+    #     except Exception as e:
+    #         logger.warning("Bedrock invoke failed: %s", e)
+    #         return None
 
-    def _invoke_sagemaker_prompt(self, prompt: str):
-        if not (self.sagemaker and SAGEMAKER_ENDPOINT_ARN):
-            return None
-        try:
-            endpoint = SAGEMAKER_ENDPOINT_ARN.split("/")[-1]
-            payload = {"prompt": prompt}
-            resp = self.sagemaker.invoke_endpoint(
-                EndpointName=endpoint,
-                Body=json.dumps(payload),
-                ContentType="application/json",
-            )
-            raw = resp["Body"].read().decode("utf-8")
-            return json.loads(raw)
-        except Exception as e:
-            logger.warning("SageMaker invoke failed: %s", e)
-            return None
+    # AWS SageMaker invocation (commented out - using Gemini instead)
+    # def _invoke_sagemaker_prompt(self, prompt: str):
+    #     if not (self.sagemaker and SAGEMAKER_ENDPOINT_ARN):
+    #         return None
+    #     try:
+    #         endpoint = SAGEMAKER_ENDPOINT_ARN.split("/")[-1]
+    #         payload = {"prompt": prompt}
+    #         resp = self.sagemaker.invoke_endpoint(
+    #             EndpointName=endpoint,
+    #             Body=json.dumps(payload),
+    #             ContentType="application/json",
+    #         )
+    #         raw = resp["Body"].read().decode("utf-8")
+    #         return json.loads(raw)
+    #     except Exception as e:
+    #         logger.warning("SageMaker invoke failed: %s", e)
+    #         return None
 
     def _local_reasoning(self, summary, anomalies, forecast, dashboard):
         recs = []
@@ -291,13 +347,32 @@ class LLMEngine:
 
     def _tune_recommendations(self, base_recs, dashboard, anomalies, summary):
         recs = list(base_recs)
+        
+        # Convert dict recommendations to strings for deduplication
+        processed_recs = []
+        seen = set()
+        for rec in recs:
+            if isinstance(rec, dict):
+                # Extract text from dict if available
+                rec_text = rec.get('recommendation') or rec.get('action') or rec.get('text') or str(rec)
+            else:
+                rec_text = str(rec)
+            
+            # Deduplicate by text content
+            rec_lower = rec_text.lower().strip()
+            if rec_lower not in seen:
+                seen.add(rec_lower)
+                processed_recs.append(rec_text)
+        
+        # Add dashboard-specific recommendations
         if dashboard == "finance":
-            recs.append("Set AWS Budget alerts at 80% and 100%.")
+            processed_recs.append("Set AWS Budget alerts at 80% and 100%.")
         if dashboard == "it":
-            recs.append("Review high CPU EC2 instances.")
+            processed_recs.append("Review high CPU EC2 instances.")
         if dashboard == "msp":
-            recs.append("Prioritize anomalies by tenant SLA.")
-        return list(dict.fromkeys(recs))  # dedupe
+            processed_recs.append("Prioritize anomalies by tenant SLA.")
+        
+        return processed_recs
 
     def _route_dashboard(self, query, dataset, anomalies):
         q = query.lower()
@@ -310,7 +385,7 @@ class LLMEngine:
         return "finance"
 
     def invoke_model(self, prompt: str, deterministic: bool = True):
-        """Invoke the Bedrock model or fallback to mock reasoning."""
+        """Invoke the Gemini model or fallback to mock reasoning."""
         try:
             return self.analyze(prompt, force_refresh=True)
         except Exception as e:

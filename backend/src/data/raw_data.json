@@ -12119,5 +12119,5135 @@
     "billing_period": "2025-09",
     "anomaly_flag": false,
     "anomaly_score": 0.0
+  },
+  {
+    "account_id": "334455667788",
+    "service_name": "EC2",
+    "usage_date": "2025-09-19",
+    "usage_quantity": 24.0,
+    "cost": 55.6298,
+    "currency": "USD",
+    "region": "eu-central-1",
+    "resource_id": "i-3a8b474f",
+    "tags": {
+      "Environment": "Prod",
+      "Team": "Dev",
+      "Owner": "team:security",
+      "Project": "project-4"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": true,
+    "anomaly_score": 0.79
+  },
+  {
+    "account_id": "890123456789",
+    "service_name": "EC2",
+    "usage_date": "2025-09-14",
+    "usage_quantity": 24.0,
+    "cost": 113.7574,
+    "currency": "USD",
+    "region": "eu-west-1",
+    "resource_id": "i-45a30b40",
+    "tags": {
+      "Environment": "NonProd",
+      "Team": "Data",
+      "Owner": "team:security",
+      "Project": "project-5"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": true,
+    "anomaly_score": 0.8
+  },
+  {
+    "account_id": "334455667788",
+    "service_name": "EC2",
+    "usage_date": "2025-09-29",
+    "usage_quantity": 24.0,
+    "cost": 51.0862,
+    "currency": "USD",
+    "region": "eu-central-1",
+    "resource_id": "i-dc36eca2",
+    "tags": {
+      "Environment": "Staging",
+      "Team": "Data",
+      "Owner": "team:dev",
+      "Project": "project-6"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": true,
+    "anomaly_score": 0.93
+  },
+  {
+    "account_id": "456789012345",
+    "service_name": "EC2",
+    "usage_date": "2025-09-20",
+    "usage_quantity": 24.0,
+    "cost": 117.4671,
+    "currency": "USD",
+    "region": "us-west-2",
+    "resource_id": "i-3601a52f",
+    "tags": {
+      "Environment": "Staging",
+      "Team": "Finance",
+      "Owner": "team:dev",
+      "Project": "project-8"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": true,
+    "anomaly_score": 0.87
+  },
+  {
+    "account_id": "334455667788",
+    "service_name": "EC2",
+    "usage_date": "2025-09-23",
+    "usage_quantity": 24.0,
+    "cost": 118.929,
+    "currency": "USD",
+    "region": "eu-central-1",
+    "resource_id": "i-81c3b6e5",
+    "tags": {
+      "Environment": "Staging",
+      "Team": "Dev",
+      "Owner": "team:dev",
+      "Project": "project-10"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": true,
+    "anomaly_score": 0.75
+  },
+  {
+    "account_id": "334455667788",
+    "service_name": "EC2",
+    "usage_date": "2025-09-07",
+    "usage_quantity": 24.0,
+    "cost": 109.7424,
+    "currency": "USD",
+    "region": "eu-west-1",
+    "resource_id": "i-6416eda9",
+    "tags": {
+      "Environment": "Dev",
+      "Team": "Dev",
+      "Owner": "team:dev",
+      "Project": "project-7"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": true,
+    "anomaly_score": 0.81
+  },
+  {
+    "account_id": "890123456789",
+    "service_name": "EC2",
+    "usage_date": "2025-09-17",
+    "usage_quantity": 24.0,
+    "cost": 70.9913,
+    "currency": "USD",
+    "region": "eu-west-1",
+    "resource_id": "i-e0926f7f",
+    "tags": {
+      "Environment": "Staging",
+      "Team": "Security",
+      "Owner": "team:marketing",
+      "Project": "project-6"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": true,
+    "anomaly_score": 0.78
+  },
+  {
+    "account_id": "223344556677",
+    "service_name": "EC2",
+    "usage_date": "2025-09-19",
+    "usage_quantity": 24.0,
+    "cost": 72.5059,
+    "currency": "USD",
+    "region": "eu-central-1",
+    "resource_id": "i-99f7ea44",
+    "tags": {
+      "Environment": "Staging",
+      "Team": "IT",
+      "Owner": "team:marketing",
+      "Project": "project-7"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": true,
+    "anomaly_score": 0.85
+  },
+  {
+    "account_id": "223344556677",
+    "service_name": "EC2",
+    "usage_date": "2025-09-03",
+    "usage_quantity": 24.0,
+    "cost": 91.0422,
+    "currency": "USD",
+    "region": "us-west-2",
+    "resource_id": "i-f70eb51e",
+    "tags": {
+      "Environment": "Dev",
+      "Team": "IT",
+      "Owner": "team:dev",
+      "Project": "project-10"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": true,
+    "anomaly_score": 0.94
+  },
+  {
+    "account_id": "001122334455",
+    "service_name": "EC2",
+    "usage_date": "2025-09-25",
+    "usage_quantity": 24.0,
+    "cost": 46.3511,
+    "currency": "USD",
+    "region": "us-west-2",
+    "resource_id": "i-225c5e6c",
+    "tags": {
+      "Environment": "Dev",
+      "Team": "Dev",
+      "Owner": "team:marketing",
+      "Project": "project-10"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": true,
+    "anomaly_score": 0.88
+  },
+  {
+    "account_id": "456789012345",
+    "service_name": "EC2",
+    "usage_date": "2025-09-16",
+    "usage_quantity": 24.0,
+    "cost": 87.8531,
+    "currency": "USD",
+    "region": "eu-west-1",
+    "resource_id": "i-e7ae70c2",
+    "tags": {
+      "Environment": "Prod",
+      "Team": "IT",
+      "Owner": "team:data",
+      "Project": "project-8"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": true,
+    "anomaly_score": 0.92
+  },
+  {
+    "account_id": "112233445566",
+    "service_name": "EC2",
+    "usage_date": "2025-09-03",
+    "usage_quantity": 24.0,
+    "cost": 45.5147,
+    "currency": "USD",
+    "region": "ap-southeast-1",
+    "resource_id": "i-f6788f90",
+    "tags": {
+      "Environment": "NonProd",
+      "Team": "Dev",
+      "Owner": "team:it",
+      "Project": "project-8"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": true,
+    "anomaly_score": 0.83
+  },
+  {
+    "account_id": "890123456789",
+    "service_name": "EC2",
+    "usage_date": "2025-09-17",
+    "usage_quantity": 24.0,
+    "cost": 101.6572,
+    "currency": "USD",
+    "region": "eu-west-1",
+    "resource_id": "i-06784a86",
+    "tags": {
+      "Environment": "Staging",
+      "Team": "IT",
+      "Owner": "team:finance",
+      "Project": "project-10"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": true,
+    "anomaly_score": 0.91
+  },
+  {
+    "account_id": "223344556677",
+    "service_name": "EC2",
+    "usage_date": "2025-09-18",
+    "usage_quantity": 24.0,
+    "cost": 91.8911,
+    "currency": "USD",
+    "region": "us-east-1",
+    "resource_id": "i-1c064969",
+    "tags": {
+      "Environment": "Staging",
+      "Team": "Finance",
+      "Owner": "team:data",
+      "Project": "project-1"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": true,
+    "anomaly_score": 0.76
+  },
+  {
+    "account_id": "112233445566",
+    "service_name": "EC2",
+    "usage_date": "2025-09-06",
+    "usage_quantity": 24.0,
+    "cost": 112.9372,
+    "currency": "USD",
+    "region": "eu-west-1",
+    "resource_id": "i-8278d2b7",
+    "tags": {
+      "Environment": "Prod",
+      "Team": "Data",
+      "Owner": "team:data",
+      "Project": "project-4"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": true,
+    "anomaly_score": 0.86
+  },
+  {
+    "account_id": "112233445566",
+    "service_name": "RDS",
+    "usage_date": "2025-09-26",
+    "usage_quantity": 24.0,
+    "cost": 117.649,
+    "currency": "USD",
+    "region": "eu-west-1",
+    "resource_id": "db-7598677891",
+    "tags": {
+      "Environment": "NonProd",
+      "Team": "Data",
+      "Owner": "team:data",
+      "CostCenter": "CC-188"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": true,
+    "anomaly_score": 0.78
+  },
+  {
+    "account_id": "223344556677",
+    "service_name": "RDS",
+    "usage_date": "2025-09-10",
+    "usage_quantity": 24.0,
+    "cost": 164.0623,
+    "currency": "USD",
+    "region": "us-east-1",
+    "resource_id": "db-1139404587",
+    "tags": {
+      "Environment": "Staging",
+      "Team": "Security",
+      "Owner": "team:data",
+      "CostCenter": "CC-925"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": true,
+    "anomaly_score": 0.72
+  },
+  {
+    "account_id": "112233445566",
+    "service_name": "RDS",
+    "usage_date": "2025-09-18",
+    "usage_quantity": 24.0,
+    "cost": 99.3528,
+    "currency": "USD",
+    "region": "us-west-2",
+    "resource_id": "db-1476338447",
+    "tags": {
+      "Environment": "Dev",
+      "Team": "Data",
+      "Owner": "team:dev",
+      "CostCenter": "CC-685"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": true,
+    "anomaly_score": 0.82
+  },
+  {
+    "account_id": "223344556677",
+    "service_name": "RDS",
+    "usage_date": "2025-09-01",
+    "usage_quantity": 24.0,
+    "cost": 79.6013,
+    "currency": "USD",
+    "region": "us-west-2",
+    "resource_id": "db-6634809735",
+    "tags": {
+      "Environment": "Staging",
+      "Team": "Dev",
+      "Owner": "team:it",
+      "CostCenter": "CC-437"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": true,
+    "anomaly_score": 0.73
+  },
+  {
+    "account_id": "223344556677",
+    "service_name": "RDS",
+    "usage_date": "2025-09-28",
+    "usage_quantity": 24.0,
+    "cost": 67.5362,
+    "currency": "USD",
+    "region": "eu-central-1",
+    "resource_id": "db-3958250305",
+    "tags": {
+      "Environment": "Staging",
+      "Team": "Security",
+      "Owner": "team:finance",
+      "CostCenter": "CC-190"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": true,
+    "anomaly_score": 0.7
+  },
+  {
+    "account_id": "456789012345",
+    "service_name": "RDS",
+    "usage_date": "2025-09-15",
+    "usage_quantity": 24.0,
+    "cost": 172.413,
+    "currency": "USD",
+    "region": "eu-central-1",
+    "resource_id": "db-4479709285",
+    "tags": {
+      "Environment": "NonProd",
+      "Team": "Dev",
+      "Owner": "team:data",
+      "CostCenter": "CC-242"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": true,
+    "anomaly_score": 0.78
+  },
+  {
+    "account_id": "112233445566",
+    "service_name": "RDS",
+    "usage_date": "2025-09-03",
+    "usage_quantity": 24.0,
+    "cost": 127.6819,
+    "currency": "USD",
+    "region": "us-east-1",
+    "resource_id": "db-7534123397",
+    "tags": {
+      "Environment": "Staging",
+      "Team": "Marketing",
+      "Owner": "team:marketing",
+      "CostCenter": "CC-336"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": true,
+    "anomaly_score": 0.76
+  },
+  {
+    "account_id": "001122334455",
+    "service_name": "RDS",
+    "usage_date": "2025-09-21",
+    "usage_quantity": 24.0,
+    "cost": 114.272,
+    "currency": "USD",
+    "region": "ap-southeast-1",
+    "resource_id": "db-6171964240",
+    "tags": {
+      "Environment": "NonProd",
+      "Team": "IT",
+      "Owner": "team:security",
+      "CostCenter": "CC-515"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": true,
+    "anomaly_score": 0.69
+  },
+  {
+    "account_id": "223344556677",
+    "service_name": "RDS",
+    "usage_date": "2025-09-03",
+    "usage_quantity": 24.0,
+    "cost": 128.4533,
+    "currency": "USD",
+    "region": "us-east-1",
+    "resource_id": "db-4883219919",
+    "tags": {
+      "Environment": "Dev",
+      "Team": "Security",
+      "Owner": "team:dev",
+      "CostCenter": "CC-544"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": true,
+    "anomaly_score": 0.8
+  },
+  {
+    "account_id": "112233445566",
+    "service_name": "RDS",
+    "usage_date": "2025-09-01",
+    "usage_quantity": 24.0,
+    "cost": 115.9525,
+    "currency": "USD",
+    "region": "eu-central-1",
+    "resource_id": "db-9650591926",
+    "tags": {
+      "Environment": "Staging",
+      "Team": "Security",
+      "Owner": "team:security",
+      "CostCenter": "CC-207"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": true,
+    "anomaly_score": 0.82
+  },
+  {
+    "account_id": "223344556677",
+    "service_name": "S3",
+    "usage_date": "2025-09-12",
+    "usage_quantity": 6217.05,
+    "cost": 111.5822,
+    "currency": "USD",
+    "region": "us-east-1",
+    "resource_id": "arn:aws:s3:::waste-bucket-0-803938",
+    "tags": {
+      "Environment": "Staging",
+      "Team": "Marketing",
+      "Owner": "owner:unknown",
+      "Project": "legacy-project"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": true,
+    "anomaly_score": 0.73
+  },
+  {
+    "account_id": "890123456789",
+    "service_name": "S3",
+    "usage_date": "2025-09-27",
+    "usage_quantity": 6433.43,
+    "cost": 157.1603,
+    "currency": "USD",
+    "region": "eu-west-1",
+    "resource_id": "arn:aws:s3:::waste-bucket-1-813634",
+    "tags": {
+      "Environment": "Prod",
+      "Team": "Security",
+      "Owner": "owner:unknown",
+      "Project": "legacy-project"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": true,
+    "anomaly_score": 0.76
+  },
+  {
+    "account_id": "001122334455",
+    "service_name": "S3",
+    "usage_date": "2025-09-07",
+    "usage_quantity": 12564.14,
+    "cost": 131.3991,
+    "currency": "USD",
+    "region": "us-east-1",
+    "resource_id": "arn:aws:s3:::waste-bucket-2-823170",
+    "tags": {
+      "Environment": "Dev",
+      "Team": "Data",
+      "Owner": "owner:unknown",
+      "Project": "legacy-project"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": true,
+    "anomaly_score": 0.78
+  },
+  {
+    "account_id": "890123456789",
+    "service_name": "S3",
+    "usage_date": "2025-09-25",
+    "usage_quantity": 6316.34,
+    "cost": 107.6002,
+    "currency": "USD",
+    "region": "us-east-1",
+    "resource_id": "arn:aws:s3:::waste-bucket-3-126104",
+    "tags": {
+      "Environment": "Staging",
+      "Team": "Finance",
+      "Owner": "owner:unknown",
+      "Project": "legacy-project"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": true,
+    "anomaly_score": 0.84
+  },
+  {
+    "account_id": "334455667788",
+    "service_name": "S3",
+    "usage_date": "2025-09-03",
+    "usage_quantity": 6533.03,
+    "cost": 173.6485,
+    "currency": "USD",
+    "region": "us-west-2",
+    "resource_id": "arn:aws:s3:::waste-bucket-4-516074",
+    "tags": {
+      "Environment": "Dev",
+      "Team": "Dev",
+      "Owner": "owner:unknown",
+      "Project": "legacy-project"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": true,
+    "anomaly_score": 0.75
+  },
+  {
+    "account_id": "001122334455",
+    "service_name": "S3",
+    "usage_date": "2025-09-14",
+    "usage_quantity": 14303.7,
+    "cost": 159.5163,
+    "currency": "USD",
+    "region": "us-east-1",
+    "resource_id": "arn:aws:s3:::waste-bucket-5-633795",
+    "tags": {
+      "Environment": "Prod",
+      "Team": "Dev",
+      "Owner": "owner:unknown",
+      "Project": "legacy-project"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": true,
+    "anomaly_score": 0.89
+  },
+  {
+    "account_id": "001122334455",
+    "service_name": "S3",
+    "usage_date": "2025-09-04",
+    "usage_quantity": 12935.47,
+    "cost": 170.1738,
+    "currency": "USD",
+    "region": "ap-southeast-1",
+    "resource_id": "arn:aws:s3:::waste-bucket-6-902152",
+    "tags": {
+      "Environment": "Dev",
+      "Team": "Finance",
+      "Owner": "owner:unknown",
+      "Project": "legacy-project"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": true,
+    "anomaly_score": 0.7
+  },
+  {
+    "account_id": "456789012345",
+    "service_name": "S3",
+    "usage_date": "2025-09-10",
+    "usage_quantity": 7840.2,
+    "cost": 91.0976,
+    "currency": "USD",
+    "region": "ap-southeast-1",
+    "resource_id": "arn:aws:s3:::waste-bucket-7-519939",
+    "tags": {
+      "Environment": "Prod",
+      "Team": "Finance",
+      "Owner": "owner:unknown",
+      "Project": "legacy-project"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": true,
+    "anomaly_score": 0.88
+  },
+  {
+    "account_id": "223344556677",
+    "service_name": "S3",
+    "usage_date": "2025-09-16",
+    "usage_quantity": 10667.94,
+    "cost": 129.0269,
+    "currency": "USD",
+    "region": "us-west-2",
+    "resource_id": "arn:aws:s3:::waste-bucket-8-654243",
+    "tags": {
+      "Environment": "Dev",
+      "Team": "Data",
+      "Owner": "owner:unknown",
+      "Project": "legacy-project"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": true,
+    "anomaly_score": 0.72
+  },
+  {
+    "account_id": "890123456789",
+    "service_name": "S3",
+    "usage_date": "2025-09-14",
+    "usage_quantity": 13782.39,
+    "cost": 163.0298,
+    "currency": "USD",
+    "region": "us-east-1",
+    "resource_id": "arn:aws:s3:::waste-bucket-9-265339",
+    "tags": {
+      "Environment": "NonProd",
+      "Team": "Security",
+      "Owner": "owner:unknown",
+      "Project": "legacy-project"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": true,
+    "anomaly_score": 0.83
+  },
+  {
+    "account_id": "112233445566",
+    "service_name": "S3",
+    "usage_date": "2025-09-20",
+    "usage_quantity": 13193.55,
+    "cost": 108.9804,
+    "currency": "USD",
+    "region": "ap-southeast-1",
+    "resource_id": "arn:aws:s3:::waste-bucket-10-950675",
+    "tags": {
+      "Environment": "Prod",
+      "Team": "Security",
+      "Owner": "owner:unknown",
+      "Project": "legacy-project"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": true,
+    "anomaly_score": 0.75
+  },
+  {
+    "account_id": "334455667788",
+    "service_name": "S3",
+    "usage_date": "2025-09-23",
+    "usage_quantity": 11467.08,
+    "cost": 124.5464,
+    "currency": "USD",
+    "region": "us-east-1",
+    "resource_id": "arn:aws:s3:::waste-bucket-11-483934",
+    "tags": {
+      "Environment": "NonProd",
+      "Team": "IT",
+      "Owner": "owner:unknown",
+      "Project": "legacy-project"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": true,
+    "anomaly_score": 0.83
+  },
+  {
+    "account_id": "456789012345",
+    "service_name": "Zoom",
+    "usage_date": "2025-09-17",
+    "usage_quantity": 1.0,
+    "cost": 23.6947,
+    "currency": "USD",
+    "region": "global",
+    "resource_id": "zoom-license-\u4e82245640",
+    "tags": {
+      "Environment": "Prod",
+      "Team": "Dev",
+      "Owner": "team:dev",
+      "SeatType": "Premium"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": true,
+    "anomaly_score": 0.95
+  },
+  {
+    "account_id": "334455667788",
+    "service_name": "Slack",
+    "usage_date": "2025-09-03",
+    "usage_quantity": 1.0,
+    "cost": 13.7369,
+    "currency": "USD",
+    "region": "global",
+    "resource_id": "slack-license-\u4e82636283",
+    "tags": {
+      "Environment": "Prod",
+      "Team": "Security",
+      "Owner": "team:data",
+      "SeatType": "Premium"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": true,
+    "anomaly_score": 0.95
+  },
+  {
+    "account_id": "334455667788",
+    "service_name": "Slack",
+    "usage_date": "2025-09-24",
+    "usage_quantity": 1.0,
+    "cost": 15.8655,
+    "currency": "USD",
+    "region": "global",
+    "resource_id": "slack-license-\u4e82737559",
+    "tags": {
+      "Environment": "Prod",
+      "Team": "Dev",
+      "Owner": "team:finance",
+      "SeatType": "Enterprise"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": true,
+    "anomaly_score": 0.95
+  },
+  {
+    "account_id": "890123456789",
+    "service_name": "Zoom",
+    "usage_date": "2025-09-16",
+    "usage_quantity": 1.0,
+    "cost": 23.122,
+    "currency": "USD",
+    "region": "global",
+    "resource_id": "zoom-license-\u4e82173667",
+    "tags": {
+      "Environment": "Prod",
+      "Team": "IT",
+      "Owner": "team:data",
+      "SeatType": "Basic"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": true,
+    "anomaly_score": 0.95
+  },
+  {
+    "account_id": "334455667788",
+    "service_name": "Zoom",
+    "usage_date": "2025-09-07",
+    "usage_quantity": 1.0,
+    "cost": 22.2563,
+    "currency": "USD",
+    "region": "global",
+    "resource_id": "zoom-license-\u4e82954357",
+    "tags": {
+      "Environment": "Prod",
+      "Team": "Dev",
+      "Owner": "team:security",
+      "SeatType": "Enterprise"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": true,
+    "anomaly_score": 0.95
+  },
+  {
+    "account_id": "890123456789",
+    "service_name": "Slack",
+    "usage_date": "2025-09-01",
+    "usage_quantity": 1.0,
+    "cost": 13.9011,
+    "currency": "USD",
+    "region": "global",
+    "resource_id": "slack-license-\u4e82255184",
+    "tags": {
+      "Environment": "Prod",
+      "Team": "Finance",
+      "Owner": "team:dev",
+      "SeatType": "Premium"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": true,
+    "anomaly_score": 0.95
+  },
+  {
+    "account_id": "112233445566",
+    "service_name": "Slack",
+    "usage_date": "2025-09-03",
+    "usage_quantity": 1.0,
+    "cost": 19.3564,
+    "currency": "USD",
+    "region": "global",
+    "resource_id": "slack-license-\u4e82285603",
+    "tags": {
+      "Environment": "Prod",
+      "Team": "Marketing",
+      "Owner": "team:security",
+      "SeatType": "Enterprise"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": true,
+    "anomaly_score": 0.95
+  },
+  {
+    "account_id": "223344556677",
+    "service_name": "Slack",
+    "usage_date": "2025-09-17",
+    "usage_quantity": 1.0,
+    "cost": 19.7929,
+    "currency": "USD",
+    "region": "global",
+    "resource_id": "zoom-license-\u4e82881716",
+    "tags": {
+      "Environment": "Prod",
+      "Team": "Security",
+      "Owner": "team:data",
+      "SeatType": "Premium"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": true,
+    "anomaly_score": 0.95
+  },
+  {
+    "account_id": "001122334455",
+    "service_name": "EBS",
+    "usage_date": "2025-09-21",
+    "usage_quantity": 534.9,
+    "cost": 346.2093,
+    "currency": "USD",
+    "region": "us-east-1",
+    "resource_id": "ebs-29f1739f",
+    "tags": {
+      "Environment": "NonProd",
+      "Team": "IT",
+      "Owner": "team:marketing",
+      "Project": "project-10"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.01
+  },
+  {
+    "account_id": "112233445566",
+    "service_name": "EBS",
+    "usage_date": "2025-09-21",
+    "usage_quantity": 464.63,
+    "cost": 22.9219,
+    "currency": "USD",
+    "region": "eu-west-1",
+    "resource_id": "ebs-85123d2d",
+    "tags": {
+      "Environment": "NonProd",
+      "Team": "Finance",
+      "Owner": "team:data",
+      "Project": "project-12"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": true,
+    "anomaly_score": 0.82
+  },
+  {
+    "account_id": "112233445566",
+    "service_name": "EBS",
+    "usage_date": "2025-09-30",
+    "usage_quantity": 681.35,
+    "cost": 444.0325,
+    "currency": "USD",
+    "region": "us-east-1",
+    "resource_id": "ebs-d3423119",
+    "tags": {
+      "Environment": "Dev",
+      "Team": "Marketing",
+      "Owner": "team:security",
+      "Project": "project-7"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.05
+  },
+  {
+    "account_id": "112233445566",
+    "service_name": "EBS",
+    "usage_date": "2025-09-04",
+    "usage_quantity": 654.62,
+    "cost": 466.7716,
+    "currency": "USD",
+    "region": "ap-southeast-1",
+    "resource_id": "ebs-b8d6f6f0",
+    "tags": {
+      "Environment": "Prod",
+      "Team": "Dev",
+      "Owner": "team:marketing",
+      "Project": "project-8"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.2
+  },
+  {
+    "account_id": "112233445566",
+    "service_name": "EBS",
+    "usage_date": "2025-09-12",
+    "usage_quantity": 602.95,
+    "cost": 262.415,
+    "currency": "USD",
+    "region": "us-east-1",
+    "resource_id": "ebs-dd0d855c",
+    "tags": {
+      "Environment": "Prod",
+      "Team": "Finance",
+      "Owner": "owner:unknown",
+      "Project": "project-4"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.23
+  },
+  {
+    "account_id": "456789012345",
+    "service_name": "EBS",
+    "usage_date": "2025-09-28",
+    "usage_quantity": 358.49,
+    "cost": 368.1735,
+    "currency": "USD",
+    "region": "ap-southeast-1",
+    "resource_id": "ebs-6490ed5c",
+    "tags": {
+      "Environment": "Staging",
+      "Team": "Security",
+      "Owner": "team:it",
+      "Project": "project-5"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.05
+  },
+  {
+    "account_id": "456789012345",
+    "service_name": "EBS",
+    "usage_date": "2025-09-28",
+    "usage_quantity": 806.33,
+    "cost": 183.0387,
+    "currency": "USD",
+    "region": "ap-southeast-1",
+    "resource_id": "ebs-55754137",
+    "tags": {
+      "Environment": "Prod",
+      "Team": "Finance",
+      "Owner": "team:security",
+      "Project": "project-11"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": true,
+    "anomaly_score": 0.84
+  },
+  {
+    "account_id": "334455667788",
+    "service_name": "EBS",
+    "usage_date": "2025-09-19",
+    "usage_quantity": 782.49,
+    "cost": 260.5211,
+    "currency": "USD",
+    "region": "ap-southeast-1",
+    "resource_id": "ebs-43ece8fa",
+    "tags": {
+      "Environment": "NonProd",
+      "Team": "IT",
+      "Owner": "team:it",
+      "Project": "project-12"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.21
+  },
+  {
+    "account_id": "001122334455",
+    "service_name": "EBS",
+    "usage_date": "2025-09-29",
+    "usage_quantity": 201.32,
+    "cost": 411.6207,
+    "currency": "USD",
+    "region": "us-east-1",
+    "resource_id": "ebs-b816c72e",
+    "tags": {
+      "Environment": "Staging",
+      "Team": "Security",
+      "Owner": "team:it",
+      "Project": "project-4"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": true,
+    "anomaly_score": 0.81
+  },
+  {
+    "account_id": "223344556677",
+    "service_name": "EBS",
+    "usage_date": "2025-09-04",
+    "usage_quantity": 519.94,
+    "cost": 102.2648,
+    "currency": "USD",
+    "region": "us-east-1",
+    "resource_id": "ebs-04a4a727",
+    "tags": {
+      "Environment": "NonProd",
+      "Team": "Security",
+      "Owner": "team:security",
+      "Project": "project-15"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": true,
+    "anomaly_score": 0.94
+  },
+  {
+    "account_id": "112233445566",
+    "service_name": "EBS",
+    "usage_date": "2025-09-24",
+    "usage_quantity": 417.76,
+    "cost": 60.8368,
+    "currency": "USD",
+    "region": "us-east-1",
+    "resource_id": "ebs-4aa809ce",
+    "tags": {
+      "Environment": "Prod",
+      "Team": "Dev",
+      "Owner": "team:marketing",
+      "Project": "project-11"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.18
+  },
+  {
+    "account_id": "890123456789",
+    "service_name": "EBS",
+    "usage_date": "2025-09-08",
+    "usage_quantity": 818.12,
+    "cost": 299.5615,
+    "currency": "USD",
+    "region": "ap-southeast-1",
+    "resource_id": "ebs-f82b1dd7",
+    "tags": {
+      "Environment": "Dev",
+      "Team": "IT",
+      "Owner": "team:dev",
+      "Project": "project-11"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.19
+  },
+  {
+    "account_id": "334455667788",
+    "service_name": "EBS",
+    "usage_date": "2025-09-01",
+    "usage_quantity": 708.33,
+    "cost": 119.9136,
+    "currency": "USD",
+    "region": "ap-southeast-1",
+    "resource_id": "ebs-5075fd7c",
+    "tags": {
+      "Environment": "Staging",
+      "Team": "Marketing",
+      "Owner": "team:it",
+      "Project": "project-1"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.29
+  },
+  {
+    "account_id": "890123456789",
+    "service_name": "EBS",
+    "usage_date": "2025-09-19",
+    "usage_quantity": 530.37,
+    "cost": 294.2816,
+    "currency": "USD",
+    "region": "us-west-2",
+    "resource_id": "ebs-f9a53117",
+    "tags": {
+      "Environment": "Prod",
+      "Team": "Data",
+      "Owner": "team:data",
+      "Project": "project-11"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.05
+  },
+  {
+    "account_id": "001122334455",
+    "service_name": "EBS",
+    "usage_date": "2025-09-02",
+    "usage_quantity": 724.65,
+    "cost": 3.9292,
+    "currency": "USD",
+    "region": "eu-central-1",
+    "resource_id": "ebs-bcce5400",
+    "tags": {
+      "Environment": "Dev",
+      "Team": "Data",
+      "Owner": "team:data",
+      "Project": "project-9"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.2
+  },
+  {
+    "account_id": "456789012345",
+    "service_name": "EBS",
+    "usage_date": "2025-09-26",
+    "usage_quantity": 335.85,
+    "cost": 93.4735,
+    "currency": "USD",
+    "region": "eu-central-1",
+    "resource_id": "ebs-eaa99864",
+    "tags": {
+      "Environment": "Staging",
+      "Team": "Security",
+      "Owner": "team:data",
+      "Project": "project-10"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.02
+  },
+  {
+    "account_id": "334455667788",
+    "service_name": "EBS",
+    "usage_date": "2025-09-08",
+    "usage_quantity": 562.17,
+    "cost": 415.2618,
+    "currency": "USD",
+    "region": "eu-central-1",
+    "resource_id": "ebs-f57dbd01",
+    "tags": {
+      "Environment": "Dev",
+      "Team": "Data",
+      "Owner": "team:dev",
+      "Project": "project-13"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.07
+  },
+  {
+    "account_id": "456789012345",
+    "service_name": "EBS",
+    "usage_date": "2025-09-10",
+    "usage_quantity": 725.71,
+    "cost": 320.3256,
+    "currency": "USD",
+    "region": "eu-central-1",
+    "resource_id": "ebs-1c94536f",
+    "tags": {
+      "Environment": "Prod",
+      "Team": "Finance",
+      "Owner": "team:finance",
+      "Project": "project-3"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": true,
+    "anomaly_score": 0.93
+  },
+  {
+    "account_id": "001122334455",
+    "service_name": "EBS",
+    "usage_date": "2025-09-09",
+    "usage_quantity": 324.09,
+    "cost": 333.4228,
+    "currency": "USD",
+    "region": "eu-central-1",
+    "resource_id": "ebs-76e257af",
+    "tags": {
+      "Environment": "Prod",
+      "Team": "Dev",
+      "Owner": "team:security",
+      "Project": "project-6"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.08
+  },
+  {
+    "account_id": "112233445566",
+    "service_name": "EBS",
+    "usage_date": "2025-09-03",
+    "usage_quantity": 879.81,
+    "cost": 164.4359,
+    "currency": "USD",
+    "region": "ap-southeast-1",
+    "resource_id": "ebs-bf06d605",
+    "tags": {
+      "Environment": "Prod",
+      "Team": "Marketing",
+      "Owner": "team:it",
+      "Project": "project-4"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.24
+  },
+  {
+    "account_id": "001122334455",
+    "service_name": "EBS",
+    "usage_date": "2025-09-21",
+    "usage_quantity": 17.53,
+    "cost": 209.4549,
+    "currency": "USD",
+    "region": "us-west-2",
+    "resource_id": "ebs-c722114c",
+    "tags": {
+      "Environment": "Staging",
+      "Team": "Security",
+      "Owner": "team:marketing",
+      "Project": "project-9"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.05
+  },
+  {
+    "account_id": "001122334455",
+    "service_name": "EBS",
+    "usage_date": "2025-09-07",
+    "usage_quantity": 606.05,
+    "cost": 262.4314,
+    "currency": "USD",
+    "region": "eu-west-1",
+    "resource_id": "ebs-1cc53615",
+    "tags": {
+      "Environment": "Dev",
+      "Team": "Security",
+      "Owner": "team:finance",
+      "Project": "project-10"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.22
+  },
+  {
+    "account_id": "334455667788",
+    "service_name": "EBS",
+    "usage_date": "2025-09-04",
+    "usage_quantity": 325.96,
+    "cost": 245.4349,
+    "currency": "USD",
+    "region": "eu-west-1",
+    "resource_id": "ebs-ceca7059",
+    "tags": {
+      "Environment": "NonProd",
+      "Team": "Data",
+      "Owner": "team:dev",
+      "Project": "project-13"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.2
+  },
+  {
+    "account_id": "334455667788",
+    "service_name": "EBS",
+    "usage_date": "2025-09-27",
+    "usage_quantity": 931.13,
+    "cost": 156.5851,
+    "currency": "USD",
+    "region": "us-east-1",
+    "resource_id": "ebs-35df8393",
+    "tags": {
+      "Environment": "Staging",
+      "Team": "Marketing",
+      "Owner": "team:it",
+      "Project": "project-10"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.1
+  },
+  {
+    "account_id": "890123456789",
+    "service_name": "EBS",
+    "usage_date": "2025-09-03",
+    "usage_quantity": 816.73,
+    "cost": 14.5342,
+    "currency": "USD",
+    "region": "us-west-2",
+    "resource_id": "ebs-8eb213d7",
+    "tags": {
+      "Environment": "Prod",
+      "Team": "Marketing",
+      "Owner": "team:dev",
+      "Project": "project-6"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.1
+  },
+  {
+    "account_id": "001122334455",
+    "service_name": "EBS",
+    "usage_date": "2025-09-21",
+    "usage_quantity": 106.09,
+    "cost": 431.5548,
+    "currency": "USD",
+    "region": "eu-west-1",
+    "resource_id": "ebs-a9610be9",
+    "tags": {
+      "Environment": "Staging",
+      "Team": "IT",
+      "Owner": "team:it",
+      "Project": "project-12"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.04
+  },
+  {
+    "account_id": "334455667788",
+    "service_name": "EBS",
+    "usage_date": "2025-09-07",
+    "usage_quantity": 21.7,
+    "cost": 48.1313,
+    "currency": "USD",
+    "region": "eu-west-1",
+    "resource_id": "ebs-897dd3a4",
+    "tags": {
+      "Environment": "Staging",
+      "Team": "IT",
+      "Owner": "team:dev",
+      "Project": "project-15"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.11
+  },
+  {
+    "account_id": "223344556677",
+    "service_name": "EBS",
+    "usage_date": "2025-09-11",
+    "usage_quantity": 985.79,
+    "cost": 335.098,
+    "currency": "USD",
+    "region": "us-west-2",
+    "resource_id": "ebs-1f39caaf",
+    "tags": {
+      "Environment": "NonProd",
+      "Team": "Security",
+      "Owner": "team:finance",
+      "Project": "project-4"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.07
+  },
+  {
+    "account_id": "890123456789",
+    "service_name": "EBS",
+    "usage_date": "2025-09-20",
+    "usage_quantity": 276.38,
+    "cost": 412.0042,
+    "currency": "USD",
+    "region": "us-west-2",
+    "resource_id": "ebs-178834e3",
+    "tags": {
+      "Environment": "NonProd",
+      "Team": "IT",
+      "Owner": "team:finance",
+      "Project": "project-11"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.02
+  },
+  {
+    "account_id": "456789012345",
+    "service_name": "EBS",
+    "usage_date": "2025-09-29",
+    "usage_quantity": 966.21,
+    "cost": 45.0588,
+    "currency": "USD",
+    "region": "us-east-1",
+    "resource_id": "ebs-cce4d273",
+    "tags": {
+      "Environment": "Dev",
+      "Team": "Security",
+      "Owner": "team:marketing",
+      "Project": "project-5"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.22
+  },
+  {
+    "account_id": "112233445566",
+    "service_name": "CloudWatch",
+    "usage_date": "2025-09-16",
+    "usage_quantity": 602.48,
+    "cost": 31.6574,
+    "currency": "USD",
+    "region": "us-east-1",
+    "resource_id": "cloudwatch-0863f659",
+    "tags": {
+      "Environment": "Staging",
+      "Team": "Security",
+      "Owner": "team:it",
+      "Project": "project-15"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": true,
+    "anomaly_score": 0.9
+  },
+  {
+    "account_id": "223344556677",
+    "service_name": "CloudWatch",
+    "usage_date": "2025-09-28",
+    "usage_quantity": 401.12,
+    "cost": 54.978,
+    "currency": "USD",
+    "region": "eu-west-1",
+    "resource_id": "cloudwatch-2a3359ff",
+    "tags": {
+      "Environment": "Dev",
+      "Team": "Security",
+      "Owner": "owner:unknown",
+      "Project": "project-12"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.17
+  },
+  {
+    "account_id": "112233445566",
+    "service_name": "CloudWatch",
+    "usage_date": "2025-09-11",
+    "usage_quantity": 949.33,
+    "cost": 92.3326,
+    "currency": "USD",
+    "region": "ap-southeast-1",
+    "resource_id": "cloudwatch-1ad16734",
+    "tags": {
+      "Environment": "NonProd",
+      "Team": "IT",
+      "Owner": "owner:unknown",
+      "Project": "project-3"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.06
+  },
+  {
+    "account_id": "112233445566",
+    "service_name": "CloudWatch",
+    "usage_date": "2025-09-01",
+    "usage_quantity": 342.9,
+    "cost": 32.2244,
+    "currency": "USD",
+    "region": "eu-west-1",
+    "resource_id": "cloudwatch-ddf18e0e",
+    "tags": {
+      "Environment": "Staging",
+      "Team": "Data",
+      "Owner": "team:security",
+      "Project": "project-6"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.04
+  },
+  {
+    "account_id": "001122334455",
+    "service_name": "CloudWatch",
+    "usage_date": "2025-09-20",
+    "usage_quantity": 893.6,
+    "cost": 61.666,
+    "currency": "USD",
+    "region": "eu-west-1",
+    "resource_id": "cloudwatch-9dd0842a",
+    "tags": {
+      "Environment": "NonProd",
+      "Team": "Dev",
+      "Owner": "team:dev",
+      "Project": "project-10"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.21
+  },
+  {
+    "account_id": "223344556677",
+    "service_name": "CloudWatch",
+    "usage_date": "2025-09-23",
+    "usage_quantity": 756.45,
+    "cost": 61.97,
+    "currency": "USD",
+    "region": "eu-central-1",
+    "resource_id": "cloudwatch-e967e877",
+    "tags": {
+      "Environment": "Dev",
+      "Team": "Data",
+      "Owner": "owner:unknown",
+      "Project": "project-2"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.18
+  },
+  {
+    "account_id": "890123456789",
+    "service_name": "CloudWatch",
+    "usage_date": "2025-09-13",
+    "usage_quantity": 342.91,
+    "cost": 43.8427,
+    "currency": "USD",
+    "region": "eu-central-1",
+    "resource_id": "cloudwatch-e5f53ca6",
+    "tags": {
+      "Environment": "NonProd",
+      "Team": "Security",
+      "Owner": "team:security",
+      "Project": "project-7"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.19
+  },
+  {
+    "account_id": "223344556677",
+    "service_name": "CloudWatch",
+    "usage_date": "2025-09-12",
+    "usage_quantity": 623.12,
+    "cost": 44.6034,
+    "currency": "USD",
+    "region": "us-east-1",
+    "resource_id": "cloudwatch-3cd7b9f4",
+    "tags": {
+      "Environment": "Staging",
+      "Team": "Dev",
+      "Owner": "team:data",
+      "Project": "project-7"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.29
+  },
+  {
+    "account_id": "890123456789",
+    "service_name": "CloudWatch",
+    "usage_date": "2025-09-20",
+    "usage_quantity": 392.62,
+    "cost": 42.8876,
+    "currency": "USD",
+    "region": "eu-west-1",
+    "resource_id": "cloudwatch-8eb988ed",
+    "tags": {
+      "Environment": "Staging",
+      "Team": "Data",
+      "Owner": "team:dev",
+      "Project": "project-14"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.27
+  },
+  {
+    "account_id": "334455667788",
+    "service_name": "CloudWatch",
+    "usage_date": "2025-09-11",
+    "usage_quantity": 732.68,
+    "cost": 7.3576,
+    "currency": "USD",
+    "region": "us-west-2",
+    "resource_id": "cloudwatch-c6da16f1",
+    "tags": {
+      "Environment": "Dev",
+      "Team": "Finance",
+      "Owner": "team:finance",
+      "Project": "project-7"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.06
+  },
+  {
+    "account_id": "334455667788",
+    "service_name": "CloudWatch",
+    "usage_date": "2025-09-30",
+    "usage_quantity": 270.92,
+    "cost": 48.0761,
+    "currency": "USD",
+    "region": "eu-west-1",
+    "resource_id": "cloudwatch-6b84c4ab",
+    "tags": {
+      "Environment": "Dev",
+      "Team": "Data",
+      "Owner": "owner:unknown",
+      "Project": "project-7"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.1
+  },
+  {
+    "account_id": "456789012345",
+    "service_name": "CloudWatch",
+    "usage_date": "2025-09-05",
+    "usage_quantity": 411.99,
+    "cost": 66.7718,
+    "currency": "USD",
+    "region": "eu-central-1",
+    "resource_id": "cloudwatch-11adf58f",
+    "tags": {
+      "Environment": "Prod",
+      "Team": "Marketing",
+      "Owner": "team:it",
+      "Project": "project-10"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.19
+  },
+  {
+    "account_id": "456789012345",
+    "service_name": "CloudWatch",
+    "usage_date": "2025-09-09",
+    "usage_quantity": 683.86,
+    "cost": 97.2677,
+    "currency": "USD",
+    "region": "us-west-2",
+    "resource_id": "cloudwatch-f23e67fd",
+    "tags": {
+      "Environment": "NonProd",
+      "Team": "IT",
+      "Owner": "team:security",
+      "Project": "project-12"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": true,
+    "anomaly_score": 0.93
+  },
+  {
+    "account_id": "112233445566",
+    "service_name": "CloudWatch",
+    "usage_date": "2025-09-21",
+    "usage_quantity": 51.36,
+    "cost": 81.0798,
+    "currency": "USD",
+    "region": "eu-west-1",
+    "resource_id": "cloudwatch-f6953a8f",
+    "tags": {
+      "Environment": "Prod",
+      "Team": "Finance",
+      "Owner": "team:it",
+      "Project": "project-12"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.13
+  },
+  {
+    "account_id": "456789012345",
+    "service_name": "CloudWatch",
+    "usage_date": "2025-09-26",
+    "usage_quantity": 811.47,
+    "cost": 1.0594,
+    "currency": "USD",
+    "region": "us-east-1",
+    "resource_id": "cloudwatch-95b437a8",
+    "tags": {
+      "Environment": "Dev",
+      "Team": "Data",
+      "Owner": "team:marketing",
+      "Project": "project-12"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.11
+  },
+  {
+    "account_id": "334455667788",
+    "service_name": "CloudWatch",
+    "usage_date": "2025-09-24",
+    "usage_quantity": 60.61,
+    "cost": 73.4452,
+    "currency": "USD",
+    "region": "eu-west-1",
+    "resource_id": "cloudwatch-088b7a12",
+    "tags": {
+      "Environment": "Dev",
+      "Team": "IT",
+      "Owner": "team:it",
+      "Project": "project-5"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.07
+  },
+  {
+    "account_id": "001122334455",
+    "service_name": "CloudWatch",
+    "usage_date": "2025-09-27",
+    "usage_quantity": 745.07,
+    "cost": 96.9843,
+    "currency": "USD",
+    "region": "us-west-2",
+    "resource_id": "cloudwatch-be9c973a",
+    "tags": {
+      "Environment": "Prod",
+      "Team": "Data",
+      "Owner": "team:it",
+      "Project": "project-15"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.02
+  },
+  {
+    "account_id": "001122334455",
+    "service_name": "CloudWatch",
+    "usage_date": "2025-09-24",
+    "usage_quantity": 422.03,
+    "cost": 21.0472,
+    "currency": "USD",
+    "region": "eu-central-1",
+    "resource_id": "cloudwatch-8e3d4e22",
+    "tags": {
+      "Environment": "Dev",
+      "Team": "IT",
+      "Owner": "team:data",
+      "Project": "project-12"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.29
+  },
+  {
+    "account_id": "001122334455",
+    "service_name": "CloudWatch",
+    "usage_date": "2025-09-30",
+    "usage_quantity": 169.71,
+    "cost": 13.4907,
+    "currency": "USD",
+    "region": "eu-central-1",
+    "resource_id": "cloudwatch-99b743ad",
+    "tags": {
+      "Environment": "Dev",
+      "Team": "Finance",
+      "Owner": "team:it",
+      "Project": "project-14"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.09
+  },
+  {
+    "account_id": "001122334455",
+    "service_name": "CloudWatch",
+    "usage_date": "2025-09-06",
+    "usage_quantity": 765.12,
+    "cost": 29.2435,
+    "currency": "USD",
+    "region": "ap-southeast-1",
+    "resource_id": "cloudwatch-0d07b18f",
+    "tags": {
+      "Environment": "Dev",
+      "Team": "Security",
+      "Owner": "team:data",
+      "Project": "project-11"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.17
+  },
+  {
+    "account_id": "456789012345",
+    "service_name": "CloudWatch",
+    "usage_date": "2025-09-04",
+    "usage_quantity": 626.0,
+    "cost": 74.9294,
+    "currency": "USD",
+    "region": "us-west-2",
+    "resource_id": "cloudwatch-3608f34a",
+    "tags": {
+      "Environment": "Staging",
+      "Team": "Marketing",
+      "Owner": "team:security",
+      "Project": "project-9"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.0
+  },
+  {
+    "account_id": "112233445566",
+    "service_name": "CloudWatch",
+    "usage_date": "2025-09-28",
+    "usage_quantity": 388.51,
+    "cost": 76.2533,
+    "currency": "USD",
+    "region": "eu-west-1",
+    "resource_id": "cloudwatch-8cc8eb01",
+    "tags": {
+      "Environment": "Staging",
+      "Team": "IT",
+      "Owner": "team:it",
+      "Project": "project-15"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.27
+  },
+  {
+    "account_id": "456789012345",
+    "service_name": "CloudWatch",
+    "usage_date": "2025-09-20",
+    "usage_quantity": 363.47,
+    "cost": 94.3808,
+    "currency": "USD",
+    "region": "eu-west-1",
+    "resource_id": "cloudwatch-c0067743",
+    "tags": {
+      "Environment": "NonProd",
+      "Team": "Finance",
+      "Owner": "team:dev",
+      "Project": "project-9"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.21
+  },
+  {
+    "account_id": "112233445566",
+    "service_name": "CloudWatch",
+    "usage_date": "2025-09-01",
+    "usage_quantity": 884.36,
+    "cost": 61.725,
+    "currency": "USD",
+    "region": "eu-west-1",
+    "resource_id": "cloudwatch-729b2031",
+    "tags": {
+      "Environment": "NonProd",
+      "Team": "Dev",
+      "Owner": "team:finance",
+      "Project": "project-4"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.15
+  },
+  {
+    "account_id": "223344556677",
+    "service_name": "CloudWatch",
+    "usage_date": "2025-09-22",
+    "usage_quantity": 100.03,
+    "cost": 52.5407,
+    "currency": "USD",
+    "region": "eu-west-1",
+    "resource_id": "cloudwatch-6efc2198",
+    "tags": {
+      "Environment": "NonProd",
+      "Team": "Marketing",
+      "Owner": "team:data",
+      "Project": "project-6"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": true,
+    "anomaly_score": 0.93
+  },
+  {
+    "account_id": "001122334455",
+    "service_name": "ECS",
+    "usage_date": "2025-09-04",
+    "usage_quantity": 285.66,
+    "cost": 350.2982,
+    "currency": "USD",
+    "region": "us-east-1",
+    "resource_id": "ecs-f0132e1d",
+    "tags": {
+      "Environment": "Dev",
+      "Team": "Marketing",
+      "Owner": "team:it",
+      "Project": "project-2"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.17
+  },
+  {
+    "account_id": "223344556677",
+    "service_name": "ECS",
+    "usage_date": "2025-09-16",
+    "usage_quantity": 346.23,
+    "cost": 112.8054,
+    "currency": "USD",
+    "region": "eu-central-1",
+    "resource_id": "ecs-50ad7bc4",
+    "tags": {
+      "Environment": "Dev",
+      "Team": "IT",
+      "Owner": "team:finance",
+      "Project": "project-2"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.28
+  },
+  {
+    "account_id": "112233445566",
+    "service_name": "ECS",
+    "usage_date": "2025-09-22",
+    "usage_quantity": 819.16,
+    "cost": 33.4759,
+    "currency": "USD",
+    "region": "us-east-1",
+    "resource_id": "ecs-50ec612a",
+    "tags": {
+      "Environment": "NonProd",
+      "Team": "Dev",
+      "Owner": "team:security",
+      "Project": "project-1"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.13
+  },
+  {
+    "account_id": "112233445566",
+    "service_name": "ECS",
+    "usage_date": "2025-09-03",
+    "usage_quantity": 627.06,
+    "cost": 237.6791,
+    "currency": "USD",
+    "region": "us-west-2",
+    "resource_id": "ecs-ea8053a5",
+    "tags": {
+      "Environment": "Prod",
+      "Team": "Dev",
+      "Owner": "team:finance",
+      "Project": "project-11"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.06
+  },
+  {
+    "account_id": "890123456789",
+    "service_name": "ECS",
+    "usage_date": "2025-09-15",
+    "usage_quantity": 156.89,
+    "cost": 374.8419,
+    "currency": "USD",
+    "region": "eu-west-1",
+    "resource_id": "ecs-e81933d2",
+    "tags": {
+      "Environment": "NonProd",
+      "Team": "Finance",
+      "Owner": "team:security",
+      "Project": "project-2"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": true,
+    "anomaly_score": 0.91
+  },
+  {
+    "account_id": "001122334455",
+    "service_name": "ECS",
+    "usage_date": "2025-09-28",
+    "usage_quantity": 449.94,
+    "cost": 127.6802,
+    "currency": "USD",
+    "region": "eu-central-1",
+    "resource_id": "ecs-9a1e1083",
+    "tags": {
+      "Environment": "Dev",
+      "Team": "Data",
+      "Owner": "team:finance",
+      "Project": "project-10"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.07
+  },
+  {
+    "account_id": "890123456789",
+    "service_name": "ECS",
+    "usage_date": "2025-09-15",
+    "usage_quantity": 683.69,
+    "cost": 119.533,
+    "currency": "USD",
+    "region": "us-east-1",
+    "resource_id": "ecs-ba202095",
+    "tags": {
+      "Environment": "Staging",
+      "Team": "Marketing",
+      "Owner": "team:it",
+      "Project": "project-15"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.05
+  },
+  {
+    "account_id": "890123456789",
+    "service_name": "ECS",
+    "usage_date": "2025-09-14",
+    "usage_quantity": 951.85,
+    "cost": 85.2414,
+    "currency": "USD",
+    "region": "eu-central-1",
+    "resource_id": "ecs-d24d2373",
+    "tags": {
+      "Environment": "Staging",
+      "Team": "Marketing",
+      "Owner": "team:finance",
+      "Project": "project-8"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.17
+  },
+  {
+    "account_id": "334455667788",
+    "service_name": "ECS",
+    "usage_date": "2025-09-07",
+    "usage_quantity": 681.85,
+    "cost": 372.5337,
+    "currency": "USD",
+    "region": "ap-southeast-1",
+    "resource_id": "ecs-c0498516",
+    "tags": {
+      "Environment": "Dev",
+      "Team": "Data",
+      "Owner": "team:finance",
+      "Project": "project-1"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.11
+  },
+  {
+    "account_id": "456789012345",
+    "service_name": "ECS",
+    "usage_date": "2025-09-08",
+    "usage_quantity": 568.57,
+    "cost": 186.194,
+    "currency": "USD",
+    "region": "us-east-1",
+    "resource_id": "ecs-f81f35e9",
+    "tags": {
+      "Environment": "Staging",
+      "Team": "Data",
+      "Owner": "team:it",
+      "Project": "project-9"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.18
+  },
+  {
+    "account_id": "112233445566",
+    "service_name": "ECS",
+    "usage_date": "2025-09-26",
+    "usage_quantity": 70.15,
+    "cost": 352.2727,
+    "currency": "USD",
+    "region": "us-east-1",
+    "resource_id": "ecs-2b88cc1c",
+    "tags": {
+      "Environment": "Dev",
+      "Team": "Finance",
+      "Owner": "team:marketing",
+      "Project": "project-14"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.03
+  },
+  {
+    "account_id": "890123456789",
+    "service_name": "ECS",
+    "usage_date": "2025-09-03",
+    "usage_quantity": 283.11,
+    "cost": 383.6457,
+    "currency": "USD",
+    "region": "ap-southeast-1",
+    "resource_id": "ecs-595fbf81",
+    "tags": {
+      "Environment": "Dev",
+      "Team": "Security",
+      "Owner": "team:it",
+      "Project": "project-11"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.08
+  },
+  {
+    "account_id": "334455667788",
+    "service_name": "ECS",
+    "usage_date": "2025-09-10",
+    "usage_quantity": 379.73,
+    "cost": 248.3346,
+    "currency": "USD",
+    "region": "us-east-1",
+    "resource_id": "ecs-03a3bc20",
+    "tags": {
+      "Environment": "Staging",
+      "Team": "Data",
+      "Owner": "owner:unknown",
+      "Project": "project-4"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.01
+  },
+  {
+    "account_id": "223344556677",
+    "service_name": "ECS",
+    "usage_date": "2025-09-12",
+    "usage_quantity": 891.53,
+    "cost": 253.4288,
+    "currency": "USD",
+    "region": "us-east-1",
+    "resource_id": "ecs-5091cec8",
+    "tags": {
+      "Environment": "Staging",
+      "Team": "Dev",
+      "Owner": "team:finance",
+      "Project": "project-6"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.11
+  },
+  {
+    "account_id": "112233445566",
+    "service_name": "ECS",
+    "usage_date": "2025-09-27",
+    "usage_quantity": 90.68,
+    "cost": 294.999,
+    "currency": "USD",
+    "region": "eu-central-1",
+    "resource_id": "ecs-cd9f0711",
+    "tags": {
+      "Environment": "Prod",
+      "Team": "Data",
+      "Owner": "owner:unknown",
+      "Project": "project-12"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.08
+  },
+  {
+    "account_id": "890123456789",
+    "service_name": "ECS",
+    "usage_date": "2025-09-21",
+    "usage_quantity": 657.45,
+    "cost": 16.9002,
+    "currency": "USD",
+    "region": "eu-west-1",
+    "resource_id": "ecs-b5f2450c",
+    "tags": {
+      "Environment": "NonProd",
+      "Team": "Security",
+      "Owner": "team:dev",
+      "Project": "project-2"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.09
+  },
+  {
+    "account_id": "456789012345",
+    "service_name": "ECS",
+    "usage_date": "2025-09-26",
+    "usage_quantity": 364.64,
+    "cost": 25.3129,
+    "currency": "USD",
+    "region": "ap-southeast-1",
+    "resource_id": "ecs-56f288c4",
+    "tags": {
+      "Environment": "Dev",
+      "Team": "IT",
+      "Owner": "team:security",
+      "Project": "project-14"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": true,
+    "anomaly_score": 0.87
+  },
+  {
+    "account_id": "223344556677",
+    "service_name": "ECS",
+    "usage_date": "2025-09-23",
+    "usage_quantity": 959.83,
+    "cost": 359.6741,
+    "currency": "USD",
+    "region": "us-west-2",
+    "resource_id": "ecs-c7746526",
+    "tags": {
+      "Environment": "Dev",
+      "Team": "Security",
+      "Owner": "team:marketing",
+      "Project": "project-12"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.1
+  },
+  {
+    "account_id": "001122334455",
+    "service_name": "ECS",
+    "usage_date": "2025-09-14",
+    "usage_quantity": 381.21,
+    "cost": 259.1127,
+    "currency": "USD",
+    "region": "eu-west-1",
+    "resource_id": "ecs-6fd43276",
+    "tags": {
+      "Environment": "Dev",
+      "Team": "Data",
+      "Owner": "team:data",
+      "Project": "project-2"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": true,
+    "anomaly_score": 0.9
+  },
+  {
+    "account_id": "112233445566",
+    "service_name": "ECS",
+    "usage_date": "2025-09-22",
+    "usage_quantity": 579.83,
+    "cost": 273.5357,
+    "currency": "USD",
+    "region": "eu-central-1",
+    "resource_id": "ecs-1a5e7ae6",
+    "tags": {
+      "Environment": "Staging",
+      "Team": "IT",
+      "Owner": "owner:unknown",
+      "Project": "project-13"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.09
+  },
+  {
+    "account_id": "223344556677",
+    "service_name": "Datadog",
+    "usage_date": "2025-09-05",
+    "usage_quantity": 54.3,
+    "cost": 66.8118,
+    "currency": "USD",
+    "region": "us-west-2",
+    "resource_id": "datadog-a5f8496d",
+    "tags": {
+      "Environment": "Staging",
+      "Team": "Marketing",
+      "Owner": "team:marketing",
+      "Project": "project-4"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.29
+  },
+  {
+    "account_id": "112233445566",
+    "service_name": "Datadog",
+    "usage_date": "2025-09-10",
+    "usage_quantity": 27.0,
+    "cost": 165.2056,
+    "currency": "USD",
+    "region": "eu-west-1",
+    "resource_id": "datadog-99f26789",
+    "tags": {
+      "Environment": "Staging",
+      "Team": "Finance",
+      "Owner": "team:dev",
+      "Project": "project-9"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.29
+  },
+  {
+    "account_id": "456789012345",
+    "service_name": "Datadog",
+    "usage_date": "2025-09-27",
+    "usage_quantity": 74.25,
+    "cost": 228.3473,
+    "currency": "USD",
+    "region": "us-west-2",
+    "resource_id": "datadog-ea58d86c",
+    "tags": {
+      "Environment": "Dev",
+      "Team": "Marketing",
+      "Owner": "team:dev",
+      "Project": "project-6"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.05
+  },
+  {
+    "account_id": "112233445566",
+    "service_name": "Datadog",
+    "usage_date": "2025-09-05",
+    "usage_quantity": 13.4,
+    "cost": 212.9062,
+    "currency": "USD",
+    "region": "us-east-1",
+    "resource_id": "datadog-d234700f",
+    "tags": {
+      "Environment": "Dev",
+      "Team": "IT",
+      "Owner": "team:security",
+      "Project": "project-1"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.19
+  },
+  {
+    "account_id": "223344556677",
+    "service_name": "Datadog",
+    "usage_date": "2025-09-07",
+    "usage_quantity": 415.71,
+    "cost": 256.6345,
+    "currency": "USD",
+    "region": "eu-west-1",
+    "resource_id": "datadog-f0dccefd",
+    "tags": {
+      "Environment": "Staging",
+      "Team": "Finance",
+      "Owner": "team:marketing",
+      "Project": "project-14"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.13
+  },
+  {
+    "account_id": "001122334455",
+    "service_name": "Datadog",
+    "usage_date": "2025-09-05",
+    "usage_quantity": 476.32,
+    "cost": 230.6319,
+    "currency": "USD",
+    "region": "ap-southeast-1",
+    "resource_id": "datadog-3f80f0e7",
+    "tags": {
+      "Environment": "NonProd",
+      "Team": "Marketing",
+      "Owner": "team:finance",
+      "Project": "project-6"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.27
+  },
+  {
+    "account_id": "890123456789",
+    "service_name": "Datadog",
+    "usage_date": "2025-09-10",
+    "usage_quantity": 184.34,
+    "cost": 296.6736,
+    "currency": "USD",
+    "region": "eu-central-1",
+    "resource_id": "datadog-fca177bd",
+    "tags": {
+      "Environment": "NonProd",
+      "Team": "Security",
+      "Owner": "team:marketing",
+      "Project": "project-13"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.17
+  },
+  {
+    "account_id": "001122334455",
+    "service_name": "Datadog",
+    "usage_date": "2025-09-16",
+    "usage_quantity": 14.68,
+    "cost": 80.6834,
+    "currency": "USD",
+    "region": "us-west-2",
+    "resource_id": "datadog-668efcb2",
+    "tags": {
+      "Environment": "Dev",
+      "Team": "IT",
+      "Owner": "team:marketing",
+      "Project": "project-11"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.24
+  },
+  {
+    "account_id": "890123456789",
+    "service_name": "Datadog",
+    "usage_date": "2025-09-28",
+    "usage_quantity": 82.38,
+    "cost": 189.9733,
+    "currency": "USD",
+    "region": "us-east-1",
+    "resource_id": "datadog-11ec40b1",
+    "tags": {
+      "Environment": "NonProd",
+      "Team": "Finance",
+      "Owner": "team:dev",
+      "Project": "project-11"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.1
+  },
+  {
+    "account_id": "112233445566",
+    "service_name": "Datadog",
+    "usage_date": "2025-09-24",
+    "usage_quantity": 799.46,
+    "cost": 235.008,
+    "currency": "USD",
+    "region": "eu-west-1",
+    "resource_id": "datadog-aea7e41c",
+    "tags": {
+      "Environment": "Dev",
+      "Team": "Finance",
+      "Owner": "team:it",
+      "Project": "project-9"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.03
+  },
+  {
+    "account_id": "112233445566",
+    "service_name": "Datadog",
+    "usage_date": "2025-09-19",
+    "usage_quantity": 271.13,
+    "cost": 71.8697,
+    "currency": "USD",
+    "region": "eu-west-1",
+    "resource_id": "datadog-3186999f",
+    "tags": {
+      "Environment": "Prod",
+      "Team": "IT",
+      "Owner": "team:dev",
+      "Project": "project-7"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.01
+  },
+  {
+    "account_id": "890123456789",
+    "service_name": "Datadog",
+    "usage_date": "2025-09-19",
+    "usage_quantity": 183.73,
+    "cost": 56.5811,
+    "currency": "USD",
+    "region": "us-west-2",
+    "resource_id": "datadog-2129c590",
+    "tags": {
+      "Environment": "NonProd",
+      "Team": "Security",
+      "Owner": "team:marketing",
+      "Project": "project-13"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.14
+  },
+  {
+    "account_id": "001122334455",
+    "service_name": "Datadog",
+    "usage_date": "2025-09-09",
+    "usage_quantity": 14.46,
+    "cost": 287.7971,
+    "currency": "USD",
+    "region": "ap-southeast-1",
+    "resource_id": "datadog-251df135",
+    "tags": {
+      "Environment": "Dev",
+      "Team": "Security",
+      "Owner": "team:dev",
+      "Project": "project-14"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.2
+  },
+  {
+    "account_id": "890123456789",
+    "service_name": "Datadog",
+    "usage_date": "2025-09-30",
+    "usage_quantity": 92.27,
+    "cost": 284.5253,
+    "currency": "USD",
+    "region": "us-west-2",
+    "resource_id": "datadog-b679823a",
+    "tags": {
+      "Environment": "Dev",
+      "Team": "Finance",
+      "Owner": "team:data",
+      "Project": "project-11"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.23
+  },
+  {
+    "account_id": "223344556677",
+    "service_name": "Datadog",
+    "usage_date": "2025-09-04",
+    "usage_quantity": 462.25,
+    "cost": 10.113,
+    "currency": "USD",
+    "region": "ap-southeast-1",
+    "resource_id": "datadog-cad51cea",
+    "tags": {
+      "Environment": "NonProd",
+      "Team": "Finance",
+      "Owner": "team:marketing",
+      "Project": "project-3"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.29
+  },
+  {
+    "account_id": "001122334455",
+    "service_name": "EC2",
+    "usage_date": "2025-09-18",
+    "usage_quantity": 24.0,
+    "cost": 83.4108,
+    "currency": "USD",
+    "region": "us-east-1",
+    "resource_id": "i-a578cc9a",
+    "tags": {
+      "Environment": "NonProd",
+      "Team": "Marketing",
+      "Owner": "team:marketing",
+      "Project": "project-9"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": true,
+    "anomaly_score": 0.76
+  },
+  {
+    "account_id": "334455667788",
+    "service_name": "EC2",
+    "usage_date": "2025-09-07",
+    "usage_quantity": 24.0,
+    "cost": 116.4441,
+    "currency": "USD",
+    "region": "ap-southeast-1",
+    "resource_id": "i-c7dd386f",
+    "tags": {
+      "Environment": "Prod",
+      "Team": "Marketing",
+      "Owner": "team:finance",
+      "Project": "project-4"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": true,
+    "anomaly_score": 0.79
+  },
+  {
+    "account_id": "456789012345",
+    "service_name": "EC2",
+    "usage_date": "2025-09-01",
+    "usage_quantity": 24.0,
+    "cost": 117.1601,
+    "currency": "USD",
+    "region": "ap-southeast-1",
+    "resource_id": "i-744f9d09",
+    "tags": {
+      "Environment": "Dev",
+      "Team": "Dev",
+      "Owner": "team:data",
+      "Project": "project-7"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": true,
+    "anomaly_score": 0.9
+  },
+  {
+    "account_id": "890123456789",
+    "service_name": "EC2",
+    "usage_date": "2025-09-26",
+    "usage_quantity": 24.0,
+    "cost": 73.4644,
+    "currency": "USD",
+    "region": "eu-central-1",
+    "resource_id": "i-d442fc58",
+    "tags": {
+      "Environment": "Prod",
+      "Team": "Dev",
+      "Owner": "team:marketing",
+      "Project": "project-5"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": true,
+    "anomaly_score": 0.89
+  },
+  {
+    "account_id": "890123456789",
+    "service_name": "EC2",
+    "usage_date": "2025-09-01",
+    "usage_quantity": 24.0,
+    "cost": 114.2619,
+    "currency": "USD",
+    "region": "us-east-1",
+    "resource_id": "i-64163510",
+    "tags": {
+      "Environment": "Staging",
+      "Team": "Security",
+      "Owner": "team:marketing",
+      "Project": "project-8"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": true,
+    "anomaly_score": 0.92
+  },
+  {
+    "account_id": "890123456789",
+    "service_name": "EC2",
+    "usage_date": "2025-09-09",
+    "usage_quantity": 24.0,
+    "cost": 88.9114,
+    "currency": "USD",
+    "region": "ap-southeast-1",
+    "resource_id": "i-d72bf8ee",
+    "tags": {
+      "Environment": "Prod",
+      "Team": "Dev",
+      "Owner": "team:finance",
+      "Project": "project-10"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": true,
+    "anomaly_score": 0.86
+  },
+  {
+    "account_id": "890123456789",
+    "service_name": "EC2",
+    "usage_date": "2025-09-28",
+    "usage_quantity": 24.0,
+    "cost": 103.4499,
+    "currency": "USD",
+    "region": "us-east-1",
+    "resource_id": "i-a4c62a77",
+    "tags": {
+      "Environment": "Staging",
+      "Team": "Marketing",
+      "Owner": "team:security",
+      "Project": "project-9"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": true,
+    "anomaly_score": 0.88
+  },
+  {
+    "account_id": "890123456789",
+    "service_name": "EC2",
+    "usage_date": "2025-09-03",
+    "usage_quantity": 24.0,
+    "cost": 112.5239,
+    "currency": "USD",
+    "region": "eu-central-1",
+    "resource_id": "i-cd37ae95",
+    "tags": {
+      "Environment": "Staging",
+      "Team": "Data",
+      "Owner": "team:it",
+      "Project": "project-2"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": true,
+    "anomaly_score": 0.76
+  },
+  {
+    "account_id": "334455667788",
+    "service_name": "EC2",
+    "usage_date": "2025-09-04",
+    "usage_quantity": 24.0,
+    "cost": 90.9699,
+    "currency": "USD",
+    "region": "us-west-2",
+    "resource_id": "i-a5b48e12",
+    "tags": {
+      "Environment": "NonProd",
+      "Team": "Finance",
+      "Owner": "team:security",
+      "Project": "project-8"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": true,
+    "anomaly_score": 0.8
+  },
+  {
+    "account_id": "334455667788",
+    "service_name": "EC2",
+    "usage_date": "2025-09-12",
+    "usage_quantity": 24.0,
+    "cost": 73.1246,
+    "currency": "USD",
+    "region": "eu-central-1",
+    "resource_id": "i-ed57fec7",
+    "tags": {
+      "Environment": "Staging",
+      "Team": "IT",
+      "Owner": "team:dev",
+      "Project": "project-9"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": true,
+    "anomaly_score": 0.89
+  },
+  {
+    "account_id": "112233445566",
+    "service_name": "EC2",
+    "usage_date": "2025-09-28",
+    "usage_quantity": 24.0,
+    "cost": 96.6532,
+    "currency": "USD",
+    "region": "us-east-1",
+    "resource_id": "i-09b99963",
+    "tags": {
+      "Environment": "NonProd",
+      "Team": "Security",
+      "Owner": "team:it",
+      "Project": "project-5"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": true,
+    "anomaly_score": 0.81
+  },
+  {
+    "account_id": "456789012345",
+    "service_name": "EC2",
+    "usage_date": "2025-09-02",
+    "usage_quantity": 24.0,
+    "cost": 94.3,
+    "currency": "USD",
+    "region": "eu-west-1",
+    "resource_id": "i-36cdeaa1",
+    "tags": {
+      "Environment": "NonProd",
+      "Team": "IT",
+      "Owner": "team:marketing",
+      "Project": "project-2"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": true,
+    "anomaly_score": 0.86
+  },
+  {
+    "account_id": "890123456789",
+    "service_name": "EC2",
+    "usage_date": "2025-09-08",
+    "usage_quantity": 24.0,
+    "cost": 114.4272,
+    "currency": "USD",
+    "region": "ap-southeast-1",
+    "resource_id": "i-ba119c92",
+    "tags": {
+      "Environment": "NonProd",
+      "Team": "IT",
+      "Owner": "team:it",
+      "Project": "project-6"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": true,
+    "anomaly_score": 0.94
+  },
+  {
+    "account_id": "112233445566",
+    "service_name": "EC2",
+    "usage_date": "2025-09-17",
+    "usage_quantity": 24.0,
+    "cost": 76.5708,
+    "currency": "USD",
+    "region": "eu-west-1",
+    "resource_id": "i-6d76bcfa",
+    "tags": {
+      "Environment": "Dev",
+      "Team": "Marketing",
+      "Owner": "team:finance",
+      "Project": "project-6"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": true,
+    "anomaly_score": 0.91
+  },
+  {
+    "account_id": "890123456789",
+    "service_name": "EC2",
+    "usage_date": "2025-09-12",
+    "usage_quantity": 24.0,
+    "cost": 89.9402,
+    "currency": "USD",
+    "region": "eu-central-1",
+    "resource_id": "i-719a0c10",
+    "tags": {
+      "Environment": "NonProd",
+      "Team": "Data",
+      "Owner": "team:dev",
+      "Project": "project-5"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": true,
+    "anomaly_score": 0.91
+  },
+  {
+    "account_id": "112233445566",
+    "service_name": "RDS",
+    "usage_date": "2025-09-28",
+    "usage_quantity": 24.0,
+    "cost": 99.6177,
+    "currency": "USD",
+    "region": "us-west-2",
+    "resource_id": "db-7785036308",
+    "tags": {
+      "Environment": "Dev",
+      "Team": "Data",
+      "Owner": "team:security",
+      "CostCenter": "CC-517"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": true,
+    "anomaly_score": 0.71
+  },
+  {
+    "account_id": "334455667788",
+    "service_name": "RDS",
+    "usage_date": "2025-09-30",
+    "usage_quantity": 24.0,
+    "cost": 137.066,
+    "currency": "USD",
+    "region": "us-east-1",
+    "resource_id": "db-3240706273",
+    "tags": {
+      "Environment": "Dev",
+      "Team": "IT",
+      "Owner": "team:data",
+      "CostCenter": "CC-732"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": true,
+    "anomaly_score": 0.66
+  },
+  {
+    "account_id": "456789012345",
+    "service_name": "RDS",
+    "usage_date": "2025-09-24",
+    "usage_quantity": 24.0,
+    "cost": 59.33,
+    "currency": "USD",
+    "region": "us-east-1",
+    "resource_id": "db-4051495125",
+    "tags": {
+      "Environment": "Staging",
+      "Team": "IT",
+      "Owner": "team:marketing",
+      "CostCenter": "CC-974"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": true,
+    "anomaly_score": 0.69
+  },
+  {
+    "account_id": "334455667788",
+    "service_name": "RDS",
+    "usage_date": "2025-09-29",
+    "usage_quantity": 24.0,
+    "cost": 118.9485,
+    "currency": "USD",
+    "region": "ap-southeast-1",
+    "resource_id": "db-1816879159",
+    "tags": {
+      "Environment": "NonProd",
+      "Team": "Dev",
+      "Owner": "team:data",
+      "CostCenter": "CC-755"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": true,
+    "anomaly_score": 0.81
+  },
+  {
+    "account_id": "334455667788",
+    "service_name": "RDS",
+    "usage_date": "2025-09-05",
+    "usage_quantity": 24.0,
+    "cost": 51.5131,
+    "currency": "USD",
+    "region": "us-east-1",
+    "resource_id": "db-5815500172",
+    "tags": {
+      "Environment": "Staging",
+      "Team": "Finance",
+      "Owner": "team:data",
+      "CostCenter": "CC-375"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": true,
+    "anomaly_score": 0.72
+  },
+  {
+    "account_id": "890123456789",
+    "service_name": "RDS",
+    "usage_date": "2025-09-02",
+    "usage_quantity": 24.0,
+    "cost": 128.9877,
+    "currency": "USD",
+    "region": "us-west-2",
+    "resource_id": "db-7932731816",
+    "tags": {
+      "Environment": "Dev",
+      "Team": "Data",
+      "Owner": "team:finance",
+      "CostCenter": "CC-727"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": true,
+    "anomaly_score": 0.82
+  },
+  {
+    "account_id": "001122334455",
+    "service_name": "RDS",
+    "usage_date": "2025-09-25",
+    "usage_quantity": 24.0,
+    "cost": 113.2704,
+    "currency": "USD",
+    "region": "ap-southeast-1",
+    "resource_id": "db-7142565080",
+    "tags": {
+      "Environment": "Dev",
+      "Team": "Finance",
+      "Owner": "team:dev",
+      "CostCenter": "CC-715"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": true,
+    "anomaly_score": 0.77
+  },
+  {
+    "account_id": "112233445566",
+    "service_name": "RDS",
+    "usage_date": "2025-09-16",
+    "usage_quantity": 24.0,
+    "cost": 137.9831,
+    "currency": "USD",
+    "region": "us-east-1",
+    "resource_id": "db-7165406821",
+    "tags": {
+      "Environment": "NonProd",
+      "Team": "Finance",
+      "Owner": "team:data",
+      "CostCenter": "CC-818"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": true,
+    "anomaly_score": 0.82
+  },
+  {
+    "account_id": "001122334455",
+    "service_name": "RDS",
+    "usage_date": "2025-09-08",
+    "usage_quantity": 24.0,
+    "cost": 170.2574,
+    "currency": "USD",
+    "region": "us-west-2",
+    "resource_id": "db-1730900242",
+    "tags": {
+      "Environment": "Dev",
+      "Team": "Finance",
+      "Owner": "team:data",
+      "CostCenter": "CC-291"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": true,
+    "anomaly_score": 0.74
+  },
+  {
+    "account_id": "112233445566",
+    "service_name": "RDS",
+    "usage_date": "2025-09-03",
+    "usage_quantity": 24.0,
+    "cost": 91.0405,
+    "currency": "USD",
+    "region": "us-west-2",
+    "resource_id": "db-9516326456",
+    "tags": {
+      "Environment": "Staging",
+      "Team": "Data",
+      "Owner": "team:data",
+      "CostCenter": "CC-933"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": true,
+    "anomaly_score": 0.79
+  },
+  {
+    "account_id": "001122334455",
+    "service_name": "S3",
+    "usage_date": "2025-09-13",
+    "usage_quantity": 9686.16,
+    "cost": 198.1524,
+    "currency": "USD",
+    "region": "us-east-1",
+    "resource_id": "arn:aws:s3:::waste-bucket-0-813161",
+    "tags": {
+      "Environment": "Dev",
+      "Team": "Data",
+      "Owner": "owner:unknown",
+      "Project": "legacy-project"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": true,
+    "anomaly_score": 0.86
+  },
+  {
+    "account_id": "112233445566",
+    "service_name": "S3",
+    "usage_date": "2025-09-22",
+    "usage_quantity": 13036.71,
+    "cost": 194.7969,
+    "currency": "USD",
+    "region": "us-west-2",
+    "resource_id": "arn:aws:s3:::waste-bucket-1-674616",
+    "tags": {
+      "Environment": "Prod",
+      "Team": "Security",
+      "Owner": "owner:unknown",
+      "Project": "legacy-project"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": true,
+    "anomaly_score": 0.79
+  },
+  {
+    "account_id": "112233445566",
+    "service_name": "S3",
+    "usage_date": "2025-09-24",
+    "usage_quantity": 10263.25,
+    "cost": 145.0287,
+    "currency": "USD",
+    "region": "ap-southeast-1",
+    "resource_id": "arn:aws:s3:::waste-bucket-2-731992",
+    "tags": {
+      "Environment": "Prod",
+      "Team": "Security",
+      "Owner": "owner:unknown",
+      "Project": "legacy-project"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": true,
+    "anomaly_score": 0.74
+  },
+  {
+    "account_id": "001122334455",
+    "service_name": "S3",
+    "usage_date": "2025-09-08",
+    "usage_quantity": 8959.17,
+    "cost": 137.438,
+    "currency": "USD",
+    "region": "us-east-1",
+    "resource_id": "arn:aws:s3:::waste-bucket-3-107778",
+    "tags": {
+      "Environment": "Dev",
+      "Team": "Security",
+      "Owner": "owner:unknown",
+      "Project": "legacy-project"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": true,
+    "anomaly_score": 0.77
+  },
+  {
+    "account_id": "456789012345",
+    "service_name": "S3",
+    "usage_date": "2025-09-09",
+    "usage_quantity": 12888.73,
+    "cost": 146.3743,
+    "currency": "USD",
+    "region": "eu-west-1",
+    "resource_id": "arn:aws:s3:::waste-bucket-4-977589",
+    "tags": {
+      "Environment": "NonProd",
+      "Team": "Finance",
+      "Owner": "owner:unknown",
+      "Project": "legacy-project"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": true,
+    "anomaly_score": 0.71
+  },
+  {
+    "account_id": "112233445566",
+    "service_name": "S3",
+    "usage_date": "2025-09-09",
+    "usage_quantity": 9788.59,
+    "cost": 115.9222,
+    "currency": "USD",
+    "region": "ap-southeast-1",
+    "resource_id": "arn:aws:s3:::waste-bucket-5-125184",
+    "tags": {
+      "Environment": "NonProd",
+      "Team": "Marketing",
+      "Owner": "owner:unknown",
+      "Project": "legacy-project"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": true,
+    "anomaly_score": 0.75
+  },
+  {
+    "account_id": "112233445566",
+    "service_name": "S3",
+    "usage_date": "2025-09-08",
+    "usage_quantity": 12875.43,
+    "cost": 158.7201,
+    "currency": "USD",
+    "region": "eu-west-1",
+    "resource_id": "arn:aws:s3:::waste-bucket-6-353081",
+    "tags": {
+      "Environment": "Prod",
+      "Team": "Marketing",
+      "Owner": "owner:unknown",
+      "Project": "legacy-project"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": true,
+    "anomaly_score": 0.88
+  },
+  {
+    "account_id": "112233445566",
+    "service_name": "S3",
+    "usage_date": "2025-09-09",
+    "usage_quantity": 9467.71,
+    "cost": 127.3663,
+    "currency": "USD",
+    "region": "us-east-1",
+    "resource_id": "arn:aws:s3:::waste-bucket-7-306727",
+    "tags": {
+      "Environment": "Dev",
+      "Team": "Finance",
+      "Owner": "owner:unknown",
+      "Project": "legacy-project"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": true,
+    "anomaly_score": 0.88
+  },
+  {
+    "account_id": "112233445566",
+    "service_name": "S3",
+    "usage_date": "2025-09-18",
+    "usage_quantity": 5311.09,
+    "cost": 91.8414,
+    "currency": "USD",
+    "region": "ap-southeast-1",
+    "resource_id": "arn:aws:s3:::waste-bucket-8-994297",
+    "tags": {
+      "Environment": "NonProd",
+      "Team": "Marketing",
+      "Owner": "owner:unknown",
+      "Project": "legacy-project"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": true,
+    "anomaly_score": 0.87
+  },
+  {
+    "account_id": "001122334455",
+    "service_name": "S3",
+    "usage_date": "2025-09-09",
+    "usage_quantity": 7676.61,
+    "cost": 116.0407,
+    "currency": "USD",
+    "region": "eu-west-1",
+    "resource_id": "arn:aws:s3:::waste-bucket-9-499009",
+    "tags": {
+      "Environment": "Staging",
+      "Team": "Marketing",
+      "Owner": "owner:unknown",
+      "Project": "legacy-project"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": true,
+    "anomaly_score": 0.84
+  },
+  {
+    "account_id": "112233445566",
+    "service_name": "S3",
+    "usage_date": "2025-09-26",
+    "usage_quantity": 14049.88,
+    "cost": 175.0665,
+    "currency": "USD",
+    "region": "us-east-1",
+    "resource_id": "arn:aws:s3:::waste-bucket-10-076705",
+    "tags": {
+      "Environment": "Staging",
+      "Team": "Data",
+      "Owner": "owner:unknown",
+      "Project": "legacy-project"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": true,
+    "anomaly_score": 0.76
+  },
+  {
+    "account_id": "456789012345",
+    "service_name": "S3",
+    "usage_date": "2025-09-10",
+    "usage_quantity": 7133.14,
+    "cost": 205.1952,
+    "currency": "USD",
+    "region": "us-east-1",
+    "resource_id": "arn:aws:s3:::waste-bucket-11-345797",
+    "tags": {
+      "Environment": "Dev",
+      "Team": "IT",
+      "Owner": "owner:unknown",
+      "Project": "legacy-project"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": true,
+    "anomaly_score": 0.77
+  },
+  {
+    "account_id": "456789012345",
+    "service_name": "Slack",
+    "usage_date": "2025-09-09",
+    "usage_quantity": 1.0,
+    "cost": 19.5586,
+    "currency": "USD",
+    "region": "global",
+    "resource_id": "zoom-license-702842",
+    "tags": {
+      "Environment": "Prod",
+      "Team": "Dev",
+      "Owner": "team:security",
+      "SeatType": "Enterprise"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": true,
+    "anomaly_score": 0.95
+  },
+  {
+    "account_id": "456789012345",
+    "service_name": "Zoom",
+    "usage_date": "2025-09-12",
+    "usage_quantity": 1.0,
+    "cost": 22.7664,
+    "currency": "USD",
+    "region": "global",
+    "resource_id": "zoom-license-196617",
+    "tags": {
+      "Environment": "Prod",
+      "Team": "IT",
+      "Owner": "team:security",
+      "SeatType": "Enterprise"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": true,
+    "anomaly_score": 0.95
+  },
+  {
+    "account_id": "001122334455",
+    "service_name": "Slack",
+    "usage_date": "2025-09-03",
+    "usage_quantity": 1.0,
+    "cost": 20.4357,
+    "currency": "USD",
+    "region": "global",
+    "resource_id": "slack-license-271587",
+    "tags": {
+      "Environment": "Prod",
+      "Team": "IT",
+      "Owner": "team:it",
+      "SeatType": "Enterprise"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": true,
+    "anomaly_score": 0.95
+  },
+  {
+    "account_id": "223344556677",
+    "service_name": "Slack",
+    "usage_date": "2025-09-12",
+    "usage_quantity": 1.0,
+    "cost": 24.0927,
+    "currency": "USD",
+    "region": "global",
+    "resource_id": "slack-license-045765",
+    "tags": {
+      "Environment": "Prod",
+      "Team": "Data",
+      "Owner": "team:it",
+      "SeatType": "Enterprise"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": true,
+    "anomaly_score": 0.95
+  },
+  {
+    "account_id": "223344556677",
+    "service_name": "Slack",
+    "usage_date": "2025-09-19",
+    "usage_quantity": 1.0,
+    "cost": 17.9728,
+    "currency": "USD",
+    "region": "global",
+    "resource_id": "zoom-license-017138",
+    "tags": {
+      "Environment": "Prod",
+      "Team": "Marketing",
+      "Owner": "team:dev",
+      "SeatType": "Enterprise"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": true,
+    "anomaly_score": 0.95
+  },
+  {
+    "account_id": "456789012345",
+    "service_name": "Zoom",
+    "usage_date": "2025-09-14",
+    "usage_quantity": 1.0,
+    "cost": 15.6278,
+    "currency": "USD",
+    "region": "global",
+    "resource_id": "zoom-license-270458",
+    "tags": {
+      "Environment": "Prod",
+      "Team": "Marketing",
+      "Owner": "team:security",
+      "SeatType": "Premium"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": true,
+    "anomaly_score": 0.95
+  },
+  {
+    "account_id": "456789012345",
+    "service_name": "Zoom",
+    "usage_date": "2025-09-16",
+    "usage_quantity": 1.0,
+    "cost": 21.0206,
+    "currency": "USD",
+    "region": "global",
+    "resource_id": "zoom-license-575628",
+    "tags": {
+      "Environment": "Prod",
+      "Team": "Data",
+      "Owner": "team:it",
+      "SeatType": "Premium"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": true,
+    "anomaly_score": 0.95
+  },
+  {
+    "account_id": "890123456789",
+    "service_name": "Zoom",
+    "usage_date": "2025-09-11",
+    "usage_quantity": 1.0,
+    "cost": 21.5897,
+    "currency": "USD",
+    "region": "global",
+    "resource_id": "zoom-license-250061",
+    "tags": {
+      "Environment": "Prod",
+      "Team": "IT",
+      "Owner": "team:dev",
+      "SeatType": "Premium"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": true,
+    "anomaly_score": 0.95
+  },
+  {
+    "account_id": "001122334455",
+    "service_name": "EBS",
+    "usage_date": "2025-09-11",
+    "usage_quantity": 42.51,
+    "cost": 41.9524,
+    "currency": "USD",
+    "region": "eu-central-1",
+    "resource_id": "ebs-bd276b06",
+    "tags": {
+      "Environment": "Prod",
+      "Team": "Finance",
+      "Owner": "team:finance",
+      "Project": "project-12"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.27
+  },
+  {
+    "account_id": "001122334455",
+    "service_name": "EBS",
+    "usage_date": "2025-09-06",
+    "usage_quantity": 513.4,
+    "cost": 8.04,
+    "currency": "USD",
+    "region": "eu-central-1",
+    "resource_id": "ebs-0d8bdb6e",
+    "tags": {
+      "Environment": "Dev",
+      "Team": "Data",
+      "Owner": "team:finance",
+      "Project": "project-8"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.23
+  },
+  {
+    "account_id": "456789012345",
+    "service_name": "EBS",
+    "usage_date": "2025-09-20",
+    "usage_quantity": 707.43,
+    "cost": 8.0927,
+    "currency": "USD",
+    "region": "eu-west-1",
+    "resource_id": "ebs-a7f55f31",
+    "tags": {
+      "Environment": "Prod",
+      "Team": "Finance",
+      "Owner": "team:marketing",
+      "Project": "project-15"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.25
+  },
+  {
+    "account_id": "223344556677",
+    "service_name": "EBS",
+    "usage_date": "2025-09-28",
+    "usage_quantity": 654.93,
+    "cost": 13.4402,
+    "currency": "USD",
+    "region": "ap-southeast-1",
+    "resource_id": "ebs-c7616e70",
+    "tags": {
+      "Environment": "Prod",
+      "Team": "Dev",
+      "Owner": "team:marketing",
+      "Project": "project-3"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.15
+  },
+  {
+    "account_id": "456789012345",
+    "service_name": "EBS",
+    "usage_date": "2025-09-30",
+    "usage_quantity": 568.87,
+    "cost": 42.1939,
+    "currency": "USD",
+    "region": "ap-southeast-1",
+    "resource_id": "ebs-f6959b2b",
+    "tags": {
+      "Environment": "NonProd",
+      "Team": "IT",
+      "Owner": "owner:unknown",
+      "Project": "project-8"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": true,
+    "anomaly_score": 0.81
+  },
+  {
+    "account_id": "112233445566",
+    "service_name": "EBS",
+    "usage_date": "2025-09-03",
+    "usage_quantity": 251.89,
+    "cost": 15.38,
+    "currency": "USD",
+    "region": "us-west-2",
+    "resource_id": "ebs-e76ad07d",
+    "tags": {
+      "Environment": "NonProd",
+      "Team": "Security",
+      "Owner": "team:dev",
+      "Project": "project-1"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.03
+  },
+  {
+    "account_id": "112233445566",
+    "service_name": "EBS",
+    "usage_date": "2025-09-08",
+    "usage_quantity": 563.55,
+    "cost": 40.2695,
+    "currency": "USD",
+    "region": "us-east-1",
+    "resource_id": "ebs-0588b328",
+    "tags": {
+      "Environment": "NonProd",
+      "Team": "Security",
+      "Owner": "team:finance",
+      "Project": "project-4"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.24
+  },
+  {
+    "account_id": "890123456789",
+    "service_name": "EBS",
+    "usage_date": "2025-09-26",
+    "usage_quantity": 128.21,
+    "cost": 0.9168,
+    "currency": "USD",
+    "region": "us-west-2",
+    "resource_id": "ebs-a2f6a701",
+    "tags": {
+      "Environment": "Dev",
+      "Team": "Finance",
+      "Owner": "team:it",
+      "Project": "project-2"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.28
+  },
+  {
+    "account_id": "001122334455",
+    "service_name": "EBS",
+    "usage_date": "2025-09-13",
+    "usage_quantity": 204.85,
+    "cost": 42.7886,
+    "currency": "USD",
+    "region": "us-east-1",
+    "resource_id": "ebs-ee1c6f43",
+    "tags": {
+      "Environment": "Prod",
+      "Team": "IT",
+      "Owner": "team:finance",
+      "Project": "project-5"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": true,
+    "anomaly_score": 0.84
+  },
+  {
+    "account_id": "112233445566",
+    "service_name": "EBS",
+    "usage_date": "2025-09-30",
+    "usage_quantity": 663.46,
+    "cost": 1.4391,
+    "currency": "USD",
+    "region": "us-west-2",
+    "resource_id": "ebs-c0759a20",
+    "tags": {
+      "Environment": "Dev",
+      "Team": "Data",
+      "Owner": "team:finance",
+      "Project": "project-12"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": true,
+    "anomaly_score": 0.91
+  },
+  {
+    "account_id": "112233445566",
+    "service_name": "EBS",
+    "usage_date": "2025-09-30",
+    "usage_quantity": 461.84,
+    "cost": 14.265,
+    "currency": "USD",
+    "region": "ap-southeast-1",
+    "resource_id": "ebs-ff5b687f",
+    "tags": {
+      "Environment": "NonProd",
+      "Team": "Security",
+      "Owner": "team:data",
+      "Project": "project-2"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.19
+  },
+  {
+    "account_id": "001122334455",
+    "service_name": "EBS",
+    "usage_date": "2025-09-29",
+    "usage_quantity": 196.28,
+    "cost": 25.8078,
+    "currency": "USD",
+    "region": "eu-central-1",
+    "resource_id": "ebs-2dfa7e61",
+    "tags": {
+      "Environment": "Prod",
+      "Team": "IT",
+      "Owner": "team:marketing",
+      "Project": "project-8"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.19
+  },
+  {
+    "account_id": "112233445566",
+    "service_name": "EBS",
+    "usage_date": "2025-09-19",
+    "usage_quantity": 752.48,
+    "cost": 35.5989,
+    "currency": "USD",
+    "region": "ap-southeast-1",
+    "resource_id": "ebs-8617845b",
+    "tags": {
+      "Environment": "Dev",
+      "Team": "Finance",
+      "Owner": "team:data",
+      "Project": "project-9"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": true,
+    "anomaly_score": 0.87
+  },
+  {
+    "account_id": "456789012345",
+    "service_name": "EBS",
+    "usage_date": "2025-09-10",
+    "usage_quantity": 605.07,
+    "cost": 45.1648,
+    "currency": "USD",
+    "region": "us-west-2",
+    "resource_id": "ebs-a6eb7944",
+    "tags": {
+      "Environment": "NonProd",
+      "Team": "Finance",
+      "Owner": "team:security",
+      "Project": "project-2"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.28
+  },
+  {
+    "account_id": "223344556677",
+    "service_name": "EBS",
+    "usage_date": "2025-09-15",
+    "usage_quantity": 226.2,
+    "cost": 13.4164,
+    "currency": "USD",
+    "region": "eu-central-1",
+    "resource_id": "ebs-938e0f10",
+    "tags": {
+      "Environment": "Staging",
+      "Team": "Dev",
+      "Owner": "team:security",
+      "Project": "project-1"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.06
+  },
+  {
+    "account_id": "456789012345",
+    "service_name": "EBS",
+    "usage_date": "2025-09-20",
+    "usage_quantity": 645.98,
+    "cost": 41.8064,
+    "currency": "USD",
+    "region": "ap-southeast-1",
+    "resource_id": "ebs-ef7871ee",
+    "tags": {
+      "Environment": "Staging",
+      "Team": "Security",
+      "Owner": "team:dev",
+      "Project": "project-7"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.1
+  },
+  {
+    "account_id": "890123456789",
+    "service_name": "EBS",
+    "usage_date": "2025-09-27",
+    "usage_quantity": 47.97,
+    "cost": 10.0597,
+    "currency": "USD",
+    "region": "eu-central-1",
+    "resource_id": "ebs-5f5fe553",
+    "tags": {
+      "Environment": "NonProd",
+      "Team": "Data",
+      "Owner": "team:it",
+      "Project": "project-4"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.05
+  },
+  {
+    "account_id": "890123456789",
+    "service_name": "EBS",
+    "usage_date": "2025-09-01",
+    "usage_quantity": 109.51,
+    "cost": 36.6964,
+    "currency": "USD",
+    "region": "eu-west-1",
+    "resource_id": "ebs-62b33aea",
+    "tags": {
+      "Environment": "Prod",
+      "Team": "Dev",
+      "Owner": "team:it",
+      "Project": "project-5"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.15
+  },
+  {
+    "account_id": "334455667788",
+    "service_name": "EBS",
+    "usage_date": "2025-09-06",
+    "usage_quantity": 803.52,
+    "cost": 30.84,
+    "currency": "USD",
+    "region": "ap-southeast-1",
+    "resource_id": "ebs-9e346cbf",
+    "tags": {
+      "Environment": "Dev",
+      "Team": "Finance",
+      "Owner": "team:dev",
+      "Project": "project-8"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.22
+  },
+  {
+    "account_id": "456789012345",
+    "service_name": "EBS",
+    "usage_date": "2025-09-25",
+    "usage_quantity": 886.73,
+    "cost": 0.2399,
+    "currency": "USD",
+    "region": "us-east-1",
+    "resource_id": "ebs-17489e71",
+    "tags": {
+      "Environment": "NonProd",
+      "Team": "Finance",
+      "Owner": "team:dev",
+      "Project": "project-10"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.03
+  },
+  {
+    "account_id": "456789012345",
+    "service_name": "EBS",
+    "usage_date": "2025-09-19",
+    "usage_quantity": 491.66,
+    "cost": 2.9604,
+    "currency": "USD",
+    "region": "eu-central-1",
+    "resource_id": "ebs-5fc17fd9",
+    "tags": {
+      "Environment": "Dev",
+      "Team": "Data",
+      "Owner": "team:security",
+      "Project": "project-12"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.06
+  },
+  {
+    "account_id": "001122334455",
+    "service_name": "EBS",
+    "usage_date": "2025-09-11",
+    "usage_quantity": 402.97,
+    "cost": 16.4639,
+    "currency": "USD",
+    "region": "eu-west-1",
+    "resource_id": "ebs-9e9eb1a7",
+    "tags": {
+      "Environment": "Prod",
+      "Team": "Data",
+      "Owner": "team:data",
+      "Project": "project-1"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.27
+  },
+  {
+    "account_id": "112233445566",
+    "service_name": "EBS",
+    "usage_date": "2025-09-19",
+    "usage_quantity": 637.98,
+    "cost": 39.5754,
+    "currency": "USD",
+    "region": "ap-southeast-1",
+    "resource_id": "ebs-25bbee96",
+    "tags": {
+      "Environment": "Staging",
+      "Team": "Data",
+      "Owner": "team:marketing",
+      "Project": "project-5"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.01
+  },
+  {
+    "account_id": "334455667788",
+    "service_name": "EBS",
+    "usage_date": "2025-09-01",
+    "usage_quantity": 405.0,
+    "cost": 41.513,
+    "currency": "USD",
+    "region": "eu-central-1",
+    "resource_id": "ebs-2c8b5240",
+    "tags": {
+      "Environment": "Prod",
+      "Team": "Dev",
+      "Owner": "team:dev",
+      "Project": "project-14"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.26
+  },
+  {
+    "account_id": "890123456789",
+    "service_name": "EBS",
+    "usage_date": "2025-09-12",
+    "usage_quantity": 44.6,
+    "cost": 40.3531,
+    "currency": "USD",
+    "region": "us-east-1",
+    "resource_id": "ebs-87641b8c",
+    "tags": {
+      "Environment": "Dev",
+      "Team": "IT",
+      "Owner": "team:security",
+      "Project": "project-10"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.15
+  },
+  {
+    "account_id": "890123456789",
+    "service_name": "EBS",
+    "usage_date": "2025-09-27",
+    "usage_quantity": 630.22,
+    "cost": 5.2284,
+    "currency": "USD",
+    "region": "us-west-2",
+    "resource_id": "ebs-7d66be7e",
+    "tags": {
+      "Environment": "NonProd",
+      "Team": "Security",
+      "Owner": "team:finance",
+      "Project": "project-4"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.29
+  },
+  {
+    "account_id": "001122334455",
+    "service_name": "EBS",
+    "usage_date": "2025-09-19",
+    "usage_quantity": 275.78,
+    "cost": 21.1174,
+    "currency": "USD",
+    "region": "us-west-2",
+    "resource_id": "ebs-bc1fe095",
+    "tags": {
+      "Environment": "Dev",
+      "Team": "Finance",
+      "Owner": "owner:unknown",
+      "Project": "project-2"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.15
+  },
+  {
+    "account_id": "890123456789",
+    "service_name": "EBS",
+    "usage_date": "2025-09-17",
+    "usage_quantity": 232.42,
+    "cost": 42.2338,
+    "currency": "USD",
+    "region": "ap-southeast-1",
+    "resource_id": "ebs-05367516",
+    "tags": {
+      "Environment": "Staging",
+      "Team": "Security",
+      "Owner": "team:security",
+      "Project": "project-7"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.17
+  },
+  {
+    "account_id": "223344556677",
+    "service_name": "EBS",
+    "usage_date": "2025-09-23",
+    "usage_quantity": 539.98,
+    "cost": 17.5686,
+    "currency": "USD",
+    "region": "eu-central-1",
+    "resource_id": "ebs-3de7decc",
+    "tags": {
+      "Environment": "Staging",
+      "Team": "Security",
+      "Owner": "team:finance",
+      "Project": "project-9"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.11
+  },
+  {
+    "account_id": "334455667788",
+    "service_name": "EBS",
+    "usage_date": "2025-09-04",
+    "usage_quantity": 274.7,
+    "cost": 46.7817,
+    "currency": "USD",
+    "region": "us-west-2",
+    "resource_id": "ebs-f464bf5c",
+    "tags": {
+      "Environment": "Dev",
+      "Team": "IT",
+      "Owner": "team:finance",
+      "Project": "project-6"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.12
+  },
+  {
+    "account_id": "223344556677",
+    "service_name": "CloudWatch",
+    "usage_date": "2025-09-16",
+    "usage_quantity": 664.12,
+    "cost": 5.8025,
+    "currency": "USD",
+    "region": "us-west-2",
+    "resource_id": "cloudwatch-bc4f9fe1",
+    "tags": {
+      "Environment": "Dev",
+      "Team": "Finance",
+      "Owner": "team:data",
+      "Project": "project-11"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.11
+  },
+  {
+    "account_id": "112233445566",
+    "service_name": "CloudWatch",
+    "usage_date": "2025-09-24",
+    "usage_quantity": 779.85,
+    "cost": 5.8039,
+    "currency": "USD",
+    "region": "eu-west-1",
+    "resource_id": "cloudwatch-3ae11a6b",
+    "tags": {
+      "Environment": "Prod",
+      "Team": "Security",
+      "Owner": "team:it",
+      "Project": "project-12"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": true,
+    "anomaly_score": 0.86
+  },
+  {
+    "account_id": "334455667788",
+    "service_name": "CloudWatch",
+    "usage_date": "2025-09-15",
+    "usage_quantity": 574.17,
+    "cost": 0.5621,
+    "currency": "USD",
+    "region": "eu-west-1",
+    "resource_id": "cloudwatch-837f7940",
+    "tags": {
+      "Environment": "Staging",
+      "Team": "IT",
+      "Owner": "team:dev",
+      "Project": "project-8"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.06
+  },
+  {
+    "account_id": "001122334455",
+    "service_name": "CloudWatch",
+    "usage_date": "2025-09-07",
+    "usage_quantity": 212.68,
+    "cost": 9.0069,
+    "currency": "USD",
+    "region": "us-east-1",
+    "resource_id": "cloudwatch-70e8603b",
+    "tags": {
+      "Environment": "Staging",
+      "Team": "Security",
+      "Owner": "team:dev",
+      "Project": "project-2"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.04
+  },
+  {
+    "account_id": "001122334455",
+    "service_name": "CloudWatch",
+    "usage_date": "2025-09-23",
+    "usage_quantity": 498.19,
+    "cost": 9.2864,
+    "currency": "USD",
+    "region": "us-east-1",
+    "resource_id": "cloudwatch-08044b70",
+    "tags": {
+      "Environment": "Dev",
+      "Team": "Dev",
+      "Owner": "team:dev",
+      "Project": "project-4"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.12
+  },
+  {
+    "account_id": "890123456789",
+    "service_name": "CloudWatch",
+    "usage_date": "2025-09-27",
+    "usage_quantity": 213.28,
+    "cost": 3.2315,
+    "currency": "USD",
+    "region": "us-west-2",
+    "resource_id": "cloudwatch-1038daaf",
+    "tags": {
+      "Environment": "NonProd",
+      "Team": "Data",
+      "Owner": "team:marketing",
+      "Project": "project-15"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.0
+  },
+  {
+    "account_id": "890123456789",
+    "service_name": "CloudWatch",
+    "usage_date": "2025-09-18",
+    "usage_quantity": 677.6,
+    "cost": 1.4645,
+    "currency": "USD",
+    "region": "us-east-1",
+    "resource_id": "cloudwatch-ddf6412f",
+    "tags": {
+      "Environment": "Dev",
+      "Team": "Marketing",
+      "Owner": "team:it",
+      "Project": "project-7"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.17
+  },
+  {
+    "account_id": "334455667788",
+    "service_name": "CloudWatch",
+    "usage_date": "2025-09-09",
+    "usage_quantity": 676.88,
+    "cost": 6.2857,
+    "currency": "USD",
+    "region": "us-west-2",
+    "resource_id": "cloudwatch-87a67d6e",
+    "tags": {
+      "Environment": "Dev",
+      "Team": "Finance",
+      "Owner": "owner:unknown",
+      "Project": "project-9"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.28
+  },
+  {
+    "account_id": "890123456789",
+    "service_name": "CloudWatch",
+    "usage_date": "2025-09-21",
+    "usage_quantity": 581.66,
+    "cost": 0.812,
+    "currency": "USD",
+    "region": "us-east-1",
+    "resource_id": "cloudwatch-5fe437c3",
+    "tags": {
+      "Environment": "Dev",
+      "Team": "IT",
+      "Owner": "team:marketing",
+      "Project": "project-10"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.17
+  },
+  {
+    "account_id": "890123456789",
+    "service_name": "CloudWatch",
+    "usage_date": "2025-09-13",
+    "usage_quantity": 594.02,
+    "cost": 6.0993,
+    "currency": "USD",
+    "region": "eu-central-1",
+    "resource_id": "cloudwatch-df33f5b5",
+    "tags": {
+      "Environment": "Staging",
+      "Team": "Finance",
+      "Owner": "team:data",
+      "Project": "project-4"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.25
+  },
+  {
+    "account_id": "112233445566",
+    "service_name": "CloudWatch",
+    "usage_date": "2025-09-28",
+    "usage_quantity": 506.68,
+    "cost": 4.5223,
+    "currency": "USD",
+    "region": "eu-west-1",
+    "resource_id": "cloudwatch-4d5f4a59",
+    "tags": {
+      "Environment": "NonProd",
+      "Team": "Data",
+      "Owner": "team:dev",
+      "Project": "project-10"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.19
+  },
+  {
+    "account_id": "001122334455",
+    "service_name": "CloudWatch",
+    "usage_date": "2025-09-05",
+    "usage_quantity": 577.67,
+    "cost": 7.9906,
+    "currency": "USD",
+    "region": "us-east-1",
+    "resource_id": "cloudwatch-f26ef2e8",
+    "tags": {
+      "Environment": "Dev",
+      "Team": "Marketing",
+      "Owner": "team:finance",
+      "Project": "project-2"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.12
+  },
+  {
+    "account_id": "456789012345",
+    "service_name": "CloudWatch",
+    "usage_date": "2025-09-21",
+    "usage_quantity": 451.48,
+    "cost": 9.2394,
+    "currency": "USD",
+    "region": "us-east-1",
+    "resource_id": "cloudwatch-0dcb5f53",
+    "tags": {
+      "Environment": "Staging",
+      "Team": "Dev",
+      "Owner": "owner:unknown",
+      "Project": "project-4"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.25
+  },
+  {
+    "account_id": "001122334455",
+    "service_name": "CloudWatch",
+    "usage_date": "2025-09-30",
+    "usage_quantity": 994.3,
+    "cost": 1.2256,
+    "currency": "USD",
+    "region": "eu-west-1",
+    "resource_id": "cloudwatch-e086a305",
+    "tags": {
+      "Environment": "NonProd",
+      "Team": "Data",
+      "Owner": "team:finance",
+      "Project": "project-15"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.0
+  },
+  {
+    "account_id": "890123456789",
+    "service_name": "CloudWatch",
+    "usage_date": "2025-09-15",
+    "usage_quantity": 190.95,
+    "cost": 3.8406,
+    "currency": "USD",
+    "region": "us-east-1",
+    "resource_id": "cloudwatch-7fa755c6",
+    "tags": {
+      "Environment": "NonProd",
+      "Team": "Data",
+      "Owner": "owner:unknown",
+      "Project": "project-1"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": true,
+    "anomaly_score": 0.93
+  },
+  {
+    "account_id": "456789012345",
+    "service_name": "CloudWatch",
+    "usage_date": "2025-09-10",
+    "usage_quantity": 177.09,
+    "cost": 5.3809,
+    "currency": "USD",
+    "region": "ap-southeast-1",
+    "resource_id": "cloudwatch-1228476e",
+    "tags": {
+      "Environment": "NonProd",
+      "Team": "Security",
+      "Owner": "team:dev",
+      "Project": "project-13"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": true,
+    "anomaly_score": 0.89
+  },
+  {
+    "account_id": "223344556677",
+    "service_name": "CloudWatch",
+    "usage_date": "2025-09-03",
+    "usage_quantity": 206.27,
+    "cost": 5.4973,
+    "currency": "USD",
+    "region": "ap-southeast-1",
+    "resource_id": "cloudwatch-bba3db15",
+    "tags": {
+      "Environment": "Staging",
+      "Team": "Security",
+      "Owner": "team:marketing",
+      "Project": "project-12"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": true,
+    "anomaly_score": 0.93
+  },
+  {
+    "account_id": "223344556677",
+    "service_name": "CloudWatch",
+    "usage_date": "2025-09-16",
+    "usage_quantity": 824.67,
+    "cost": 0.5698,
+    "currency": "USD",
+    "region": "eu-central-1",
+    "resource_id": "cloudwatch-ee12dab1",
+    "tags": {
+      "Environment": "Staging",
+      "Team": "Security",
+      "Owner": "team:marketing",
+      "Project": "project-14"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.23
+  },
+  {
+    "account_id": "334455667788",
+    "service_name": "CloudWatch",
+    "usage_date": "2025-09-12",
+    "usage_quantity": 256.05,
+    "cost": 8.4449,
+    "currency": "USD",
+    "region": "us-east-1",
+    "resource_id": "cloudwatch-47cfd9c2",
+    "tags": {
+      "Environment": "NonProd",
+      "Team": "Finance",
+      "Owner": "team:marketing",
+      "Project": "project-13"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.02
+  },
+  {
+    "account_id": "223344556677",
+    "service_name": "CloudWatch",
+    "usage_date": "2025-09-24",
+    "usage_quantity": 370.39,
+    "cost": 4.8475,
+    "currency": "USD",
+    "region": "us-east-1",
+    "resource_id": "cloudwatch-87a08928",
+    "tags": {
+      "Environment": "NonProd",
+      "Team": "Marketing",
+      "Owner": "team:marketing",
+      "Project": "project-13"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.26
+  },
+  {
+    "account_id": "456789012345",
+    "service_name": "CloudWatch",
+    "usage_date": "2025-09-16",
+    "usage_quantity": 530.83,
+    "cost": 0.1464,
+    "currency": "USD",
+    "region": "eu-central-1",
+    "resource_id": "cloudwatch-d68a4243",
+    "tags": {
+      "Environment": "NonProd",
+      "Team": "Marketing",
+      "Owner": "team:marketing",
+      "Project": "project-15"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.08
+  },
+  {
+    "account_id": "456789012345",
+    "service_name": "CloudWatch",
+    "usage_date": "2025-09-28",
+    "usage_quantity": 965.73,
+    "cost": 4.4045,
+    "currency": "USD",
+    "region": "eu-central-1",
+    "resource_id": "cloudwatch-8fce6221",
+    "tags": {
+      "Environment": "Dev",
+      "Team": "Finance",
+      "Owner": "team:finance",
+      "Project": "project-8"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.22
+  },
+  {
+    "account_id": "890123456789",
+    "service_name": "CloudWatch",
+    "usage_date": "2025-09-27",
+    "usage_quantity": 629.78,
+    "cost": 1.4169,
+    "currency": "USD",
+    "region": "us-west-2",
+    "resource_id": "cloudwatch-d14b2c51",
+    "tags": {
+      "Environment": "Staging",
+      "Team": "Security",
+      "Owner": "team:security",
+      "Project": "project-10"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.12
+  },
+  {
+    "account_id": "334455667788",
+    "service_name": "CloudWatch",
+    "usage_date": "2025-09-19",
+    "usage_quantity": 407.76,
+    "cost": 3.2659,
+    "currency": "USD",
+    "region": "ap-southeast-1",
+    "resource_id": "cloudwatch-864cb2ca",
+    "tags": {
+      "Environment": "Dev",
+      "Team": "Finance",
+      "Owner": "team:it",
+      "Project": "project-15"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.13
+  },
+  {
+    "account_id": "456789012345",
+    "service_name": "CloudWatch",
+    "usage_date": "2025-09-26",
+    "usage_quantity": 379.09,
+    "cost": 3.4045,
+    "currency": "USD",
+    "region": "us-east-1",
+    "resource_id": "cloudwatch-d63796c2",
+    "tags": {
+      "Environment": "Dev",
+      "Team": "Security",
+      "Owner": "team:finance",
+      "Project": "project-7"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.15
+  },
+  {
+    "account_id": "334455667788",
+    "service_name": "ECS",
+    "usage_date": "2025-09-17",
+    "usage_quantity": 659.77,
+    "cost": 23.631,
+    "currency": "USD",
+    "region": "us-east-1",
+    "resource_id": "ecs-b4d85adc",
+    "tags": {
+      "Environment": "NonProd",
+      "Team": "Marketing",
+      "Owner": "owner:unknown",
+      "Project": "project-2"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.26
+  },
+  {
+    "account_id": "334455667788",
+    "service_name": "ECS",
+    "usage_date": "2025-09-21",
+    "usage_quantity": 230.87,
+    "cost": 18.3074,
+    "currency": "USD",
+    "region": "eu-central-1",
+    "resource_id": "ecs-c19e0544",
+    "tags": {
+      "Environment": "NonProd",
+      "Team": "Finance",
+      "Owner": "team:marketing",
+      "Project": "project-5"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.01
+  },
+  {
+    "account_id": "456789012345",
+    "service_name": "ECS",
+    "usage_date": "2025-09-25",
+    "usage_quantity": 803.58,
+    "cost": 37.4905,
+    "currency": "USD",
+    "region": "eu-west-1",
+    "resource_id": "ecs-459bed91",
+    "tags": {
+      "Environment": "NonProd",
+      "Team": "Security",
+      "Owner": "team:marketing",
+      "Project": "project-14"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.01
+  },
+  {
+    "account_id": "001122334455",
+    "service_name": "ECS",
+    "usage_date": "2025-09-02",
+    "usage_quantity": 686.74,
+    "cost": 1.6357,
+    "currency": "USD",
+    "region": "eu-west-1",
+    "resource_id": "ecs-cf2d04fb",
+    "tags": {
+      "Environment": "Dev",
+      "Team": "Dev",
+      "Owner": "team:finance",
+      "Project": "project-4"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.3
+  },
+  {
+    "account_id": "890123456789",
+    "service_name": "ECS",
+    "usage_date": "2025-09-06",
+    "usage_quantity": 607.11,
+    "cost": 10.2437,
+    "currency": "USD",
+    "region": "us-west-2",
+    "resource_id": "ecs-e7638ed1",
+    "tags": {
+      "Environment": "Staging",
+      "Team": "Security",
+      "Owner": "team:marketing",
+      "Project": "project-13"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.18
+  },
+  {
+    "account_id": "334455667788",
+    "service_name": "ECS",
+    "usage_date": "2025-09-05",
+    "usage_quantity": 384.28,
+    "cost": 21.3983,
+    "currency": "USD",
+    "region": "eu-west-1",
+    "resource_id": "ecs-c4707614",
+    "tags": {
+      "Environment": "Dev",
+      "Team": "Security",
+      "Owner": "team:data",
+      "Project": "project-2"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.18
+  },
+  {
+    "account_id": "456789012345",
+    "service_name": "ECS",
+    "usage_date": "2025-09-11",
+    "usage_quantity": 924.34,
+    "cost": 8.7237,
+    "currency": "USD",
+    "region": "eu-central-1",
+    "resource_id": "ecs-1304a2a4",
+    "tags": {
+      "Environment": "Prod",
+      "Team": "Security",
+      "Owner": "team:marketing",
+      "Project": "project-9"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": true,
+    "anomaly_score": 0.84
+  },
+  {
+    "account_id": "223344556677",
+    "service_name": "ECS",
+    "usage_date": "2025-09-10",
+    "usage_quantity": 864.54,
+    "cost": 26.3709,
+    "currency": "USD",
+    "region": "us-east-1",
+    "resource_id": "ecs-d7062de8",
+    "tags": {
+      "Environment": "NonProd",
+      "Team": "Security",
+      "Owner": "team:security",
+      "Project": "project-5"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.0
+  },
+  {
+    "account_id": "223344556677",
+    "service_name": "ECS",
+    "usage_date": "2025-09-04",
+    "usage_quantity": 601.99,
+    "cost": 11.3625,
+    "currency": "USD",
+    "region": "eu-west-1",
+    "resource_id": "ecs-6532c35e",
+    "tags": {
+      "Environment": "Staging",
+      "Team": "Marketing",
+      "Owner": "owner:unknown",
+      "Project": "project-14"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": true,
+    "anomaly_score": 0.86
+  },
+  {
+    "account_id": "112233445566",
+    "service_name": "ECS",
+    "usage_date": "2025-09-16",
+    "usage_quantity": 560.83,
+    "cost": 24.2483,
+    "currency": "USD",
+    "region": "eu-west-1",
+    "resource_id": "ecs-ac646309",
+    "tags": {
+      "Environment": "Dev",
+      "Team": "Marketing",
+      "Owner": "team:marketing",
+      "Project": "project-8"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": true,
+    "anomaly_score": 0.86
+  },
+  {
+    "account_id": "223344556677",
+    "service_name": "ECS",
+    "usage_date": "2025-09-28",
+    "usage_quantity": 575.37,
+    "cost": 39.8693,
+    "currency": "USD",
+    "region": "eu-central-1",
+    "resource_id": "ecs-7bcf258b",
+    "tags": {
+      "Environment": "Dev",
+      "Team": "Security",
+      "Owner": "team:security",
+      "Project": "project-14"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.25
+  },
+  {
+    "account_id": "223344556677",
+    "service_name": "ECS",
+    "usage_date": "2025-09-05",
+    "usage_quantity": 933.76,
+    "cost": 32.6273,
+    "currency": "USD",
+    "region": "us-west-2",
+    "resource_id": "ecs-069281f9",
+    "tags": {
+      "Environment": "Prod",
+      "Team": "Finance",
+      "Owner": "team:finance",
+      "Project": "project-9"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.14
+  },
+  {
+    "account_id": "112233445566",
+    "service_name": "ECS",
+    "usage_date": "2025-09-21",
+    "usage_quantity": 737.41,
+    "cost": 6.6289,
+    "currency": "USD",
+    "region": "ap-southeast-1",
+    "resource_id": "ecs-a684e99e",
+    "tags": {
+      "Environment": "Prod",
+      "Team": "Finance",
+      "Owner": "team:finance",
+      "Project": "project-11"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.16
+  },
+  {
+    "account_id": "001122334455",
+    "service_name": "ECS",
+    "usage_date": "2025-09-04",
+    "usage_quantity": 928.82,
+    "cost": 33.965,
+    "currency": "USD",
+    "region": "us-west-2",
+    "resource_id": "ecs-db67ba97",
+    "tags": {
+      "Environment": "NonProd",
+      "Team": "Security",
+      "Owner": "team:security",
+      "Project": "project-6"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.19
+  },
+  {
+    "account_id": "456789012345",
+    "service_name": "ECS",
+    "usage_date": "2025-09-06",
+    "usage_quantity": 651.51,
+    "cost": 12.6488,
+    "currency": "USD",
+    "region": "us-east-1",
+    "resource_id": "ecs-6441beb1",
+    "tags": {
+      "Environment": "Dev",
+      "Team": "Security",
+      "Owner": "owner:unknown",
+      "Project": "project-12"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.05
+  },
+  {
+    "account_id": "001122334455",
+    "service_name": "ECS",
+    "usage_date": "2025-09-09",
+    "usage_quantity": 792.11,
+    "cost": 17.9875,
+    "currency": "USD",
+    "region": "us-east-1",
+    "resource_id": "ecs-3d523abd",
+    "tags": {
+      "Environment": "NonProd",
+      "Team": "Finance",
+      "Owner": "owner:unknown",
+      "Project": "project-14"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.19
+  },
+  {
+    "account_id": "456789012345",
+    "service_name": "ECS",
+    "usage_date": "2025-09-21",
+    "usage_quantity": 681.28,
+    "cost": 6.5212,
+    "currency": "USD",
+    "region": "us-east-1",
+    "resource_id": "ecs-fd477864",
+    "tags": {
+      "Environment": "Staging",
+      "Team": "IT",
+      "Owner": "team:marketing",
+      "Project": "project-2"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.04
+  },
+  {
+    "account_id": "223344556677",
+    "service_name": "ECS",
+    "usage_date": "2025-09-23",
+    "usage_quantity": 375.77,
+    "cost": 2.1945,
+    "currency": "USD",
+    "region": "eu-central-1",
+    "resource_id": "ecs-7aeb1848",
+    "tags": {
+      "Environment": "Prod",
+      "Team": "Security",
+      "Owner": "team:security",
+      "Project": "project-5"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.21
+  },
+  {
+    "account_id": "334455667788",
+    "service_name": "ECS",
+    "usage_date": "2025-09-14",
+    "usage_quantity": 402.53,
+    "cost": 11.3068,
+    "currency": "USD",
+    "region": "eu-central-1",
+    "resource_id": "ecs-ca899d98",
+    "tags": {
+      "Environment": "Dev",
+      "Team": "Data",
+      "Owner": "team:security",
+      "Project": "project-11"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.03
+  },
+  {
+    "account_id": "112233445566",
+    "service_name": "ECS",
+    "usage_date": "2025-09-08",
+    "usage_quantity": 508.75,
+    "cost": 12.5374,
+    "currency": "USD",
+    "region": "ap-southeast-1",
+    "resource_id": "ecs-586a89b1",
+    "tags": {
+      "Environment": "NonProd",
+      "Team": "Security",
+      "Owner": "owner:unknown",
+      "Project": "project-5"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.02
+  },
+  {
+    "account_id": "890123456789",
+    "service_name": "Datadog",
+    "usage_date": "2025-09-13",
+    "usage_quantity": 531.62,
+    "cost": 10.0136,
+    "currency": "USD",
+    "region": "eu-central-1",
+    "resource_id": "datadog-44042609",
+    "tags": {
+      "Environment": "Staging",
+      "Team": "IT",
+      "Owner": "owner:unknown",
+      "Project": "project-6"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.25
+  },
+  {
+    "account_id": "334455667788",
+    "service_name": "Datadog",
+    "usage_date": "2025-09-16",
+    "usage_quantity": 74.0,
+    "cost": 25.304,
+    "currency": "USD",
+    "region": "eu-central-1",
+    "resource_id": "datadog-00f866bc",
+    "tags": {
+      "Environment": "Dev",
+      "Team": "IT",
+      "Owner": "team:security",
+      "Project": "project-10"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.18
+  },
+  {
+    "account_id": "456789012345",
+    "service_name": "Datadog",
+    "usage_date": "2025-09-17",
+    "usage_quantity": 205.76,
+    "cost": 29.8235,
+    "currency": "USD",
+    "region": "us-east-1",
+    "resource_id": "datadog-99806dae",
+    "tags": {
+      "Environment": "Dev",
+      "Team": "Marketing",
+      "Owner": "team:finance",
+      "Project": "project-6"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.2
+  },
+  {
+    "account_id": "334455667788",
+    "service_name": "Datadog",
+    "usage_date": "2025-09-10",
+    "usage_quantity": 953.58,
+    "cost": 15.0463,
+    "currency": "USD",
+    "region": "eu-central-1",
+    "resource_id": "datadog-d7b6035c",
+    "tags": {
+      "Environment": "Staging",
+      "Team": "IT",
+      "Owner": "team:it",
+      "Project": "project-1"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": true,
+    "anomaly_score": 0.83
+  },
+  {
+    "account_id": "112233445566",
+    "service_name": "Datadog",
+    "usage_date": "2025-09-22",
+    "usage_quantity": 470.91,
+    "cost": 20.4389,
+    "currency": "USD",
+    "region": "eu-west-1",
+    "resource_id": "datadog-92117fc7",
+    "tags": {
+      "Environment": "Prod",
+      "Team": "Finance",
+      "Owner": "team:dev",
+      "Project": "project-7"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.01
+  },
+  {
+    "account_id": "890123456789",
+    "service_name": "Datadog",
+    "usage_date": "2025-09-01",
+    "usage_quantity": 934.9,
+    "cost": 5.8843,
+    "currency": "USD",
+    "region": "ap-southeast-1",
+    "resource_id": "datadog-96858187",
+    "tags": {
+      "Environment": "NonProd",
+      "Team": "IT",
+      "Owner": "team:marketing",
+      "Project": "project-13"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.15
+  },
+  {
+    "account_id": "112233445566",
+    "service_name": "Datadog",
+    "usage_date": "2025-09-21",
+    "usage_quantity": 844.62,
+    "cost": 15.6777,
+    "currency": "USD",
+    "region": "us-east-1",
+    "resource_id": "datadog-68e7e43c",
+    "tags": {
+      "Environment": "Staging",
+      "Team": "Data",
+      "Owner": "team:finance",
+      "Project": "project-6"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.1
+  },
+  {
+    "account_id": "890123456789",
+    "service_name": "Datadog",
+    "usage_date": "2025-09-28",
+    "usage_quantity": 421.68,
+    "cost": 1.2511,
+    "currency": "USD",
+    "region": "ap-southeast-1",
+    "resource_id": "datadog-3bedea54",
+    "tags": {
+      "Environment": "NonProd",
+      "Team": "IT",
+      "Owner": "team:security",
+      "Project": "project-7"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.06
+  },
+  {
+    "account_id": "112233445566",
+    "service_name": "Datadog",
+    "usage_date": "2025-09-11",
+    "usage_quantity": 294.61,
+    "cost": 18.388,
+    "currency": "USD",
+    "region": "us-east-1",
+    "resource_id": "datadog-00a5fb1c",
+    "tags": {
+      "Environment": "Dev",
+      "Team": "Dev",
+      "Owner": "team:finance",
+      "Project": "project-10"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.3
+  },
+  {
+    "account_id": "334455667788",
+    "service_name": "Datadog",
+    "usage_date": "2025-09-14",
+    "usage_quantity": 849.72,
+    "cost": 1.9285,
+    "currency": "USD",
+    "region": "eu-west-1",
+    "resource_id": "datadog-76806cc0",
+    "tags": {
+      "Environment": "Prod",
+      "Team": "IT",
+      "Owner": "team:marketing",
+      "Project": "project-14"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.09
+  },
+  {
+    "account_id": "890123456789",
+    "service_name": "Datadog",
+    "usage_date": "2025-09-19",
+    "usage_quantity": 878.98,
+    "cost": 14.4444,
+    "currency": "USD",
+    "region": "us-east-1",
+    "resource_id": "datadog-5e11cca7",
+    "tags": {
+      "Environment": "NonProd",
+      "Team": "Dev",
+      "Owner": "owner:unknown",
+      "Project": "project-8"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.26
+  },
+  {
+    "account_id": "890123456789",
+    "service_name": "Datadog",
+    "usage_date": "2025-09-10",
+    "usage_quantity": 845.73,
+    "cost": 15.2167,
+    "currency": "USD",
+    "region": "us-east-1",
+    "resource_id": "datadog-8faf1519",
+    "tags": {
+      "Environment": "NonProd",
+      "Team": "Data",
+      "Owner": "team:dev",
+      "Project": "project-10"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.29
+  },
+  {
+    "account_id": "223344556677",
+    "service_name": "Datadog",
+    "usage_date": "2025-09-03",
+    "usage_quantity": 647.76,
+    "cost": 17.7736,
+    "currency": "USD",
+    "region": "eu-west-1",
+    "resource_id": "datadog-59c080b8",
+    "tags": {
+      "Environment": "Prod",
+      "Team": "IT",
+      "Owner": "team:finance",
+      "Project": "project-8"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.12
+  },
+  {
+    "account_id": "334455667788",
+    "service_name": "Datadog",
+    "usage_date": "2025-09-01",
+    "usage_quantity": 728.11,
+    "cost": 23.4582,
+    "currency": "USD",
+    "region": "eu-west-1",
+    "resource_id": "datadog-25c72b82",
+    "tags": {
+      "Environment": "Prod",
+      "Team": "Finance",
+      "Owner": "team:security",
+      "Project": "project-14"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.1
+  },
+  {
+    "account_id": "001122334455",
+    "service_name": "Datadog",
+    "usage_date": "2025-09-24",
+    "usage_quantity": 472.48,
+    "cost": 16.3138,
+    "currency": "USD",
+    "region": "eu-central-1",
+    "resource_id": "datadog-fc745c8a",
+    "tags": {
+      "Environment": "Staging",
+      "Team": "Data",
+      "Owner": "team:marketing",
+      "Project": "project-13"
+    },
+    "billing_period": "2025-09",
+    "anomaly_flag": false,
+    "anomaly_score": 0.28
   }
 ]

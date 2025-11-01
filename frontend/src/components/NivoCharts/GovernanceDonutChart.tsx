@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { ResponsivePie } from '@nivo/pie';
-import { Card, Typography, useTheme, Box } from '@mui/material';
+import { Typography, useTheme, Box, Card } from '@mui/material';
 
 // Interfaces remain the same
 interface GovernanceData {
@@ -52,11 +52,11 @@ const GovernanceDonutChart: React.FC<GovernanceDonutChartProps> = ({ data }) => 
     );
 
     return (
-        <Card elevation={6} sx={{ height: '100%', minHeight: 300, p: 2, bgcolor: theme.palette.background.paper }}>
+        <Box sx={{ width: '100%', display: 'flex', flexDirection: 'column' }}>
             <Typography variant="h6" sx={{ mb: 1 }}>Resource Governance Health</Typography>
 
             {/* Displaying the critical number outside the chart for clear visibility */}
-            <Typography color="text.secondary">
+            <Typography color="text.secondary" sx={{ mb: 2 }}>
                 Total Untagged Spend:
                 <Typography
                     component="span"
@@ -69,7 +69,7 @@ const GovernanceDonutChart: React.FC<GovernanceDonutChartProps> = ({ data }) => 
                 </Typography>
             </Typography>
 
-            <Box sx={{ height: 250 }}>
+            <Box sx={{ height: 250, width: '100%' }}>
                 <ResponsivePie
                     data={data}
                     // --- Nivo Theming (CRITICAL for Light/Dark Mode text) ---
@@ -107,7 +107,7 @@ const GovernanceDonutChart: React.FC<GovernanceDonutChartProps> = ({ data }) => 
                     layers={['arcs', 'arcLabels', 'legends', renderCenterText]}
                 />
             </Box>
-        </Card>
+        </Box>
     );
 };
 

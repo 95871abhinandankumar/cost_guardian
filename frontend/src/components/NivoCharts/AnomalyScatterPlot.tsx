@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { ResponsiveScatterPlot } from '@nivo/scatterplot';
-import { useTheme, Card, Typography, Box } from '@mui/material';
+import { useTheme, Typography, Box, Card } from '@mui/material';
 
 interface ScatterDataPoint {
     x: number; // Utilization Score * 100 (0-100)
@@ -63,9 +63,9 @@ const AnomalyScatterPlot: React.FC<AnomalyScatterPlotProps> = ({ data }) => {
     );
 
     return (
-        <Card elevation={6} sx={{ height: '100%', minHeight: 550, p: 2, bgcolor: theme.palette.background.paper }}>
+        <Box sx={{ width: '100%', display: 'flex', flexDirection: 'column' }}>
             <Typography variant="h5" sx={{ mb: 2 }}>Resource Utilization Anomaly Target</Typography>
-            <Box sx={{ height: 500 }}>
+            <Box sx={{ height: 400, width: '100%' }}>
                 <ResponsiveScatterPlot
                     data={data}
                     xScale={{ type: 'linear', min: 0, max: 100 }}
@@ -116,7 +116,7 @@ const AnomalyScatterPlot: React.FC<AnomalyScatterPlotProps> = ({ data }) => {
                     tooltip={CustomTooltip}
                 />
             </Box>
-        </Card>
+        </Box>
     );
 };
 
